@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_08_072750) do
+ActiveRecord::Schema.define(version: 2019_04_08_091827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,14 +30,14 @@ ActiveRecord::Schema.define(version: 2019_04_08_072750) do
     t.string "prefecture"
     t.string "place_name"
     t.string "street"
-    t.boolean "floods"
-    t.boolean "mudslides"
-    t.boolean "high_tides"
-    t.boolean "earthquakes"
-    t.boolean "tsunami"
-    t.boolean "fire"
-    t.boolean "burst_pipe"
-    t.boolean "volcano"
+    t.boolean "floods", default: false
+    t.boolean "mudslides", default: false
+    t.boolean "high_tides", default: false
+    t.boolean "earthquakes", default: false
+    t.boolean "tsunami", default: false
+    t.boolean "fire", default: false
+    t.boolean "burst_pipe", default: false
+    t.boolean "volcano", default: false
     t.float "latitude"
     t.float "longtitude"
     t.datetime "created_at", null: false
