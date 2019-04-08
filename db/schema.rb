@@ -10,10 +10,63 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_08_064255) do
+ActiveRecord::Schema.define(version: 2019_04_08_072750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "post_id"
+    t.bigint "user_id"
+    t.text "content"
+    t.string "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "hinanjyos", force: :cascade do |t|
+    t.string "prefecture"
+    t.string "place_name"
+    t.string "street"
+    t.boolean "floods"
+    t.boolean "mudslides"
+    t.boolean "high_tides"
+    t.boolean "earthquakes"
+    t.boolean "tsunami"
+    t.boolean "fire"
+    t.boolean "burst_pipe"
+    t.boolean "volcano"
+    t.float "latitude"
+    t.float "longtitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "installs", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_installs_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_installs_on_reset_password_token", unique: true
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "user_id"
+    t.string "photo"
+    t.bigint "hinanjyo_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hinanjyo_id"], name: "index_posts_on_hinanjyo_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +76,24 @@ ActiveRecord::Schema.define(version: 2019_04_08_064255) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "sei"
+    t.string "mei"
+    t.string "sei_kana"
+    t.string "mei_kana"
+    t.string "role"
+    t.string "phone"
+    t.string "address"
+    t.boolean "verified"
+    t.string "photo_id"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users"
+  add_foreign_key "posts", "hinanjyos"
+  add_foreign_key "posts", "users"
 end

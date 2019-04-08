@@ -1,0 +1,2 @@
+class Hinanjyo < ApplicationRecord
+end
