@@ -5,13 +5,55 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'csv'
+
+kyoto_file = 'kyoto_shelters.csv'
+osaka_file = 'osaka_shelters.csv'
 
 puts 'Cleaning database...'
 Hinanjyo.destroy_all
 
-puts 'Creating shelters...'
-Teddy.create!(sku: 'original-teddy-bear', name: 'Teddy bear', category: kids, photo_url: 'http://onehdwallpaper.com/wp-content/uploads/2015/07/Teddy-Bears-HD-Images.jpg')
+puts 'Creating Osaka shelters...'
+csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
+CSV.foreach(osaka_file, csv_options) do |row|
+  t = Hinanjyo.new
+  t.prefecture = row['prefecture']
+  t.place_name = row['place_name']
+  t.street = row['street']
+  t.floods = row['floods']
+  t.mudslides = row['mudslides']
+  t.high_tides = row['high_tides']
+  t.earthquakes = row['earthquakes']
+  t.tsunami = row['tsunami']
+  t.fire = row['fire']
+  t.burst_pipe = row['burst_pipe']
+  t.volcano = row['volcano']
+  t.latitude = row['lat']
+  t.longtitude = row['long']
+  t.save!
+end
 
-Teddy.create!(sku: 'jean-mimi', name: 'Jean-Michel - Le Wagon', category: geek, photo_url: 'https://pbs.twimg.com/media/B_AUcKeU4AE6ZcG.jpg:large')
-Teddy.create!(sku: 'octocat',   name: 'Octocat -  GitHub',      category: geek, photo_url: 'https://cdn-ak.f.st-hatena.com/images/fotolife/s/suzumidokoro/20160413/20160413220730.jpg')
+puts "There are now #{Hinanjyo.count} rows in the shelters table"
+
+puts 'Creating Kyoto shelters...'
+csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
+CSV.foreach(kyoto_file, csv_options) do |row|
+  t = Hinanjyo.new
+  t.prefecture = row['prefecture']
+  t.place_name = row['place_name']
+  t.street = row['street']
+  t.floods = row['floods']
+  t.mudslides = row['mudslides']
+  t.high_tides = row['high_tides']
+  t.earthquakes = row['earthquakes']
+  t.tsunami = row['tsunami']
+  t.fire = row['fire']
+  t.burst_pipe = row['burst_pipe']
+  t.volcano = row['volcano']
+  t.latitude = row['lat']
+  t.longtitude = row['long']
+  t.save!
+end
+puts "There are now #{Hinanjyo.count} rows in the shelters table"
+
 puts 'Finished!'
