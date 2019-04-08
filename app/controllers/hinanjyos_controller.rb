@@ -1,0 +1,2 @@
+class HinanjyosController < ApplicationController
+end
