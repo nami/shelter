@@ -2,7 +2,7 @@ class HinanjyosController < ApplicationController
   skip_before_action :authenticate_user!
   def index
 
-    @shelters = policy_scope(Shelter)
+    @shelters = policy_scope(Hinanjyo)
 
     @shelters = Hinanjyo.where.not(latitude: nil, longitude: nil)
 

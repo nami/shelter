@@ -12,15 +12,9 @@
   </head>
   <body>
     <%= render 'shared/flashes' %>
+    <%= render 'shared/navbar' %>
     <%= yield %>
 
-    <div class="nav-bar d-flex justify-content-around">
-      <p>Offer Help</p>
-      <p>Notifications</p>
-      <p>Home</p>
-      <p>My Shelter</p>
-      <p>Settings</p>
-    </div>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
     <!-- For google maps -->
