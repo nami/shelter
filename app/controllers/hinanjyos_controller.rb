@@ -1,6 +1,9 @@
 class HinanjyosController < ApplicationController
   skip_before_action :authenticate_user!
   def index
+
+    @shelters = policy_scope(Shelter)
+
     @shelters = Hinanjyo.where.not(latitude: nil, longitude: nil)
 
     if params[:location].blank?
@@ -15,5 +18,6 @@ class HinanjyosController < ApplicationController
         lng: marker.longitude
       }
     end
+
   end
 end

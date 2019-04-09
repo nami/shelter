@@ -29,7 +29,7 @@ CSV.foreach(osaka_file, csv_options) do |row|
   t.burst_pipe = row['burst_pipe']
   t.volcano = row['volcano']
   t.latitude = row['lat']
-  t.longtitude = row['long']
+  t.longitude = row['long']
   t.save!
 end
 
@@ -51,7 +51,7 @@ CSV.foreach(kyoto_file, csv_options) do |row|
   t.burst_pipe = row['burst_pipe']
   t.volcano = row['volcano']
   t.latitude = row['lat']
-  t.longtitude = row['long']
+  t.longitude = row['long']
   t.save!
 end
 puts "There are now #{Hinanjyo.count} rows in the shelters table"
