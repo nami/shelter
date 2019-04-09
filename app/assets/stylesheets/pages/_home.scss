@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .nav-bar{
-  position: -webkit-sticky;
-  position: sticky;
-  bottom: 0px;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
 }

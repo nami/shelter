@@ -11,6 +11,9 @@
     <%= favicon_link_tag asset_path('favicon.png'), :rel => 'icon', :type =>  'image/png' %>
   </head>
   <body>
+    <%= render 'shared/flashes' %>
+    <%= yield %>
+
     <div class="nav-bar d-flex justify-content-around">
       <p>Offer Help</p>
       <p>Notifications</p>
@@ -18,9 +21,6 @@
       <p>My Shelter</p>
       <p>Settings</p>
     </div>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
-
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
     <!-- For google maps -->
