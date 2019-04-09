@@ -6,4 +6,8 @@ class PostsController < ApplicationController
 
   def show
   end
+
+  private
+
+  #add tag_list to user_paramsq
 end
