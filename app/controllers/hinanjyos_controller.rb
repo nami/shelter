@@ -1,4 +1,5 @@
 class HinanjyosController < ApplicationController
+  before_action :find_shelter, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!
   def index
 
@@ -20,4 +21,16 @@ class HinanjyosController < ApplicationController
     end
 
   end
+
+  def show
+    authorize @shelter
+
+  end
+
+  private
+
+  def find_shelter
+    @shelter = Hinanjyo.find(params[:id])
+  end
+
 end
