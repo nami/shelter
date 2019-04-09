@@ -48,11 +48,9 @@
     <%= f.input :photo_id,
                 label: "Photo ID",
                 hint: "This is to keep you safe from scammers" %>
-    <!-- enable this part after cloudinary set up is finished -->
-    <%#= f.input :avatar_cache, as: :hidden %>
+    <%= f.input :photo_id_cache, as: :hidden %>
     <%= f.input :avatar %>
-    <!-- enable this part after cloudinary set up is finished -->
-    <%#= f.input :avatar_cache, as: :hidden %>
+    <%= f.input :avatar_cache, as: :hidden %>
   </div>
 
   <div class="form-actions">
