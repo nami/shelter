@@ -14,4 +14,6 @@ class User < ApplicationRecord
   validates :photo_id, presence: true
   has_many :posts
   has_many :comments
+  mount_uploader :avatar, PhotoUploader
+  mount_uploader :photo_id, PhotoUploader
 end
