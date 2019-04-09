@@ -14,4 +14,7 @@ class User < ApplicationRecord
   validates :photo_id, presence: true
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+
+  mount_uploader :avatar, PhotoUploader
+  mount_uploader :photo_id, PhotoUploader
 end
