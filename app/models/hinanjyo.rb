@@ -1,5 +1,5 @@
 class Hinanjyo < ApplicationRecord
-  has_many :posts
+  has_many :posts, dependent: :destroy
   validates :prefecture, presence: true
   validates :place_name, presence: true
   validates :street, presence: true
