@@ -1,9 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
-<<<<<<< HEAD
-
-=======
   include Pundit
 
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
@@ -32,5 +29,4 @@ class ApplicationController < ActionController::Base
                                                        :photo_id,
                                                        :avatar])
   end
->>>>>>> master
 end
