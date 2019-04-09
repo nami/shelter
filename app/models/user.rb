@@ -12,6 +12,6 @@ class User < ApplicationRecord
   validates :sei_kana, presence: true
   validates :mei_kana, presence: true
   validates :photo_id, presence: true
-  has_many :posts
-  has_many :comments
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
 end
