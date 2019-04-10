@@ -1,1 +1,22 @@
 // Specific CSS for your home-page
+.nav-bar{
+  position: fixed;
+  bottom: 0;
+  height: 69px;
+  width: 100vw;
+  color: white;
+  background-color: #007880;
+  font-size: 12px;
+}
+
+.nav-bar img{
+  margin-top: 9px;
+  margin-bottom: 4px;
+  width: 30px;
+  height: 33px;
+}
+
+.nav-bar a{
+  text-decoration: none;
+  color: white;
+}
