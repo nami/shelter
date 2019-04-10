@@ -13,6 +13,9 @@ Rails.application.routes.draw do
 
   resources :comments, only: [ :edit, :update, :destroy]
 
+  # notifications uses the comments index view
+  get 'notifications', to: 'comments#index', as: 'notifications'
+
   # NGO map search page
   namespace :helpers do
     resources :hinanjyos, :path => 'shelters', as: 'shelters', only: [:index]

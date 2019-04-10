@@ -1,7 +1,11 @@
 source 'https://rubygems.org'
 ruby '2.5.3'
 
+gem 'acts-as-taggable-on', '~> 6.0'
+gem 'acts_as_votable', '~> 0.12.0'
 gem 'bootsnap', require: false
+gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'

@@ -1,2 +1,55 @@
-<h1>Shelter</h1>
-<p>To do</p>
+<div class="home-header d-flex justify-content-center align-items-center">
+  <h1>Select your shelter type</h1>
+</div>
+
+<div class="container-fluid d-flex flex-column justify-content-around">
+  <div class="row">
+    <div class="col-12 d-flex justify-content-around">
+      <div class="earthquake mr-2">
+        <%= image_tag "homepage/earthquake.png", alt: "earthquake icon", class: "mb-2" %>
+        <p>Earthquake</p>
+      </div>
+      <div class="tsunami ml-2">
+        <%= image_tag "homepage/tsunami.png", alt: "tsunami icon", class: "mb-2" %>
+        <p>Tsunami</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 d-flex justify-content-around">
+      <div class="mudslides mr-2">
+        <%= image_tag "homepage/mudslides.png", alt: "mudslides icon", class: "mb-2" %>
+        <p>Mudslides</p>
+      </div>
+      <div class="flood ml-2">
+        <%= image_tag "homepage/flood.png", alt: "flood icon" %>
+        <p>Flood</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 d-flex justify-content-around">
+      <div class="high-tide mr-2">
+        <%= image_tag "homepage/tide.png", alt: "high tide icon", class: "mb-1" %>
+        <p>High Tide</p>
+      </div>
+      <div class="fire ml-2">
+        <%= image_tag "homepage/fire.png", alt: "fire icon", class: "mb-1" %>
+        <p>Fire</p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 d-flex justify-content-around">
+      <div class="burst-pipe mr-2">
+        <%= image_tag "homepage/pipes.png", alt: "burst pipe icon", class: "mb-2" %>
+        <p>Burst Pipe</p>
+      </div>
+      <div class="volcano ml-2">
+        <%= image_tag "homepage/volcano.png", alt: "volcano icon", class: "mb-2" %>
+        <p>Volcano</p>
+      </div>
+    </div>
+  </div>
+</div>
+

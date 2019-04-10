@@ -1,1 +1,100 @@
 // Specific CSS for your home-page
+.nav-bar{
+  position: fixed;
+  bottom: 0;
+  height: 69px;
+  width: 100vw;
+  color: white;
+  background-color: #007880;
+  font-size: 12px;
+  z-index: 1;
+}
+
+.nav-bar img{
+  margin-top: 9px;
+  margin-bottom: 4px;
+  width: 30px;
+  height: 33px;
+}
+
+.nav-bar a{
+  text-decoration: none;
+  color: white;
+}
+
+.home-header{
+  height: 139px;
+  background-color: #007880;
+  color: white;
+  text-align: center;
+  h1{
+    font-size: 36px;
+  }
+}
+
+.container-fluid {
+  height: calc(100vh - 69px - 139px);
+}
+
+.container-fluid img {
+  width: 53px;
+  height: 53px;
+}
+
+.row{
+  height: 22%;
+}
+
+.flood img{
+  width: 68px;
+  height: 65px;
+}
+
+.earthquake{
+  background-color: white;
+  width: 50%;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.tsunami{
+  background-color: white;
+  width: 50%;
+  text-align: center;
+}
+
+.mudslides{
+  background-color: white;
+  width: 50%;
+  text-align: center;
+}
+
+.flood{
+  background-color: white;
+  width: 50%;
+  text-align: center;
+}
+
+.high-tide{
+  background-color: white;
+  width: 50%;
+  text-align: center;
+}
+
+.fire{
+  background-color: white;
+  width: 50%;
+  text-align: center;
+}
+
+.burst-pipe{
+  background-color: white;
+  width: 50%;
+  text-align: center;
+}
+
+.volcano{
+  background-color: white;
+  width: 50%;
+  text-align: center;
+}
