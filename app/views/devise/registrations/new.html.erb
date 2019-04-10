@@ -57,14 +57,14 @@
               <%= f.input :password_confirmation,
                           required: true,
                           input_html: { autocomplete: "new-password" } %>
-            <div class="form-group d-flex">
-              <%= f.input :photo_id,
+<!--             <div class="form-group d-flex">
+ -->              <%= f.input :photo_id,
                           label: "Photo ID",
                           hint: "This is to keep you safe from scammers" %>
               <%= f.input :photo_id_cache, as: :hidden %>
               <%= f.input :avatar %>
               <%= f.input :avatar_cache, as: :hidden %>
-            </div>
+           <!--  </div> -->
           </div>
 
           <div class="form-actions">
