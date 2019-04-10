@@ -1,0 +1,15 @@
+.fa-star.favorite {
+  color: yellow;
+  font-size: 32px;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.fa-star.not-favorite {
+  color: black;
+  font-size: 32px;
+  &:hover {
+    color: blue;
+  }
+}

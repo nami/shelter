@@ -1,5 +1,5 @@
 class HinanjyosController < ApplicationController
-  before_action :find_shelter, only: [:show, :edit, :update, :destroy]
+  before_action :find_shelter, only: [:show, :edit, :update, :destroy, :favorite]
   skip_before_action :authenticate_user!
   def index
 
@@ -44,6 +44,17 @@ class HinanjyosController < ApplicationController
 
   def show
     authorize @shelter
+    @posts = @shelter.posts
+  end
+
+  # routes added (favorite_shelter_path)
+  # user calls 'favorite_shelter' method and toggle favorites
+  # Set color to star icon depending on the status of favorite
+  def favorite
+    authorize @shelter
+    current_user.favorite_shelter(@shelter)
+
+    redirect_to shelter_path(@shelter)
   end
 
   private
