@@ -1,0 +1,41 @@
+// body {
+//   background-image: url(https://source.unsplash.com/random);
+//   background-size: cover;
+// }
+
+.row {
+  display: flex;
+  margin: 24px;
+  padding: 16px;
+  text-align: center;
+}
+
+.signup-title {
+  margin-bottom: 40px;
+}
+
+.form-control {
+  border-radius: 24px;
+}
+
+.form-group {
+  margin-bottom: 0.8rem;
+  text-align: left;
+}
+
+.d-flex {
+  justify-content: space-between;
+}
+
+.form-sign-up {
+  background: #3BB4C1;
+  border-radius: 24px;
+  color: white;
+  font-weight: bold;
+  padding: 8px 32px;
+
+  &:hover {
+    color: white;
+    background-color: #007880;
+  }
+}
