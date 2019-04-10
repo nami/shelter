@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :comments, only: [ :edit, :update, :destroy]
+  get 'notifications', to: 'comments#index', as: 'notifications'
 
   # NGO map search page
   namespace :helpers do
