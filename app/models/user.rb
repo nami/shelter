@@ -19,4 +19,18 @@ class User < ApplicationRecord
   mount_uploader :photo_id, PhotoUploader
 
   acts_as_voter
+
+  # user can toggle favorite shelter
+  # delete other favorites before setting a new shelter to favorite
+  def favorite_shelter(shelter)
+    if voted_for? shelter
+      shelter.unliked_by self
+    else
+      get_voted(Hinanjyo).each do |voted_shelter|
+        voted_shelter.unliked_by self
+      end
+      shelter.liked_by self
+    end
+  end
+
 end

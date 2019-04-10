@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :posts, only: [ :new, :create ]
   end
 
+  get 'shelters/:id/favorite', to: 'hinanjyos#favorite', as: 'favorite_shelter'
+
   resources :posts, only: [ :show, :edit, :update, :destroy ] do
     resources :comments, only: [ :new, :create ]
   end

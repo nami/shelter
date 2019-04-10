@@ -1,1 +1,55 @@
-<h1> <%= @shelter.place_name %> </h1>
+<div class="container">
+
+  <div class="">
+    <%= link_to "Back to map", shelters_path, class: "" %>
+    <!-- "Search bar for tags should be added here" -->
+  </div>
+
+  <% if user_signed_in? %>
+    <div class="text-center">
+      <%= cl_image_tag (current_user.avatar), class: 'avatar-large' %>
+      <p><%= current_user.first_name %></p>
+    </div>
+  <% end %>
+
+  <div class="shelter-name d-flex">
+    <h1><%= @shelter.place_name %></h1>
+    &nbsp;&nbsp;&nbsp;
+    <% if user_signed_in? %>
+      <!-- in case the shelter is favorite, show yellow star -->
+      <% if current_user.voted_for? @shelter %>
+        <%= link_to favorite_shelter_path do %>
+          <i class="fas fa-star favorite"></i>
+        <% end %>
+      <!-- in case the shelter is not favorite, show transparent star -->
+      <% else %>
+        <%= link_to favorite_shelter_path do %>
+          <i class="far fa-star not-favorite"></i>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="btn btn-primary">REQUEST HELP</div>
+
+  <div class="all-posts cards">
+    <div class="rows">
+      <% if @posts == [] %>
+        <p class="">Currently the shelter doesn't have any post.</p>
+      <% else %>
+        <% @posts.each do |post| %>
+          <div class="post card">
+            <h4><%= post.title %></h4>
+            <p><%= post.description %></p>
+            <div class="posted-by">
+              <%= cl_image_tag (post.user.avatar), class: 'avatar-large' %>
+              <p><%= post.user.first_name %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
+
+</div>

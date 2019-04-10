@@ -8,4 +8,8 @@ class HinanjyoPolicy < ApplicationPolicy
   def show?
     return true
   end
+
+  def favorite?
+    return true
+  end
 end
