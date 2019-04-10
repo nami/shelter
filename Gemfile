@@ -20,6 +20,7 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'animate.css-rails', '~> 3.2.0'
 
 gem 'geocoder'
 

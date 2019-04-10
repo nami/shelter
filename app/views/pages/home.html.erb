@@ -1,4 +1,4 @@
-<div class="home-header d-flex justify-content-center align-items-center">
+<div class="home-header d-flex justify-content-center align-items-center animated fadeInUp">
   <h1>Select type of shelter near you</h1>
 </div>
 
@@ -9,7 +9,7 @@
       <%= f.input :latitude, id: "earthquake-lat", as: :hidden %>
       <%= f.input :disaster, input_html: {value: 'earthquakes'}, as: :hidden %>
     <% end %>
-    <div class="col-12 d-flex justify-content-around">
+    <div class="col-12 d-flex animated fadeInUp">
       <div class="earthquake mr-2 d-flex flex-column justify-content-center align-items-center" onClick="document.getElementById('earthquake_form').submit();">
         <%= image_tag "homepage/earthquake.png", alt: "earthquake icon", class: "mb-2" %>
         <p>Earthquake</p>
@@ -21,7 +21,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12 d-flex">
+    <div class="col-12 d-flex animated fadeInUp">
       <div class="mudslides mr-2 d-flex flex-column justify-content-center align-items-center">
         <%= image_tag "homepage/mudslides.png", alt: "mudslides icon", class: "mb-2" %>
         <p>Mudslides</p>
@@ -33,7 +33,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12 d-flex justify-content-around">
+    <div class="col-12 d-flex animated fadeInUp">
       <div class="high-tide mr-2 d-flex flex-column justify-content-center align-items-center">
         <%= image_tag "homepage/tide.png", alt: "high tide icon", class: "mb-1" %>
         <p>High Tide</p>
@@ -45,7 +45,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12 d-flex justify-content-around">
+    <div class="col-12 d-flex animated fadeInUp">
       <div class="burst-pipe mr-2 d-flex flex-column justify-content-center align-items-center">
         <%= image_tag "homepage/pipes.png", alt: "burst pipe icon", class: "mb-2" %>
         <p>Burst Pipe</p>
