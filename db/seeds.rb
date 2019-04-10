@@ -122,7 +122,7 @@ user = User.create!(
 
 user.likes Hinanjyo.find(171)
 
-User.create!(
+user = User.create!(
   first_name: "Derek",
   last_name: "Johnson",
   email: "derekjohnson@gmail.com",
