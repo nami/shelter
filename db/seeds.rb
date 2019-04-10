@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
 
 kyoto_file = 'kyoto_shelters.csv'
@@ -140,7 +133,7 @@ user = User.create!(
   remote_avatar_url: "https://avatars3.githubusercontent.com/u/47250714?s=460&v=4"
   )
 
-user.likes Hinanjyo(199)
+user.likes Hinanjyo.find(199)
 
 User.create!(
   first_name: "NGO",
@@ -160,7 +153,74 @@ User.create!(
   remote_avatar_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ80vPaDNSSHNUT_67JCeHgTj18BIDShFrB0RWTYSDkb_HmPHqS"
   )
 
-# User.create!(
+#-----------------------------
+#FAKE USERS
+#-----------------------------
+# User 7
+  user = User.create!(
+  first_name: "Aika",
+  last_name: "Matsumoto",
+  email: "aikamatsumoto@gmail.com",
+  password: "123456",
+  password_confirmation: "123456",
+  sei: "松本", # last name
+  mei: "愛果", # first name
+  sei_kana: "マツモト",
+  mei_kana: "アイカ",
+  role: "Needs Help",
+  phone: "42 69 66 88 15",
+  address: "〒606-8314 京都府京都市左京区吉田下大路町２２",
+  verified: true,
+  remote_photo_id_url: "https://www.themasculinetraveler.com/wp-content/uploads/2019/01/japanese-woman-0.jpg",
+  remote_avatar_url: "https://www.themasculinetraveler.com/wp-content/uploads/2019/01/japanese-woman-0.jpg"
+  )
+
+  user.likes Hinanjyo.find(1)
+
+# User 8
+user = User.create!(
+  first_name: "Ken",
+  last_name: "Watanabe",
+  email: "kenwatanabe@gmail.com",
+  password: "123456",
+  password_confirmation: "123456",
+  sei: "渡辺", # last name
+  mei: "謙", # first name
+  sei_kana: "ワタナベ",
+  mei_kana: "ケン",
+  role: "Needs Help",
+  phone: "42 69 66 88 16",
+  address: "〒612-0882 京都府京都市伏見区深草藪之内町68",
+  verified: true,
+  remote_photo_id_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Ken_Watanabe_2007_%28cropped%29.jpg/200px-Ken_Watanabe_2007_%28cropped%29.jpg",
+  remote_avatar_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Ken_Watanabe_2007_%28cropped%29.jpg/200px-Ken_Watanabe_2007_%28cropped%29.jpg"
+  )
+
+  user.likes Hinanjyo.find(1)
+
+# User 9
+user = User.create!(
+  first_name: "Takayuki",
+  last_name: "Yamada",
+  email: "yakayukiyamada@gmail.com",
+  password: "123456",
+  password_confirmation: "123456",
+  sei: "山田", # last name
+  mei: "孝之", # first name
+  sei_kana: "ヤマダ",
+  mei_kana: "タカユキ",
+  role: "Needs Help",
+  phone: "42 69 66 88 17",
+  address: "〒601-8327 京都府京都市南区吉祥院御池町31番地",
+  verified: true,
+  remote_photo_id_url: "https://m.media-amazon.com/images/M/MV5BMTk3NjY2MjAwNF5BMl5BanBnXkFtZTcwMTQ1MDExOA@@._V1_.jpg",
+  remote_avatar_url: "https://m.media-amazon.com/images/M/MV5BMTk3NjY2MjAwNF5BMl5BanBnXkFtZTcwMTQ1MDExOA@@._V1_.jpg"
+  )
+
+  user.likes Hinanjyo.find(171)
+
+### Nami NGO
+  # User.create!(
 #   first_name: "NGO",
 #   last_name: "Ethical",
 #   email: "ethicalngo@gmail.com",
@@ -191,7 +251,7 @@ User.create!(
     Post.create(
     title: "Need Help! No food",
     description: "I have no food currently but plenty of water. Would appreciate any help!!!!",
-    user_id: 1,
+    user_id: 7,
     photo: "",
     hinanjyo_id: 1
     )
@@ -199,7 +259,7 @@ User.create!(
   Post.create(
     title: "Need Diapers",
     description: "My baby is in need of diapers urgently!",
-    user_id: 1,
+    user_id: 8,
     photo: "",
     hinanjyo_id: 1
     )
@@ -224,7 +284,7 @@ User.create!(
   Post.create(
     title: "Running low on fuel",
     description: "In need of fuel for heating!",
-    user_id: 3,
+    user_id: 9,
     photo: "",
     hinanjyo_id: 171
     )
@@ -267,7 +327,7 @@ User.create!(
 
     Comment.create(
     post_id: 4,
-    user_id: 1,
+    user_id: 7,
     content: "Bringing some!",
     photo: " "
     )
@@ -289,7 +349,7 @@ User.create!(
 
   Comment.create(
     post_id: 6,
-    user_id: 1,
+    user_id: 8,
     content: "Brining some!",
     photo: " "
     )
