@@ -17,4 +17,6 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, PhotoUploader
   mount_uploader :photo_id, PhotoUploader
+
+  acts_as_voter
 end
