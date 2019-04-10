@@ -156,7 +156,7 @@ User.create!(
 #-----------------------------
 #FAKE USERS
 #-----------------------------
-# User 7
+# User 6
   user = User.create!(
   first_name: "Aika",
   last_name: "Matsumoto",
@@ -177,7 +177,7 @@ User.create!(
 
   user.likes Hinanjyo.find(1)
 
-# User 8
+# User 7
 user = User.create!(
   first_name: "Ken",
   last_name: "Watanabe",
@@ -198,7 +198,7 @@ user = User.create!(
 
   user.likes Hinanjyo.find(1)
 
-# User 9
+# User 8
 user = User.create!(
   first_name: "Takayuki",
   last_name: "Yamada",
@@ -219,127 +219,171 @@ user = User.create!(
 
   user.likes Hinanjyo.find(171)
 
-### Nami NGO
-  # User.create!(
-#   first_name: "NGO",
-#   last_name: "Ethical",
-#   email: "ethicalngo@gmail.com",
-#   password: "123456",
-#   password_confirmation: "123456",
-#   sei: "エシカル", # last name
-#   mei: "エン・ジー・オー", # first name
-#   sei_kana: "エシカル",
-#   mei_kana: "エン・ジー・オー",
-#   role: "Helper",
-#   phone: "42 69 66 88 14",
-#   address: "〒601-8016 京都府京都市南区東九条烏丸町１−１",
-#   verified: true,
-#   remote_photo_id_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ80vPaDNSSHNUT_67JCeHgTj18BIDShFrB0RWTYSDkb_HmPHqS",
-#   remote_avatar_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ80vPaDNSSHNUT_67JCeHgTj18BIDShFrB0RWTYSDkb_HmPHqS"
-#   )
+ # Nami NGO User 9
+  User.create!(
+  first_name: "Ark",
+  last_name: "Animal Refuge",
+  email: "arkbark@gmail.com",
+  password: "123456",
+  password_confirmation: "123456",
+  sei: "アニマル・レフュージ", # last name
+  mei: "アーク", # first name
+  sei_kana: "アニマル・レフュージ",
+  mei_kana: "アーク",
+  role: "Helper",
+  phone: "42 69 66 88 18",
+  address: "595 Noma Ohara, Nose-cho, Toyono-gun, Osaka-fu 563-0131 JAPAN",
+  verified: true,
+  remote_photo_id_url: "http://www.arkbark.net/en/img/common/h_ark_logo.png",
+  remote_avatar_url: "http://www.arkbark.net/en/img/common/h_ark_logo.png"
+  )
 
   puts "Finished generating users..."
-
-  Post.create(
+  puts "Generating Posts and Likes"
+  post = Post.create!(
     title: "Need Help! No food",
     description: "I have no food currently but plenty of water. Would appreciate any help!!!!",
     user_id: 1,
     photo: " ",
-    hinanjyo_id: 1
+    hinanjyo_id: 1,
+    tag_list: "Food"
     )
 
-    Post.create(
-    title: "Need Help! No food",
+  User.find(2).likes post
+  User.find(3).likes post
+  User.find(4).likes post
+  User.find(5).likes post
+  User.find(6).likes post
+  User.find(7).likes post
+  User.find(8).likes post
+
+  post = Post.create!(
+    title: "We hve run out of rice! Need help!",
     description: "I have no food currently but plenty of water. Would appreciate any help!!!!",
-    user_id: 7,
+    user_id: 6,
     photo: "",
-    hinanjyo_id: 1
+    hinanjyo_id: 1,
+    tag_list: "Food"
     )
 
-  Post.create(
+  User.find(2).likes post
+  User.find(3).likes post
+  User.find(4).likes post
+  User.find(5).likes post
+
+  post = Post.create!(
     title: "Need Diapers",
     description: "My baby is in need of diapers urgently!",
-    user_id: 8,
+    user_id: 7,
     photo: "",
-    hinanjyo_id: 1
+    hinanjyo_id: 1,
+    tag_list: "Baby"
     )
 
-    Post.create(
+  User.find(2).likes post
+  User.find(3).likes post
+
+
+  post= Post.create!(
     title: "Requesting clothes",
     description: "I have no good clothing to wear",
     user_id: 2,
     photo: "",
-    hinanjyo_id: 199
+    hinanjyo_id: 199,
+    tag_list: "Clothing"
     )
 
-  Post.create(
+  User.find(6).likes post
+  User.find(7).likes post
+  User.find(8).likes post
+
+  post = Post.create!(
     title: "Need Help! Medicine",
     description: "I really need medicine for my allergies!!!!",
     user_id: 3,
     photo: "",
-    hinanjyo_id: 171
+    hinanjyo_id: 171,
+    tag_list: "Medicine"
     )
 
+  User.find(8).likes post
 
-  Post.create(
+
+  post = Post.create!(
     title: "Running low on fuel",
     description: "In need of fuel for heating!",
-    user_id: 9,
+    user_id: 8,
     photo: "",
-    hinanjyo_id: 171
+    hinanjyo_id: 171,
+    tag_list: "Fuel"
     )
 
-  Post.create(
+  User.find(2).likes post
+  User.find(3).likes post
+  User.find(4).likes post
+
+  post = Post.create!(
     title: "Need Help! Soap",
     description: "I have run out of soap!!!!",
     user_id: 4,
     photo: "",
-    hinanjyo_id: 400
+    hinanjyo_id: 400,
+    tag_list: "Other"
     )
 
-  Comment.create(
+  User.find(2).likes post
+  User.find(3).likes post
+  User.find(5).likes post
+  User.find(6).likes post
+  User.find(7).likes post
+  User.find(8).likes post
+
+  puts "Posts and Likes created"
+  puts "Creating Comments..."
+
+  Comment.create!(
     post_id: 1,
     user_id: 2,
     content: "I have plenty of canned food to give you but you will need to cook it yourself! I can make my way there within the next few hours",
     photo: " "
     )
 
-  Comment.create(
+  Comment.create!(
     post_id: 1,
     user_id: 1,
     content: "You are a life saver!!! Literally!!!! Thank you :)",
     photo: " "
     )
 
-  Comment.create(
+  Comment.create!(
     post_id: 1,
     user_id: 2,
     content: "Running a bit late but still on my way!",
     photo: " "
     )
 
-  Comment.create(
+  Comment.create!(
     post_id: 1,
     user_id: 1,
     content: "No problem! Thanks so much once again",
     photo: " "
     )
 
-    Comment.create(
+    Comment.create!(
     post_id: 4,
-    user_id: 7,
+    user_id: 6,
     content: "Bringing some!",
     photo: " "
     )
 
-   Comment.create(
+   Comment.create!(
     post_id: 4,
     user_id: 3,
     content: "Bringing some!",
     photo: " "
     )
 
-    Comment.create(
+    Comment.create!(
     post_id: 4,
     user_id: 2,
     content: "Thank you! I will be outside",
@@ -347,9 +391,11 @@ user = User.create!(
     )
 
 
-  Comment.create(
+  Comment.create!(
     post_id: 6,
-    user_id: 8,
+    user_id: 7,
     content: "Brining some!",
     photo: " "
     )
+
+  puts "Comments completed"
