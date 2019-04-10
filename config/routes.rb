@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   end
 
   resources :comments, only: [ :edit, :update, :destroy]
+
+  # notifications uses the comments index view
   get 'notifications', to: 'comments#index', as: 'notifications'
 
   # NGO map search page
