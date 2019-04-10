@@ -17,10 +17,11 @@
     <div class="home-icon">
       <% if current_page?(controller:'/pages', action:'home') %>
       <%= image_tag "navbar/home-white.png", alt: "home icon active", class: "ml-1" %>
+      <p style="font-weight: 500;">Home</p>
       <% else %>
       <%= image_tag "navbar/home.png", alt: "home icon", class: "ml-1" %>
+      <p>Home</p>
       <% end %>
-    <p>Home</p>
   </div>
   <% end %>
   <div class="shelter-icon">

@@ -28,7 +28,7 @@
   color: white;
   text-align: center;
   h1{
-    font-size: 46px;
+    font-size: 36px;
   }
 }
 
@@ -41,7 +41,60 @@
   height: 53px;
 }
 
+.row{
+  height: 22%;
+}
+
 .flood img{
   width: 68px;
-  height: 71px;
+  height: 65px;
+}
+
+.earthquake{
+  background-color: white;
+  width: 50%;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.tsunami{
+  background-color: white;
+  width: 50%;
+  text-align: center;
+}
+
+.mudslides{
+  background-color: white;
+  width: 50%;
+  text-align: center;
+}
+
+.flood{
+  background-color: white;
+  width: 50%;
+  text-align: center;
+}
+
+.high-tide{
+  background-color: white;
+  width: 50%;
+  text-align: center;
+}
+
+.fire{
+  background-color: white;
+  width: 50%;
+  text-align: center;
+}
+
+.burst-pipe{
+  background-color: white;
+  width: 50%;
+  text-align: center;
+}
+
+.volcano{
+  background-color: white;
+  width: 50%;
+  text-align: center;
 }
