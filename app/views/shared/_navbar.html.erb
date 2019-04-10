@@ -15,7 +15,7 @@
   </div>
   <%= link_to root_path, :action => 'go' do  %>
     <div class="home-icon">
-      <% if current_page?(controller:'pages', action:'home') %>
+      <% if current_page?(controller:'/pages', action:'home') %>
       <%= image_tag "navbar/home-white.png", alt: "home icon active", class: "ml-1" %>
       <% else %>
       <%= image_tag "navbar/home.png", alt: "home icon", class: "ml-1" %>
