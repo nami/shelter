@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-sm-offset-3">
+      <div class="chat-header"><h4><%= @post.title %></h4></div>
+      <div class="post-info border-bottom">
+        <%= cl_image_tag @post.user.avatar, class: "avatar" %>
+
+        <p><%= @post.description %></p>
+        <p><%= @post.user.first_name %> <%= @post.user.last_name %></p>
+      </div>
+      <div class="comments">
+        <% @post.comments.each do |comment| %>
+          <%= render "comments/comment", comment: comment, user_is_comments_author: comment.user == current_user %>
+        <% end %>
+      </div>
+      <div id="create-message">
+        <%= simple_form_for [ @post, Comment.new ], remote: true do |f| %>
+          <%= f.input :content, label: false %>
+          <%= f.submit "Submit", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<% content_for :after_js do %>
+  <script>
+    const comments = document.querySelectorAll('.comment')
+    const lastComment = comments[comments.length - 1]
+    lastComment.scrollIntoView();
+
+    App['post_<%= @post.id %>'] = App.cable.subscriptions.create({ channel: 'PostsChannel', post_id: <%= @post.id %>}, {
+      received: (data) => {
+        <% if user_signed_in? %>
+          if (data.current_user_id !== <%= current_user.id %>){
+            const commentsContainer = document.querySelector('.comments');
+            commentsContainer.insertAdjacentHTML('beforeend', data.comment_partial)
+            const comments = document.querySelectorAll('.comment')
+            const lastComment = comments[comments.length - 1]
+            lastComment.scrollIntoView();
+          }
+      <% end %>
+    }
+  }
+  )
+  </script>
+<% end %>

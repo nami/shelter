@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     resources :hinanjyos, :path => 'shelters', as: 'shelters', only: [:index]
   end
 
+  mount ActionCable.server => "/cable"
+
   # area_info is in posts index
   # item_search is in posts index
 end

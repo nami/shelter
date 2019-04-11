@@ -1,0 +1,4 @@
+<div class="comment <%= user_is_comments_author ? "right" : "" %>">
+  <%= cl_image_tag comment.user.avatar, class: "avatar" %>
+  <div class="comment-content"><%= comment.content %></div>
+</div>
