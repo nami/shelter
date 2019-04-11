@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mb-5">
 
   <div class="">
     <%= link_to "Back to map", shelters_path, class: "" %>
@@ -12,7 +12,7 @@
     </div>
   <% end %>
 
-  <div class="shelter-name d-flex">
+  <div class="shelter-name d-flex justify-content-start">
     <h1><%= @shelter.place_name %></h1>
     &nbsp;&nbsp;&nbsp;
     <% if user_signed_in? %>
@@ -30,7 +30,9 @@
     <% end %>
   </div>
 
-  <div class="btn btn-primary">REQUEST HELP</div>
+  <%= link_to new_shelter_post_path(@shelter) do %>
+    <div class="btn btn-primary">REQUEST HELP</div>
+  <% end %>
 
   <div class="all-posts cards">
     <div class="rows">
@@ -42,6 +44,11 @@
           <div class="post card">
             <h4><%= post.title %></h4>
             <p><%= post.description %></p>
+            <div class="tag-list d-flex">
+              <% post.tag_list.each do |tag| %>
+                <p class="post-tag mr-3"><%= tag %></p>
+              <% end %>
+            </div>
             <div class="posted-by">
               <%= cl_image_tag (post.user.avatar), class: 'avatar-large' %>
               <p><%= post.user.first_name %></p>

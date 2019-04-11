@@ -32,5 +32,4 @@ class User < ApplicationRecord
       shelter.liked_by self
     end
   end
-
 end
