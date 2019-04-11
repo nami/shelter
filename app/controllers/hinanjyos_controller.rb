@@ -34,7 +34,7 @@ class HinanjyosController < ApplicationController
 
     if @user_disaster.present? && @user_longitude.present?
       @shelters = Hinanjyo.where("#{@disaster} = true")
-      @shelters = Hinanjyo.near([@user_longitude,@user_latitude], 3)
+      @shelters = Hinanjyo.near([@user_longitude, @user_latitude], 3)
       session[:disaster] = @user_disaster
       @markers = @shelters
     elsif @user_disaster.present?
