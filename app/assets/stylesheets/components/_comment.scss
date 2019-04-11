@@ -1,7 +1,42 @@
 .container-fluid.page-comments{
   width: 100vw;
   height: calc(100vh);
-  background-color: white;
+}
+
+.chat-header {
+  width: 100vw;
+  background-color: #32767F;
+  color: white;
+  text-align: center;
+  h4 {
+    margin: 0;
+  }
+}
+
+textarea {
+  height: 35px!important;
+  border: 0 none white;
+  overflow: hidden;
+  padding: 0;
+  outline: none;
+}
+
+.cmtarea {
+  font-weight: 500;
+  border-color: #3BB4C1;
+  background-color: #3BB4C1;
+  width: 100%;
+}
+
+.cmtarea:hover {
+  font-weight: 500;
+  border-color: #32767F;
+  background-color: #32767F;
+  width: 100%;
+}
+
+.comment-area{
+  height: calc(100vh - 69px - 73px - 173px;);;
 }
 
 .comments {
@@ -12,7 +47,7 @@
   border: 1px solid #ececec;
   border-top: none;
   border-bottom-width: 0;
-  max-height: 300px;
+  max-height: 70%;
   overflow-y: scroll;
 }
 
@@ -58,12 +93,14 @@ input.form-control {
     box-shadow: none;
   }
 }
-.chat-header {
-  width: 100vw;
-  background-color: #32767F;
-  color: white;
-  text-align: center;
-  h4 {
-    margin: 0;
-  }
+
+.post-info{
+  background-color: white;
 }
+
+.post-description {
+  opacity: 0.8;
+}
+
+
+

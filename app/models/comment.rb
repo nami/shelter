@@ -17,4 +17,8 @@ class Comment < ApplicationRecord
       current_user_id: user.id
     })
   end
+
+  def nice_date
+    date.strftime("%b %d, %a  %I:%M %p") if date
+  end
 end
