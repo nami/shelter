@@ -7,7 +7,31 @@ class PostsController < ApplicationController
   def show
   end
 
+  def new
+    @post = Post.new
+    authorize @Post
+  end
+
+  def create
+    @post = Post.new(post_params)
+    authorize @post
+    @post.user = current_user
+    shelter = Hinanjyo.find(params[:hinanjyo_id])
+    @post.hinanjyo = shelter
+    if @post.save
+      redirect_to user_path(shelter)
+    else
+      render :new
+    end
+  end
+
   private
 
-  #add tag_list to user_paramsq
+  def find_post
+    @post = Post.find(params[:id])
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :description, :user_id, :photo, :hinanjyo_id, :tag_list)
+  end
 end
