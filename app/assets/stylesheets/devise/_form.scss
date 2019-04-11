@@ -1,0 +1,78 @@
+.sign-in-bg {
+  background-image: url("sign-up.jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.sign-in-card {
+  margin-top: 72px;
+}
+
+.sign-up-bg {
+  background-image: url("sign-up.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.registration {
+  display: flex;
+  margin-bottom: 40px;
+  padding: 8px;
+  text-align: center;
+}
+
+.registration-signin {
+  display: flex;
+  padding: 8px;
+  text-align: center;
+}
+
+.registration-title {
+  font-size: 48px;
+}
+
+.title {
+  margin-bottom: 40px;
+  color: white;
+}
+
+form.new_user .form-control {
+  border-radius: 24px;
+}
+
+form.new_user .form-group {
+  font-size: 16px;
+  margin-bottom: 0.8rem;
+  text-align: left;
+  color: white;
+}
+
+form.new_user .d-flex {
+  justify-content: space-between;
+}
+
+small.form-text.text-muted {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.form-sign-up {
+  background: #3BB4C1;
+  border-radius: 24px;
+  color: white;
+  font-weight: bold;
+  margin-top: 16px;
+  margin-bottom: 24px;
+  padding: 8px 32px;
+
+  &:hover {
+    color: white;
+    background-color: #007880;
+  }
+}
+
+
