@@ -73,7 +73,7 @@ user = User.create!(
   remote_avatar_url: "https://avatars1.githubusercontent.com/u/43994166?s=460&v=4"
   )
 
-user.likes Hinanjyo.find(1)
+user.likes Hinanjyo.find(2224)
 
 user = User.create!(
   first_name: "Aya",
@@ -93,9 +93,11 @@ user = User.create!(
   remote_avatar_url: "https://avatars1.githubusercontent.com/u/46548452?s=460&v=4"
   )
 
-user.likes Hinanjyo.find(199)
+user.likes Hinanjyo.find(2238)
 
-user = User.create!(
+
+# PRESENTER PROFILE
+User.create!(
   first_name: "Nami",
   last_name: "Yagi",
   email: "namiyagi@gmail.com",
@@ -112,8 +114,6 @@ user = User.create!(
   remote_photo_id_url: "https://avatars3.githubusercontent.com/u/39056749?s=460&v=4",
   remote_avatar_url: "https://avatars3.githubusercontent.com/u/39056749?s=460&v=4"
   )
-
-user.likes Hinanjyo.find(171)
 
 user = User.create!(
   first_name: "Derek",
@@ -133,7 +133,7 @@ user = User.create!(
   remote_avatar_url: "https://avatars3.githubusercontent.com/u/47250714?s=460&v=4"
   )
 
-user.likes Hinanjyo.find(199)
+user.likes Hinanjyo.find(2238)
 
 User.create!(
   first_name: "NGO",
@@ -175,7 +175,7 @@ User.create!(
   remote_avatar_url: "https://www.themasculinetraveler.com/wp-content/uploads/2019/01/japanese-woman-0.jpg"
   )
 
-  user.likes Hinanjyo.find(1)
+  user.likes Hinanjyo.find(2224)
 
 # User 7
 user = User.create!(
@@ -196,7 +196,7 @@ user = User.create!(
   remote_avatar_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Ken_Watanabe_2007_%28cropped%29.jpg/200px-Ken_Watanabe_2007_%28cropped%29.jpg"
   )
 
-  user.likes Hinanjyo.find(1)
+  user.likes Hinanjyo.find(2224)
 
 # User 8
 user = User.create!(
@@ -217,7 +217,7 @@ user = User.create!(
   remote_avatar_url: "https://m.media-amazon.com/images/M/MV5BMTk3NjY2MjAwNF5BMl5BanBnXkFtZTcwMTQ1MDExOA@@._V1_.jpg"
   )
 
-  user.likes Hinanjyo.find(171)
+  user.likes Hinanjyo.find(2237)
 
  # Nami NGO User 9
   User.create!(
@@ -245,12 +245,11 @@ user = User.create!(
     description: "I have no food currently but plenty of water. Would appreciate any help!!!!",
     user_id: 1,
     photo: " ",
-    hinanjyo_id: 1,
+    hinanjyo_id: 2224,
     tag_list: "Food"
     )
 
   User.find(2).likes post
-  User.find(3).likes post
   User.find(4).likes post
   User.find(5).likes post
   User.find(6).likes post
@@ -262,12 +261,11 @@ user = User.create!(
     description: "I have no food currently but plenty of water. Would appreciate any help!!!!",
     user_id: 6,
     photo: "",
-    hinanjyo_id: 1,
+    hinanjyo_id: 2224,
     tag_list: "Food"
     )
 
   User.find(2).likes post
-  User.find(3).likes post
   User.find(4).likes post
   User.find(5).likes post
 
@@ -276,12 +274,11 @@ user = User.create!(
     description: "My baby is in need of diapers urgently!",
     user_id: 7,
     photo: "",
-    hinanjyo_id: 1,
+    hinanjyo_id: 2224,
     tag_list: "Baby"
     )
 
   User.find(2).likes post
-  User.find(3).likes post
 
 
   post= Post.create!(
@@ -289,7 +286,7 @@ user = User.create!(
     description: "I have no good clothing to wear",
     user_id: 2,
     photo: "",
-    hinanjyo_id: 199,
+    hinanjyo_id: 2238,
     tag_list: "Clothing"
     )
 
@@ -300,13 +297,13 @@ user = User.create!(
   post = Post.create!(
     title: "Need Help! Medicine",
     description: "I really need medicine for my allergies!!!!",
-    user_id: 3,
+    user_id: 8,
     photo: "",
-    hinanjyo_id: 171,
+    hinanjyo_id: 2237,
     tag_list: "Medicine"
     )
 
-  User.find(8).likes post
+  User.find(7).likes post
 
 
   post = Post.create!(
@@ -314,12 +311,11 @@ user = User.create!(
     description: "In need of fuel for heating!",
     user_id: 8,
     photo: "",
-    hinanjyo_id: 171,
+    hinanjyo_id: 2237,
     tag_list: "Fuel"
     )
 
   User.find(2).likes post
-  User.find(3).likes post
   User.find(4).likes post
 
   post = Post.create!(
@@ -327,12 +323,11 @@ user = User.create!(
     description: "I have run out of soap!!!!",
     user_id: 4,
     photo: "",
-    hinanjyo_id: 400,
+    hinanjyo_id: 2238,
     tag_list: "Other"
     )
 
   User.find(2).likes post
-  User.find(3).likes post
   User.find(5).likes post
   User.find(6).likes post
   User.find(7).likes post
