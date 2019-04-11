@@ -244,7 +244,7 @@ user = User.create!(
     title: "Need Help! No food",
     description: "I have no food currently but plenty of water. Would appreciate any help!!!!",
     user_id: 1,
-    photo: " ",
+
     hinanjyo_id: 2224,
     tag_list: "Food"
     )
@@ -260,7 +260,7 @@ user = User.create!(
     title: "We hve run out of rice! Need help!",
     description: "I have no food currently but plenty of water. Would appreciate any help!!!!",
     user_id: 6,
-    photo: "",
+
     hinanjyo_id: 2224,
     tag_list: "Food"
     )
@@ -273,7 +273,7 @@ user = User.create!(
     title: "Need Diapers",
     description: "My baby is in need of diapers urgently!",
     user_id: 7,
-    photo: "",
+
     hinanjyo_id: 2224,
     tag_list: "Baby"
     )
@@ -285,7 +285,7 @@ user = User.create!(
     title: "Requesting clothes",
     description: "I have no good clothing to wear",
     user_id: 2,
-    photo: "",
+
     hinanjyo_id: 2238,
     tag_list: "Clothing"
     )
@@ -298,7 +298,7 @@ user = User.create!(
     title: "Need Help! Medicine",
     description: "I really need medicine for my allergies!!!!",
     user_id: 8,
-    photo: "",
+
     hinanjyo_id: 2237,
     tag_list: "Medicine"
     )
@@ -310,7 +310,7 @@ user = User.create!(
     title: "Running low on fuel",
     description: "In need of fuel for heating!",
     user_id: 8,
-    photo: "",
+
     hinanjyo_id: 2237,
     tag_list: "Fuel"
     )
@@ -322,7 +322,7 @@ user = User.create!(
     title: "Need Help! Soap",
     description: "I have run out of soap!!!!",
     user_id: 4,
-    photo: "",
+
     hinanjyo_id: 2238,
     tag_list: "Other"
     )
@@ -339,58 +339,50 @@ user = User.create!(
   Comment.create!(
     post_id: 1,
     user_id: 2,
-    content: "I have plenty of canned food to give you but you will need to cook it yourself! I can make my way there within the next few hours",
-    photo: " "
+    content: "I have plenty of canned food to give you but you will need to cook it yourself! I can make my way there within the next few hours"
     )
 
   Comment.create!(
     post_id: 1,
     user_id: 1,
-    content: "You are a life saver!!! Literally!!!! Thank you :)",
-    photo: " "
+    content: "You are a life saver!!! Literally!!!! Thank you :)"
     )
 
   Comment.create!(
     post_id: 1,
     user_id: 2,
-    content: "Running a bit late but still on my way!",
-    photo: " "
+    content: "Running a bit late but still on my way!"
     )
 
   Comment.create!(
     post_id: 1,
     user_id: 1,
-    content: "No problem! Thanks so much once again",
-    photo: " "
+    content: "No problem! Thanks so much once again"
     )
 
     Comment.create!(
     post_id: 4,
     user_id: 6,
-    content: "Bringing some!",
-    photo: " "
+    content: "Bringing some!"
     )
 
    Comment.create!(
     post_id: 4,
     user_id: 3,
-    content: "Bringing some!",
-    photo: " "
+    content: "Bringing some!"
     )
 
     Comment.create!(
     post_id: 4,
     user_id: 2,
-    content: "Thank you! I will be outside",
-    photo: " "
+    content: "Thank you! I will be outside"
     )
 
 
   Comment.create!(
     post_id: 6,
     user_id: 7,
-    content: "Brining some!",
-    photo: " "
+    content: "Bringing some!"
     )
 
   puts "Comments completed"
