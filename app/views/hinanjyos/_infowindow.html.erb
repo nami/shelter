@@ -1,0 +1,7 @@
+<% @shelter = Hinanjyo.where("latitude = #{marker.latitude}") %>
+<h5><%= @shelter.first.place_name %></h5>
+<div class="button d-flex justify-content-between">
+  <p><%= link_to "Directions", "https://www.google.com/maps/dir/?api=1&destination=#{@shelter.first.latitude},#{@shelter.first.longitude}", target: '_blank' %></p>&nbsp&nbsp&nbsp
+  <p><%= link_to "Shelter Page", shelter_path(@shelter.first) %></p>
+</div>
+

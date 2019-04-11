@@ -2,6 +2,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
 
+  def persist_disaster_session
+    session[:disaster] ||= params[:eq_form][:disaster]
+  end
+
+  def persist_location_session
+    session[:location] ||= params[:eq_form][:location]
+  end
+
   include Pundit
 
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
