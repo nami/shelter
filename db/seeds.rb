@@ -253,21 +253,21 @@ user = User.create!(
   User.find(4).likes post
   User.find(5).likes post
   User.find(6).likes post
-  User.find(7).likes post
-  User.find(8).likes post
 
   post = Post.create!(
-    title: "We hve run out of rice! Need help!",
-    description: "I have no food currently but plenty of water. Would appreciate any help!!!!",
+    title: "Lost Dog Found!",
+    description: "I found a lost Shiba. Seems well trained and looking for the owner or for help taking care of him!",
     user_id: 6,
     photo: "",
     hinanjyo_id: 2224,
-    tag_list: "Food"
+    tag_list: "Other"
     )
 
   User.find(2).likes post
   User.find(4).likes post
   User.find(5).likes post
+  User.find(7).likes post
+  User.find(8).likes post
 
   post = Post.create!(
     title: "Need Diapers",
@@ -389,7 +389,14 @@ user = User.create!(
   Comment.create!(
     post_id: 6,
     user_id: 7,
-    content: "Brining some!",
+    content: "Bringing some!",
+    photo: " "
+    )
+
+  Comment.create!(
+    post_id: 2,
+    user_id: 9,
+    content: "We can bring some dog food and advise on care if you need us to!"
     photo: " "
     )
 
