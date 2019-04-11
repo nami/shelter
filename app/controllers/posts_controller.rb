@@ -10,16 +10,17 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     authorize @post
+    @shelter = Hinanjyo.find(params[:shelter_id])
   end
 
   def create
     @post = Post.new(post_params)
     authorize @post
     @post.user = current_user
-    shelter = Hinanjyo.find(params[:hinanjyo_id])
+    shelter = Hinanjyo.find(params[:shelter_id])
     @post.hinanjyo = shelter
     if @post.save
-      redirect_to user_path(shelter)
+      redirect_to shelter_path(shelter)
     else
       render :new
     end
@@ -32,6 +33,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :description, :user_id, :photo, :hinanjyo_id, :tag_list)
+    params.require(:post).permit(:title, :description, :user_id, :photo, :hinanjyo_id, tag_list: [])
   end
 end
