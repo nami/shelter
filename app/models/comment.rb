@@ -27,3 +27,4 @@ class Comment < ApplicationRecord
     Notification.create(event: "New Comment on your Post", comment_id: self.id, user_id: self.post.user.id)
   end
 end
+end
