@@ -1,38 +1,43 @@
 <div class="container mb-5">
 
-  <div class="">
-    <%= link_to "Back to map", shelters_path, class: "" %>
-    <!-- "Search bar for tags should be added here" -->
+  <div class="shelter-header d-flex mt-3 justify-content-between">
+    <div class="back-map d-flex">
+      <i class="fas fa-backward pt-1 mr-2"></i>
+      <%= link_to "Map", shelters_path, class: "" %>
+    </div>
+    <div class="search-tags">
+      <input type="text" class="form-control" placeholder="Search tags...">
+    </div>
   </div>
 
-  <% if user_signed_in? %>
-    <div class="text-center">
-      <%= cl_image_tag (current_user.avatar), class: 'avatar-large' %>
-      <p><%= current_user.first_name %></p>
+  <% if user_signed_in? && (current_user.voted_for? @shelter) %>
+    <div class="shelter-user text-center mb-3">
+      <%= cl_image_tag (current_user.avatar), class: 'user-avatar' %>
     </div>
   <% end %>
 
-  <div class="shelter-name d-flex justify-content-start">
-    <h1><%= @shelter.place_name %></h1>
-    &nbsp;&nbsp;&nbsp;
+  <div class="shelter-name d-flex justify-content-center">
+    <h3 class="ja"><%= @shelter.place_name %></h3>
     <% if user_signed_in? %>
       <!-- in case the shelter is favorite, show yellow star -->
       <% if current_user.voted_for? @shelter %>
         <%= link_to favorite_shelter_path do %>
-          <i class="fas fa-star favorite"></i>
+          <i class="fas fa-heart favorite mt-1 ml-2"></i>
         <% end %>
       <!-- in case the shelter is not favorite, show transparent star -->
       <% else %>
         <%= link_to favorite_shelter_path do %>
-          <i class="far fa-star not-favorite"></i>
+          <i class="far fa-heart not-favorite m2-2 ml-2"></i>
         <% end %>
       <% end %>
     <% end %>
   </div>
 
-  <%= link_to new_shelter_post_path(@shelter) do %>
-    <div class="btn btn-primary">REQUEST HELP</div>
-  <% end %>
+  <div class="request-help text-center mt-2 mb-3">
+    <%= link_to new_shelter_post_path(@shelter) do %>
+      <div class="btn btn-primary" id="request-button">REQUEST HELP</div>
+    <% end %>
+  </div>
 
   <div class="all-posts cards">
     <div class="rows">
@@ -41,17 +46,31 @@
       <% else %>
         <% @posts.each do |post| %>
         <%= link_to post_path(post.id) do %>
-          <div class="post card">
-            <h4><%= post.title %></h4>
-            <p><%= post.description %></p>
-            <div class="tag-list d-flex">
-              <% post.tag_list.each do |tag| %>
-                <p class="post-tag mr-3"><%= tag %></p>
-              <% end %>
+          <div class="post card mb-3 animated fadeInUp">
+            <div class="post-card-header d-flex justify-content-between">
+              <h4 class="ml-3 pt-3 pb-2"><%= post.title %></h4>
+              <i onclick="likeFunction(this)" class="fas fa-thumbs-up fa-2x mt-3 mr-3"></i>
+              <script>
+                function likeFunction(x) {
+                  x.classList.toggle("green");
+                }
+              </script>
             </div>
-            <div class="posted-by">
-              <%= cl_image_tag (post.user.avatar), class: 'avatar-large' %>
-              <p><%= post.user.first_name %></p>
+            <p class="mx-3"><%= post.description %></p>
+            <div class="post-card-foot d-flex justify-content-between">
+              <div class="tag-list d-flex">
+                <% post.tag_list.each do |tag| %>
+                  <div class="single-tag ml-3">
+                    <p class="px-1 py-1"><%= tag %></p>
+                  </div>
+                <% end %>
+              </div>
+              <div class="posted-by mr-4">
+                <%= cl_image_tag (post.user.avatar), class: 'poster-avatar' %>
+              </div>
+            </div>
+            <div class="date-posted ml-3 mb-2">
+              <p>Posted: <%= post.created_at %></p>
             </div>
           </div>
           <% end %>

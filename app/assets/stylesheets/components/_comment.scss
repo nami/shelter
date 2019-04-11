@@ -11,6 +11,16 @@
   h4 {
     margin: 0;
   }
+  a{
+    text-decoration: none;
+    color: white;
+    opacity: 0.5;
+    font-size: 10px;
+  }
+
+  a:hover{
+    opacity: 1;
+  }
 }
 
 .green{

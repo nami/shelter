@@ -1,22 +1,122 @@
+.shelter-header {
+  color: #048998;
+  a {
+    text-decoration: none;
+    color: #048998;
+    }
+  a:hover {
+    color: black;
+  }
+}
+
+.shelter-header:hover {
+  color: black;
+}
+
+.search-tags input{
+  border-radius: 25px;
+}
+
+.shelter-name a{
+  text-decoration: none;
+  color: #8b0000;
+  font-size: 24px;
+}
+
+.shelter-name a:hover{
+  text-decoration: none;
+  color: #8b0000;
+}
+
 .fa-star.favorite {
-  color: yellow;
-  font-size: 32px;
+  color: red;
   &:hover {
     opacity: 0.5;
   }
 }
 
 .fa-star.not-favorite {
-  color: black;
-  font-size: 32px;
+  color: red;
   &:hover {
-    color: blue;
+    color: red;
   }
 }
 
-.post-tag {
-  color: white;
-  background-color: gray;
-  padding: 0 4px;
-  border-radius: 4px;
+.all-posts a{
+  text-decoration: none;
+  a:hover{
+    text-decoration: none;
+  }
+}
+
+.post.card{
+  border-radius: 25px;
+}
+
+.post.card h4{
+  color: black;
+  h4:hover{
+    color: black;
+  }
+}
+
+.post-card-header i{
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  i:hover{
+    color: black;
+  }
+}
+
+.post.card p{
+  color: #43464B;
+  h4:hover{
+    color: #43464B;
+  }
+}
+
+.user-avatar{
+  border-radius: 50%;
+  height: 65px;
+  width: 65px;
+  object-fit: cover;
+}
+
+.poster-avatar{
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+}
+
+.single-tag{
+  font-weight: 700;
+  p{
+    color: white!important;
+    background-color: #007880;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+.date-posted p{
+  margin: 0 0;
+  padding: 0 0;
+  font-size: 10px;
+  color: #A9A9A9;
+}
+
+#request-button{
+  font-weight: 500;
+  border-radius: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-color: #048998;
+  background-color: #048998;
+}
+
+#request-button:hover{
+  border-color: #3BB4C1;
+  background-color: #3BB4C1;
 }
