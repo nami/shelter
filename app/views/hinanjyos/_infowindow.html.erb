@@ -3,7 +3,7 @@
 <hr>
   <p><%= @shelter.first.street %></p>
 <hr>
-  <div class="button d-flex justify-content-between">
+  <div class=" button-style button d-flex justify-content-between">
     <p><%= link_to '<i class="fas fa-directions"></i> Direction'.html_safe, "https://www.google.com/maps/dir/?api=1&destination=#{@shelter.first.latitude},#{@shelter.first.longitude}", target: '_blank'%>
     </p>&nbsp&nbsp&nbsp
     <p><%= link_to '<i class="fas fa-home"></i> Shelter'.html_safe, shelter_path(@shelter.first) %></p>

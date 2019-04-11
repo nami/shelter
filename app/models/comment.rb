@@ -1,10 +1,11 @@
 class Comment < ApplicationRecord
   belongs_to :post
   belongs_to :user
+  has_many :notifications
   validates :content, presence: true, allow_blank: false
 
   after_create :broadcast_message
-
+  after_create_commit { notify }
 
   def from?(some_user)
     user == some_user
@@ -20,5 +21,9 @@ class Comment < ApplicationRecord
 
   def nice_date
     date.strftime("%b %d, %a  %I:%M %p") if date
+  private
+
+  def notify
+    Notification.create(event: "New Comment on your Post", comment_id: self.id, user_id: self.post.user.id)
   end
 end
