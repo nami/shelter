@@ -1,0 +1,28 @@
+<%= simple_form_for [shelter, post], url: :shelter_posts do |f| %>
+
+  <div class="form-inputs">
+
+    <%= f.input :title,
+                placeholder: "Request Title",
+                required: true %>
+    <%= f.input :description,
+                placeholder: "Write your request here...",
+                input_html: { class: "form-description" },
+                required: true %>
+    <%= f.input :photo,
+                input_html: { class: "form-photo" } %>
+    <%= f.input :photo_cache, as: :hidden %>
+
+  </div>
+
+  <div class="form-tags">
+
+    <%= f.input :tag_list, as: :check_boxes, collection: %w(Food Water Clothing Baby Medicine Fuel Electricity Other) %>
+
+  </div>
+
+  <div class="form-actions d-flex justify-content-center">
+    <%= f.button :submit, "SUBMIT", class: "form-submit" %>
+  </div>
+
+<% end %>
