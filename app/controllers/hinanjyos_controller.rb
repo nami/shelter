@@ -21,16 +21,27 @@ class HinanjyosController < ApplicationController
     end
 
     if params[:eq_form].present?
-      if params[:eq_form][:disaster].present? && params[:eq_form][:longitude].present?
-        @shelters = Hinanjyo.near([params[:eq_form][:longitude],params[:eq_form][:latitude]], 3)
-        session[:disaster] = params[:eq_form][:disaster]
-        @markers = @shelters
-      elsif params[:eq_form][:disaster].present?
-        @disaster = params[:eq_form][:disaster]
-        @shelters = Hinanjyo.where("#{@disaster} = true")
-        @markers = @shelters
-        session[:disaster] = params[:eq_form][:disaster]
-      end
+      @user_disaster = params[:eq_form][:disaster]
+      @user_longitude = params[:eq_form][:longitude]
+      @user_latitude = params[:eq_form][:latitude]
+    end
+
+    if params[:tsu_form].present?
+      @user_disaster = params[:tsu_form][:disaster]
+      @user_longitude = params[:tsu_form][:longitude]
+      @user_latitude = params[:tsu_form][:latitude]
+    end
+
+    if @user_disaster.present? && @user_longitude.present?
+      @shelters = Hinanjyo.where("#{@disaster} = true")
+      @shelters = Hinanjyo.near([@user_longitude,@user_latitude], 3)
+      session[:disaster] = @user_disaster
+      @markers = @shelters
+    elsif @user_disaster.present?
+      @disaster = @user_disaster
+      @shelters = Hinanjyo.where("#{@disaster} = true")
+      @markers = @shelters
+      session[:disaster] = @user_disaster
     end
 
     @markers = @markers.map do |marker|
@@ -42,7 +53,6 @@ class HinanjyosController < ApplicationController
         # (you will also need to create the partial "/flats/map_box")
       }
     end
-
   end
 
   def show

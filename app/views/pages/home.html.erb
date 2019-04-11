@@ -14,7 +14,12 @@
         <%= image_tag "homepage/earthquake.png", alt: "earthquake icon", class: "mb-2" %>
         <p>Earthquake</p>
       </div>
-      <div class="tsunami ml-2 d-flex flex-column justify-content-center align-items-center">
+      <%= simple_form_for :tsu_form, url: :shelters, method: :get, html: {id: :tsunami_form } do |f| %>
+      <%= f.input :longitude, id: "tsunami-long", as: :hidden %>
+      <%= f.input :latitude, id: "tsunami-lat", as: :hidden %>
+      <%= f.input :disaster, input_html: {value: 'tsunami'}, as: :hidden %>
+      <% end %>
+      <div class="tsunami ml-2 d-flex flex-column justify-content-center align-items-center" onClick="document.getElementById('tsunami_form').submit();">
         <%= image_tag "homepage/tsunami.png", alt: "tsunami icon", class: "mb-2" %>
         <p>Tsunami</p>
       </div>
