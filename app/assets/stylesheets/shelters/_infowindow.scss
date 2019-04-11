@@ -3,5 +3,11 @@ font-weight: bold;
 }
 
 .button {
- font-size: 16px;
+ margin-bottom: 0px;
+ font-weight: bolder;
+}
+
+button.gm-ui-hover-effect {
+  margin-top: 5px !important;
+  margin-right: 5px !important;
 }
