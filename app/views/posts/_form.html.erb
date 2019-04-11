@@ -17,9 +17,34 @@
 
   <div class="form-tags">
 
-    <%= f.input :tag_list, as: :check_boxes, collection: %w(Food Water Clothing Baby Medicine Fuel Electricity Other) %>
+    <% tag_selection = %w(Food Water Blanket Clothing Baby/Kid Hygiene Battery Medicine Other) %>
+
+    <fieldset class="form-group">
+      <input type="hidden" name="post[tag_list][]" value="">
+
+      <div class="tag-choices">
+        <% tag_selection.each do |tag| %>
+          <!-- <div class="form-check"> -->
+            <input class="checkbox_hidden" type="checkbox" value="<%= tag %>" name="post[tag_list][]" id="post_tag_list_<%= tag.downcase %>">
+            <label class="tag-choice" for="post_tag_list_<%= tag.downcase %>"><%= tag %></label>
+          <!-- </div> -->
+        <% end %>
+      </div>
+    </fieldset>
+
+    <script>
+      const elements = document.querySelectorAll(".tag-choice");
+      const toggleActiveClass = (event) => {
+        event.currentTarget.classList.toggle("active");
+      };
+      const toggleActiveOnClick = (element) => {
+        element.addEventListener("click", toggleActiveClass);
+      };
+      elements.forEach(toggleActiveOnClick);
+    </script>
 
   </div>
+
 
   <div class="form-actions d-flex justify-content-center">
     <%= f.button :submit, "SUBMIT", class: "form-submit" %>
