@@ -28,8 +28,10 @@
     <%= image_tag "navbar/shelter.png", alt: "shelter icon", class: "ml-3" %>
     <p>My Shelter</p>
   </div>
-  <div class="settings-icon">
-    <%= image_tag "navbar/settings.png", alt: "settings icon", class: "ml-2" %>
-    <p>Settings</p>
-  </div>
+  <%= link_to destroy_user_session_path, :method => 'delete' do  %>
+    <div class="settings-icon">
+      <%= image_tag "navbar/settings.png", alt: "settings icon", class: "ml-2" %>
+      <p>Settings</p>
+    </div>
+  <% end %>
 </div>
