@@ -5,7 +5,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post_chat = Post.includes(comments: :user).find(params[:id])
+    @post = Post.includes(comments: :user).find(params[:id])
+    authorize @post
   end
 
   def new

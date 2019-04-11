@@ -38,6 +38,7 @@
         <p class="">Currently the shelter doesn't have any post.</p>
       <% else %>
         <% @posts.each do |post| %>
+        <%= link_to post_path, :action => 'go' do %>
           <div class="post card">
             <h4><%= post.title %></h4>
             <p><%= post.description %></p>
@@ -46,6 +47,7 @@
               <p><%= post.user.first_name %></p>
             </div>
           </div>
+          <% end %>
         <% end %>
       <% end %>
 
