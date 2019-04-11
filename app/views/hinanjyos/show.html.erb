@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mb-5">
 
   <div class="">
     <%= link_to "Back to map", shelters_path, class: "" %>
@@ -43,6 +43,11 @@
           <div class="post card">
             <h4><%= post.title %></h4>
             <p><%= post.description %></p>
+            <div class="tag-list d-flex">
+              <% post.tag_list.each do |tag| %>
+                <p class="post-tag mr-3"><%= tag %></p>
+              <% end %>
+            </div>
             <div class="posted-by">
               <%= cl_image_tag (post.user.avatar), class: 'avatar-large' %>
               <p><%= post.user.first_name %></p>
