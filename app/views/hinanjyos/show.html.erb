@@ -30,7 +30,9 @@
     <% end %>
   </div>
 
-  <div class="btn btn-primary">REQUEST HELP</div>
+  <%= link_to new_shelter_post_path(@shelter) do %>
+    <div class="btn btn-primary">REQUEST HELP</div>
+  <% end %>
 
   <div class="all-posts cards">
     <div class="rows">
