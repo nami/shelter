@@ -41,19 +41,23 @@
   color: white;
 }
 
-.form-control {
+form.new_user .form-control {
   border-radius: 24px;
 }
 
-.form-group {
+form.new_user .form-group {
   font-size: 16px;
   margin-bottom: 0.8rem;
   text-align: left;
   color: white;
 }
 
-.d-flex {
+form.new_user .d-flex {
   justify-content: space-between;
+}
+
+small.form-text.text-muted {
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 .form-sign-up {
@@ -70,3 +74,10 @@
     background-color: #007880;
   }
 }
+
+.file_button_container {
+     background-color: white;
+     color:red;
+ }
+
+

@@ -4,7 +4,7 @@
         <div class="title">
           <h2 class="registration-title">Sign up</h2>
         </div>
-          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), class: "sign-up-form") do |f| %>
           <%= f.error_notification %>
 
           <div class="form-inputs">
@@ -56,13 +56,12 @@
               <%= f.input :password_confirmation,
                           required: true,
                           input_html: { autocomplete: "new-password" } %>
-<!--             <div class="form-group d-flex">
- -->          <%= f.input :photo_id,
-                          label: "Photo ID",
-                          hint: "This is to keep you safe from scammers" %>
-              <%= f.input :photo_id_cache, as: :hidden %>
-              <%= f.input :avatar %>
-              <%= f.input :avatar_cache, as: :hidden %>
+                 <%= f.input :photo_id,
+                            label: "Photo ID",
+                            hint: "This is to keep you safe from scammers", label_html: { class: "form-photo"}%>
+                <%= f.input :photo_id_cache, as: :hidden %>
+                <%= f.input :avatar %>
+                <%= f.input :avatar_cache, as: :hidden %>
            <!--  </div> -->
           </div>
 
