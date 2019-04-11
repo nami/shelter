@@ -5,12 +5,16 @@
 
 .row {
   display: flex;
-  margin: 24px;
-  padding: 16px;
+  margin-bottom: 40px;
+  padding: 24px;
   text-align: center;
 }
 
-.signup-title {
+h2 {
+  font-size: 48px;
+}
+
+.title {
   margin-bottom: 40px;
 }
 
@@ -19,6 +23,7 @@
 }
 
 .form-group {
+  font-size: 16px;
   margin-bottom: 0.8rem;
   text-align: left;
 }
@@ -33,6 +38,7 @@
   color: white;
   font-weight: bold;
   margin-top: 16px;
+  margin-bottom: 16px;
   padding: 8px 32px;
 
   &:hover {
