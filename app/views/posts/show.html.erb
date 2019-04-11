@@ -1,12 +1,13 @@
-<div class="container">
+<div class="container-fluid page-comments">
   <div class="row">
     <div class="col-sm-12 col-sm-offset-3">
-      <div class="chat-header"><h4><%= @post.title %></h4></div>
-      <div class="post-info border-bottom">
-        <%= cl_image_tag @post.user.avatar, class: "avatar" %>
-
+      <div class="chat-header py-3"><h3><%= @post.title %></h3></div>
+      <div class="post-info border-bottom mt-2">
+        <div class="post-user d-flex flex-column align-items-center">
+          <%= cl_image_tag @post.user.avatar, class: "avatar" %>
+          <h5><%= @post.user.first_name %> <%= @post.user.last_name %></h5>
+        </div>
         <p><%= @post.description %></p>
-        <p><%= @post.user.first_name %> <%= @post.user.last_name %></p>
       </div>
       <div class="comments">
         <% @post.comments.each do |comment| %>

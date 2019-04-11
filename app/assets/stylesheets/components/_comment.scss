@@ -1,3 +1,9 @@
+.container-fluid.page-comments{
+  width: 100vw;
+  height: calc(100vh);
+  background-color: white;
+}
+
 .comments {
   font-size: 14px;
   color: #868686;
@@ -53,10 +59,10 @@ input.form-control {
   }
 }
 .chat-header {
-  background-color: #4F2F4C;
+  width: 100vw;
+  background-color: #32767F;
   color: white;
-  padding: 10px 20px;
-  margin-top: 10px;
+  text-align: center;
   h4 {
     margin: 0;
   }
