@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'notifications/index'
   devise_for :installs
   devise_for :users
   root to: 'pages#home'
@@ -16,7 +17,7 @@ Rails.application.routes.draw do
   resources :comments, only: [ :edit, :update, :destroy]
 
   # notifications uses the comments index view
-  get 'notifications', to: 'comments#index', as: 'notifications'
+  #get 'notifications', to: 'comments#index', as: 'notifications'
 
   # NGO map search page
   namespace :helpers do
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
 
   mount ActionCable.server => "/cable"
 
+  resources :notifications, only: :index
   # area_info is in posts index
   # item_search is in posts index
 end
