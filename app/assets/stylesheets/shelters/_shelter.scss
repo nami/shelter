@@ -120,3 +120,32 @@
   border-color: #3BB4C1;
   background-color: #3BB4C1;
 }
+
+.checkbox_hidden {
+  display: none;
+}
+
+.tag-choices {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.tag-choice {
+  background: #b7b7b7;
+  padding: 10px;
+  border-radius: 5px;
+  opacity: .4;
+  flex: 0 0 30%;
+  text-align: center;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  &.active {
+  background: $blue;
+  color: white;
+  opacity: 1;
+  }
+}
