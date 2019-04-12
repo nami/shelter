@@ -19,12 +19,13 @@ class Comment < ApplicationRecord
     })
   end
 
-  def nice_date
-    date.strftime("%b %d, %a  %I:%M %p") if date
+  # def nice_date
+  #   date.strftime("%b %d, %a  %I:%M %p") if date
+  # end
+
   private
 
   def notify
     Notification.create(event: "New Comment on your Post", comment_id: self.id, user_id: self.post.user.id)
   end
-end
 end
