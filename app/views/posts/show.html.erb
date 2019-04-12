@@ -55,8 +55,8 @@
       received: (data) => {
         <% if user_signed_in? %>
           if (data.current_user_id !== <%= current_user.id %>){
-            const commentsContainer = document.querySelector('.comments');
-            commentsContainer.insertAdjacentHTML('beforeend', data.comment_partial)
+            let receiverContainer = document.querySelector('.comments');
+            receiverContainer.insertAdjacentHTML('beforeend', data.comment_partial)
             comments = document.querySelectorAll('.comment')
             lastComment = comments[comments.length - 1]
             lastComment.scrollIntoView();

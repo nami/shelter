@@ -1,12 +1,12 @@
 <% if @comment.errors.any? %>
  // handle
 <% else %>
-  const commentsContainer = document.querySelector('.comments');
+  var commentsContainer = document.querySelector('.comments');
   commentsContainer.insertAdjacentHTML('beforeend', '<%= j render "comment", comment: @comment, user_is_comments_author: true  %>');
-  const input = document.querySelector('#comment_content');
+  var input = document.querySelector('#comment_content');
   input.value = '';
   input.blur();
-  let comments = document.querySelectorAll('.comment')
-  let lastComment = comments[comments.length - 1]
+  var comments = document.querySelectorAll('.comment')
+  var lastComment = comments[comments.length - 1]
   lastComment.scrollIntoView();
 <% end %>
