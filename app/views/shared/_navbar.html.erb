@@ -14,7 +14,7 @@
       <% if user_signed_in? %>
         <%= render 'notifications/counter', counter: current_user.notifications.count %>
       <% end %>
-      <%= image_tag "navbar/bell.png", alt: "bell icon", class: "ml-4" %>
+      <%= image_tag "navbar/bell.png", alt: "bell icon"%>
       <p>Notifications</p>
     </div>
   <% end %>
