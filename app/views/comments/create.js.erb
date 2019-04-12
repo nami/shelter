@@ -6,7 +6,7 @@
   const input = document.querySelector('#comment_content');
   input.value = '';
   input.blur();
-  const comments = document.querySelectorAll('.comment')
-  const lastComment = comments[comments.length - 1]
+  let comments = document.querySelectorAll('.comment')
+  let lastComment = comments[comments.length - 1]
   lastComment.scrollIntoView();
 <% end %>
