@@ -17,7 +17,7 @@ $(document).ready(function()
 
     $("#notificationContainer").click(function()
     {
-        return false;
+        return true;
     });
 
 });
