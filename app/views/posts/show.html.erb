@@ -35,12 +35,14 @@
             <%= render "comments/comment", comment: comment, user_is_comments_author: comment.user == current_user %>
           <% end %>
         </div>
-        <div id="create-comment">
-          <%= simple_form_for [ @post, Comment.new ], remote: true, html: {id: :comment_form } do |f| %>
-            <%= f.input :content, label: false, class: "comment-input" %>
-            <%= f.submit :SUBMIT, class: "btn btn-dark cmtarea mt-1" %>
-          <% end %>
-        </div>
+        <% if policy(Comment).create? %>
+          <div id="create-comment">
+            <%= simple_form_for [ @post, Comment.new ], remote: true, html: {id: :comment_form } do |f| %>
+              <%= f.input :content, label: false, class: "comment-input" %>
+              <%= f.submit :SUBMIT, class: "btn btn-dark cmtarea mt-1" %>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
