@@ -1,5 +1,6 @@
 <li>
-  <%= notification.event %>
-  <span> <%= notification.created_at.strftime("  %d %b. %Y") %></span>
-  <span> <%= notification.comment.user.email %></span>
+  <%= link_to post_path(notification.post.id) do %>
+    <%= notification.event %>
+    <span> <%= notification.created_at.strftime("  %d %b. %Y") %>   <%= notification.comment.user.first_name %> <%= notification.comment.user.last_name %></span>
+  <% end %>
 </li>
