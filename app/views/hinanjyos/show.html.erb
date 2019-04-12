@@ -11,7 +11,7 @@
   </div>
 
   <% if user_signed_in? && (current_user.voted_for? @shelter) %>
-    <div class="shelter-user text-center mb-3">
+    <div class="shelter-user text-center mb-3 mt-2">
       <%= cl_image_tag (current_user.avatar), class: 'user-avatar' %>
     </div>
   <% end %>
