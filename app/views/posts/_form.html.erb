@@ -1,53 +1,59 @@
-<%= simple_form_for [shelter, post], url: :shelter_posts do |f| %>
+<div class="container col-sm-6 offset-sm-3 make-request-form">
 
-  <div class="form-inputs">
+  <%= simple_form_for [shelter, post], url: :shelter_posts do |f| %>
 
-    <%= f.input :title,
-                placeholder: "Request Title",
-                required: true %>
-    <%= f.input :description,
-                placeholder: "Write your request here...",
-                input_html: { class: "form-description" },
-                required: true %>
-    <%= f.input :photo,
-                input_html: { class: "form-photo" } %>
-    <%= f.input :photo_cache, as: :hidden %>
+    <div class="form-inputs">
 
-  </div>
+      <%= f.input :title,
+                  label: false,
+                  placeholder: "Request Title",
+                  required: true %>
+      <%= f.input :description,
+                  label: false,
+                  placeholder: "Write your request here...",
+                  input_html: { class: "form-description", rows: 5 },
+                  required: true %>
+      <%= f.input :photo,
+                  input_html: { class: "form-photo" } %>
+      <%= f.input :photo_cache, as: :hidden %>
 
-  <div class="form-tags">
+    </div>
 
-    <% tag_selection = %w(Food Water Blanket Clothing Baby/Kid Hygiene Battery Medicine Other) %>
+    <div class="form-tags">
 
-    <fieldset class="form-group">
-      <input type="hidden" name="post[tag_list][]" value="">
+      <% tag_selection = %w(Food Water Blanket Clothing Baby/Kid Hygiene Battery Medicine Other) %>
 
-      <div class="tag-choices">
-        <% tag_selection.each do |tag| %>
-          <!-- <div class="form-check"> -->
-            <input class="checkbox_hidden" type="checkbox" value="<%= tag %>" name="post[tag_list][]" id="post_tag_list_<%= tag.downcase %>">
-            <label class="tag-choice" for="post_tag_list_<%= tag.downcase %>"><%= tag %></label>
-          <!-- </div> -->
-        <% end %>
-      </div>
-    </fieldset>
+      <fieldset class="form-group">
+        <input type="hidden" name="post[tag_list][]" value="">
 
-    <script>
-      const elements = document.querySelectorAll(".tag-choice");
-      const toggleActiveClass = (event) => {
-        event.currentTarget.classList.toggle("active");
-      };
-      const toggleActiveOnClick = (element) => {
-        element.addEventListener("click", toggleActiveClass);
-      };
-      elements.forEach(toggleActiveOnClick);
-    </script>
+        <div class="tag-choices">
+          <% tag_selection.each do |tag| %>
+            <!-- <div class="form-check"> -->
+              <input class="checkbox_hidden" type="checkbox" value="<%= tag %>" name="post[tag_list][]" id="post_tag_list_<%= tag.downcase %>">
+              <label class="tag-choice" for="post_tag_list_<%= tag.downcase %>"><%= tag %></label>
+            <!-- </div> -->
+          <% end %>
+        </div>
+      </fieldset>
 
-  </div>
+      <script>
+        const elements = document.querySelectorAll(".tag-choice");
+        const toggleActiveClass = (event) => {
+          event.currentTarget.classList.toggle("active");
+        };
+        const toggleActiveOnClick = (element) => {
+          element.addEventListener("click", toggleActiveClass);
+        };
+        elements.forEach(toggleActiveOnClick);
+      </script>
+
+    </div>
 
 
-  <div class="form-actions d-flex justify-content-center">
-    <%= f.button :submit, "SUBMIT", class: "form-submit" %>
-  </div>
+    <div class="form-actions d-flex justify-content-center">
+      <%= f.button :submit, "SUBMIT", class: "form-submit" %>
+    </div>
 
-<% end %>
+  <% end %>
+
+</div>

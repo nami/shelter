@@ -11,12 +11,12 @@
   </div>
 
   <% if user_signed_in? && (current_user.voted_for? @shelter) %>
-    <div class="shelter-user text-center mb-3">
+    <div class="shelter-user text-center mb-3 mt-2">
       <%= cl_image_tag (current_user.avatar), class: 'user-avatar' %>
     </div>
   <% end %>
 
-  <div class="shelter-name d-flex justify-content-center">
+  <div class="shelter-name d-flex justify-content-center mt-3">
     <h3 class="ja"><%= @shelter.place_name %></h3>
     <% if user_signed_in? %>
       <!-- in case the shelter is favorite, show yellow star -->
