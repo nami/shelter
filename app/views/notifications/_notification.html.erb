@@ -1,6 +1,19 @@
 <li>
-  <%= link_to post_path(notification.post.id) do %>
-    <%= notification.event %>
-    <span> <%= notification.created_at.strftime("  %d %b. %Y") %>   <%= notification.comment.user.first_name %> <%= notification.comment.user.last_name %></span>
+  <% unless notification.comment.user == current_user %>
+    <%= link_to post_path(notification.post.id) do %>
+        <div class="notificationCard">
+            <div>
+              <%= cl_image_tag (notification.comment.user.avatar), :class =>"avatar-bordered" %>
+            </div>
+            <div class="notificationContent">
+                <%= notification.comment.user.first_name %> <%= notification.comment.user.last_name %>
+                <%= notification.event %>
+                <div class="timestamp">
+                  <%= notification.created_at.strftime("%b. %d, %I:%M %p ") %>
+                </div>
+            </div>
+        </div>
+    <% end %>
+     <hr>
   <% end %>
 </li>
