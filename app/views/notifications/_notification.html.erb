@@ -3,11 +3,13 @@
     <%= link_to post_path(notification.post.id) do %>
         <div class="notificationCard">
             <div>
-              <%= cl_image_tag (notification.comment.user.avatar), :class =>"avatar-bordered" %>
+              <%= cl_image_tag (notification.comment.user.avatar), :class =>"notifications-avatar mt-1" %>
             </div>
             <div class="notificationContent">
-                <%= notification.comment.user.first_name %> <%= notification.comment.user.last_name %>
-                <%= notification.event %>
+              <div class="user-notice d-flex">
+                <h6 class="pr-3"><%= notification.comment.user.first_name %> <%= notification.comment.user.last_name %></h6>
+                <p><%= notification.event %></p>
+              </div>
                 <div class="timestamp">
                   <%= notification.created_at.strftime("%b. %d, %I:%M %p ") %>
                 </div>
