@@ -32,17 +32,18 @@ body{
   color: white;
   text-align: center;
   h1{
-    font-size: 24px;
+    font-size: 20px;
   }
 }
 
 .container-fluid {
   height: calc(100vh - 69px - 139px);
+  font-size: 12px;
 }
 
 .container-fluid img {
-  width: 53px;
-  height: 53px;
+  width: 40px;
+  height: 40px;
 }
 
 .row{
@@ -50,8 +51,8 @@ body{
 }
 
 .flood img{
-  width: 68px;
-  height: 65px;
+  width: 50px;
+  height: 53px;
 }
 
 .earthquake{
