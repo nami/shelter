@@ -1,5 +1,5 @@
 //= require rails-ujs
-//= require_tree .
 //= require jquery
 //= require jquery.transit.min
+//= require jquery_ujs
 //= require_tree .

@@ -11,6 +11,7 @@
   <% end %>
   <%= link_to notifications_path, :action => 'go' do  %>
     <div class="notif-icon">
+    <%= render'notifications/counter', counter: current_user.notifications.count %>
       <%= image_tag "navbar/bell.png", alt: "bell icon", class: "ml-4" %>
       <!-- <span  id="notification-counter"><%= @counter %></span> -->
       <p>Notifications</p>
