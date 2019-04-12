@@ -27,13 +27,18 @@
       <%= image_tag "navbar/home.png", alt: "home icon", class: "ml-1" %>
       <p>Home</p>
       <% end %>
-  </div>
+    </div>
   <% end %>
   <% if user_signed_in? && current_user.get_voted(Hinanjyo).size == 1 %>
     <%= link_to shelter_path(current_user.get_voted(Hinanjyo).first.id), :action => 'go' do %>
       <div class="shelter-icon">
-        <%= image_tag "navbar/shelter.png", alt: "shelter icon", class: "ml-2" %>
-        <p>My Shelter</p>
+        <% if current_page?(shelter_path(current_user.get_voted(Hinanjyo).first.id)) %>
+          <%= image_tag "navbar/shelter-white.png", alt: "shelter icon active", class: "ml-2" %>
+          <p style="font-weight: 500;">My Shelter</p>
+        <% else %>
+          <%= image_tag "navbar/shelter.png", alt: "shelter icon", class: "ml-2" %>
+          <p>My Shelter</p>
+        <% end %>
       </div>
     <% end %>
   <% end %>
