@@ -8,6 +8,7 @@
   background-color: #32767F;
   color: white;
   text-align: center;
+  margin-left: -15px;
   h4 {
     margin: 0;
   }
@@ -21,6 +22,10 @@
   a:hover{
     opacity: 1;
   }
+}
+
+.chat-body{
+  overflow: scroll;
 }
 
 .green{
@@ -58,7 +63,7 @@ textarea {
 }
 
 .comment-area{
-  height: calc(100vh - 69px - 73px - 173px;);;
+  height: calc(100vh - 69px - 73px - 173px);
 }
 
 .comments {
@@ -124,5 +129,8 @@ input.form-control {
   opacity: 0.8;
 }
 
+.post-description p{
+  font-size: 16px;
+}
 
 

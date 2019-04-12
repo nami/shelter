@@ -1,8 +1,8 @@
-<div class="nav-bar d-flex justify-content-around">
+<div class="nav-bar d-flex justify-content-around pt-1">
   <%= link_to helpers_shelters_path, :action => 'go' do  %>
   <div class="help-icon">
     <%# if current_page?('helpers/shelters') %>
-    <%= image_tag "navbar/hand.png", alt: "hand icon", class: "ml-3" %>
+    <%= image_tag "navbar/hand.png", alt: "hand icon", class: "ml-2" %>
     <%# else %>
     <%#= image_tag "navbar/hand-white", alt: "hand icon active" %>
     <%# end %>
@@ -11,9 +11,8 @@
   <% end %>
   <%= link_to notifications_path, :action => 'go' do  %>
     <div class="notif-icon">
-    <%= render'notifications/counter', counter: current_user.notifications.count %>
+      <%= render'notifications/counter', counter: current_user.notifications.count %>
       <%= image_tag "navbar/bell.png", alt: "bell icon", class: "ml-4" %>
-      <!-- <span  id="notification-counter"><%= @counter %></span> -->
       <p>Notifications</p>
     </div>
   <% end %>
@@ -31,14 +30,14 @@
   <% if user_signed_in? && current_user.get_voted(Hinanjyo).size == 1 %>
     <%= link_to shelter_path(current_user.get_voted(Hinanjyo).first.id), :action => 'go' do %>
       <div class="shelter-icon">
-        <%= image_tag "navbar/shelter.png", alt: "shelter icon", class: "ml-3" %>
+        <%= image_tag "navbar/shelter.png", alt: "shelter icon", class: "ml-2" %>
         <p>My Shelter</p>
       </div>
     <% end %>
   <% end %>
   <%= link_to destroy_user_session_path, :method => 'delete' do  %>
     <div class="settings-icon">
-      <%= image_tag "navbar/settings.png", alt: "settings icon", class: "ml-2" %>
+      <%= image_tag "navbar/settings.png", alt: "settings icon", class: "ml-1" %>
       <p>Settings</p>
     </div>
   <% end %>
