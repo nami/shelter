@@ -2,7 +2,7 @@
   <h1 class="mx-5 px-4">Select type of shelter near you</h1>
 </div>
 
-<div class="container-fluid d-flex flex-column justify-content-around mt-2">
+<div class="container-fluid d-flex flex-column justify-content-around">
   <div class="row">
     <%= simple_form_for :eq_form, url: :shelters, method: :get, html: {id: :earthquake_form } do |f| %>
       <%= f.input :longitude, id: "earthquake-long", as: :hidden %>
