@@ -9,10 +9,13 @@
     <p>Offer Help</p>
   </div>
   <% end %>
-  <div class="notif-icon">
-    <%= image_tag "navbar/bell.png", alt: "bell icon", class: "ml-4" %>
-    <p>Notifications</p>
-  </div>
+  <%= link_to notifications_path, :action => 'go' do  %>
+    <div class="notif-icon">
+      <%= image_tag "navbar/bell.png", alt: "bell icon", class: "ml-4" %>
+      <!-- <span  id="notification-counter"><%= @counter %></span> -->
+      <p>Notifications</p>
+    </div>
+  <% end %>
   <%= link_to root_path, :action => 'go' do  %>
     <div class="home-icon">
       <% if current_page?(controller:'/pages', action:'home') %>
