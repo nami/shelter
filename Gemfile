@@ -6,6 +6,8 @@ gem 'acts_as_votable', '~> 0.12.0'
 gem 'bootsnap', require: false
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
+gem 'coffee-rails'
+gem 'jquery-rails'
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
