@@ -6,19 +6,20 @@ body{
 .nav-bar{
   position: fixed;
   bottom: 0;
-  height: 60px;
+  height: 75px;
   width: 100vw;
   color: white;
   background-color: #007880;
-  font-size: 8px;
+  font-size: 12px;
+  letter-spacing: 1px;
   z-index: 1;
 }
 
 .nav-bar img{
   margin-top: 9px;
   margin-bottom: 4px;
-  width: 20px;
-  height: 23px;
+  width: 35px;
+  height: 38px;
 }
 
 .nav-bar a{

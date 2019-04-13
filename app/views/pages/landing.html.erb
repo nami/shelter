@@ -1,3 +1,15 @@
-<div class="container-fluid">
-
-</div>
+<header>
+  <div class="overlay"></div>
+    <%= video_tag("bird-house.mp4", autoplay: "autoplay", muted: "muted", loop: "loop", playsinline: "playsinline", id: "landing-video") %>
+    <div class="container h-100">
+      <div class="d-flex h-100 text-center">
+        <div class="w-100 text-white">
+          <h1 class="display-3">Shelter</h1>
+          <p class="lead mb-4">Providing disaster evacuation and shelter relief</p>
+          <div class="action-button">
+            <%= link_to "GUIDE ME TO A SHELTER", home_path, class: "btn-action text-white px-3 py-2" %>
+          </div>
+        </div>
+      </div>
+    </div>
+</header>

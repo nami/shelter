@@ -19,3 +19,5 @@ window.onload = function() {
 //   };
 //   navigator.geolocation.getCurrentPosition(geoSuccess);
 // };
+
+document.getElementById("landing-video").playbackRate = 0.4;
