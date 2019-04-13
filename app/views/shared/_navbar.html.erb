@@ -1,5 +1,5 @@
 <div class="nav-bar d-flex justify-content-around">
-  <%= link_to root_path, :action => 'go' do  %>
+  <%= link_to home_path, :action => 'go' do  %>
     <div class="home-icon">
       <% if current_page?(controller:'/pages', action:'home') %>
       <%= image_tag "navbar/home-white.png", alt: "home icon active", class: "ml-1" %>
