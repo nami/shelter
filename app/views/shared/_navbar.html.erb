@@ -12,11 +12,11 @@
   <% end %>
   <%= link_to helpers_shelters_path, :action => 'go' do  %>
   <div class="help-icon">
-    <%# if current_page?('helpers/shelters') %>
+    <% if current_page?('helpers/shelters') %>
     <%= image_tag "navbar/hand.png", alt: "hand icon", class: "ml-3" %>
-    <%# else %>
-    <%#= image_tag "navbar/hand-white", alt: "hand icon active ml-3" %>
-    <%# end %>
+    <% else %>
+    <%= image_tag "navbar/hand-white", alt: "hand icon active ml-3" %>
+    <% end %>
     <p>Offer Help</p>
   </div>
   <% end %>

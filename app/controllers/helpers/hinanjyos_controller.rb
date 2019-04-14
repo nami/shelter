@@ -1,8 +1,7 @@
-class HinanjyosController < ApplicationController
-  before_action :find_shelter, only: [:show, :edit, :update, :destroy, :favorite]
+class Helpers::HinanjyosController < ApplicationController
   skip_before_action :authenticate_user!
-  def index
 
+  def index
     @shelters = policy_scope(Hinanjyo)
 
     @shelters = Hinanjyo.where.not(latitude: nil, longitude: nil)
@@ -104,38 +103,8 @@ class HinanjyosController < ApplicationController
       {
         lat: marker.latitude,
         lng: marker.longitude,
-        infoWindow: { content: render_to_string(partial: "infowindow", locals: { marker: marker }) }
+        infoWindow: { content: render_to_string(partial: "hinanjyos/infowindow", locals: { marker: marker }) }
       }
     end
   end
-
-  def show
-    authorize @shelter
-    @posts = @shelter.posts
-  end
-
-  # routes added (favorite_shelter_path)
-  # user calls 'favorite_shelter' method and toggle favorites
-  # Set color to star icon depending on the status of favorite
-  def favorite
-    authorize @shelter
-    current_user.favorite_shelter(@shelter)
-
-    redirect_to shelter_path(@shelter)
-  end
-
-  private
-
-  def find_shelter
-    @shelter = Hinanjyo.find(params[:id])
-  end
-
-  # save disasiter searched in session
-  def disaster
-    if @user_disaster.present?
-      session[:disaster] = @user_disaster
-    end
-    return session[:disaster]
-  end
-
 end
