@@ -57,7 +57,7 @@ header .overlay {
 
 @media only screen and (max-width: 600px) {
   header {
-    height: calc(100vh - 75px - 70px);
+    height: calc(100vh - 75px - 65px);
   }
 
   header video {
@@ -68,7 +68,7 @@ header .overlay {
     h1{
       font-weight: 500;
       opacity: 1;
-      margin-top: 25%;
+      margin-top: 18%;
     }
     p {
       padding-bottom: 5px;
