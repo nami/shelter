@@ -17,7 +17,17 @@
               data-markers="<%= @markers.to_json %>"
           ></div>
           <% else %>
-          <h1>There are no <%= @user_disaster %> shelters in your area.</h1>
+          <div class="container-fluid no-shelter text-center">
+            <div class="row">
+              <div class="col-12">
+                <% if @user_disaster.include?("_") %>
+                  <% @user_disaster = @user_disaster.split('_').map(&:capitalize).join(' ') %>
+                <% end %>
+                <h5>There are no <%= @user_disaster.singularize.capitalize %> shelters in your area.</h5>
+                <h6>Search again?</h6>
+              </div>
+            </div>
+          </div>
         <% end %>
       </div>
     </div>

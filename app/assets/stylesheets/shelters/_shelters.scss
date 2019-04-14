@@ -6,3 +6,36 @@
   width: 100vw;
   height: calc(100vh - 75px - 25px);
 }
+
+.no-shelter{
+  background-image: image-url("homepage/door-hallway-dark.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
+  width: 100vw;
+  height: calc(100vh - 75px - 25px);
+  color: white;
+  h5{
+    padding-top: 75%;
+  }
+  h6{
+    font-weight: 300;
+    font-style: italic;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .no-shelter{
+    h5{
+      padding-top: 20%;
+      font-size: 36px;
+    }
+    h6{
+      font-size: 24px;
+      padding-top: 8px;
+    }
+  }
+
+}
