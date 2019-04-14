@@ -12,6 +12,14 @@ class HinanjyosController < ApplicationController
     if params[:location].blank?
       # show all markers
       @markers = policy_scope(Hinanjyo)
+    # if in session there is a user longlat & disaster that was searched before
+    # filter by disaster type, searched location & user location
+    elsif disaster.present? && longlat.present?
+      @markers = Hinanjyo.near(session[:latitude], session[:longitude])
+      @markers = @markers.select do |shelter|
+        @choice_disaster = session[:disaster].to_sym
+        shelter[@choice_disaster] == true
+      end
     # if in session there is a disaster that was searched before
     # filter by disaster type and location
     elsif disaster.present? && params[:location].present?
@@ -89,6 +97,8 @@ class HinanjyosController < ApplicationController
         @choice_disaster = @user_disaster.to_sym
         shelter[@choice_disaster] == true
       end
+      session[:longitude] = @user_longitude
+      session[:latitude] = @user_latitude
       session[:disaster] = @user_disaster
       @markers = @shelters
     # search if disaster is present
@@ -130,7 +140,7 @@ class HinanjyosController < ApplicationController
     @shelter = Hinanjyo.find(params[:id])
   end
 
-  # save disasiter searched in session
+  # save disaster searched in session
   def disaster
     if @user_disaster.present?
       session[:disaster] = @user_disaster
@@ -138,4 +148,12 @@ class HinanjyosController < ApplicationController
     return session[:disaster]
   end
 
+  # save long & lat searched in session
+  def longlat
+    if @user_longitude.present? && @user_latitude.present?
+      session[:longitude] = @user_longitude
+      session[:latitude] = @user_latitude
+    end
+    return [session[:latitude], session[:longitude]]
+  end
 end
