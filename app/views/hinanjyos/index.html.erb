@@ -11,10 +11,14 @@
             %>
           <% end %>
         </div>
-        <div
-            id="map"
-            data-markers="<%= @markers.to_json %>"
-        ></div>
+        <% if @markers.present? %>
+          <div
+              id="map"
+              data-markers="<%= @markers.to_json %>"
+          ></div>
+          <% else %>
+          <h1>There are no <%= @user_disaster %> shelters in your area.</h1>
+        <% end %>
       </div>
     </div>
   </div>
