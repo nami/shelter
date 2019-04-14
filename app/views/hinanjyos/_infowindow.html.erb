@@ -1,10 +1,41 @@
 <% @shelter = Hinanjyo.where("latitude = #{marker.latitude}") %>
-  <h5 class="title-style"><%= @shelter.first.place_name %></h5>
+
+<!-- Logic to retrieve shelter type -->
+<% @disaster = []  %>
+<% @shelter = @shelter.first %>
+<% if @shelter.floods == true %>
+  <% @disaster.push("Flood") %>
+<% end %>
+<% if @shelter.mudslides == true %>
+  <% @disaster.push("Mudslide") %>
+<% end %>
+<% if @shelter.high_tides == true %>
+  <% @disaster.push("High Tide") %>
+<% end %>
+<% if @shelter.earthquakes == true %>
+  <% @disaster.push("Earthquake") %>
+<% end %>
+<% if @shelter.tsunami == true %>
+  <% @disaster.push("Tsunami") %>
+<% end %>
+<% if @shelter.fire == true %>
+  <% @disaster.push("Fire") %>
+<% end %>
+<% if @shelter.burst_pipe == true %>
+  <% @disaster.push("Burst Pipe") %>
+<% end %>
+<% if @shelter.volcano == true %>
+  <% @disaster.push("Volcano") %>
+<% end %>
+  <h5 class="title-style"><%= @shelter.place_name %></h5>
+  <p><strong>Type:</strong><% @disaster.each do |disaster| %>
+   <%= disaster  %>.
+  <% end %></p>
 <hr>
-  <p><%= @shelter.first.street %></p>
+  <p><%= @shelter.street %></p>
 <hr>
   <div class=" button-style button d-flex justify-content-between">
-    <p><%= link_to '<i class="fas fa-directions"></i> Direction'.html_safe, "https://www.google.com/maps/dir/?api=1&destination=#{@shelter.first.latitude},#{@shelter.first.longitude}", target: '_blank'%>
+    <p><%= link_to '<i class="fas fa-directions"></i> Direction'.html_safe, "https://www.google.com/maps/dir/?api=1&destination=#{@shelter.latitude},#{@shelter.longitude}", target: '_blank'%>
     </p>&nbsp&nbsp&nbsp
-    <p><%= link_to '<i class="fas fa-home"></i> Shelter'.html_safe, shelter_path(@shelter.first) %></p>
+    <p><%= link_to '<i class="fas fa-home"></i> Shelter'.html_safe, shelter_path(@shelter) %></p>
   </div>
