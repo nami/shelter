@@ -40,9 +40,51 @@ class HinanjyosController < ApplicationController
       @user_latitude = params[:tsu_form][:latitude]
     end
 
+    # filter by mudslides
+    if params[:mud_form].present?
+      @user_disaster = params[:mud_form][:disaster]
+      @user_longitude = params[:mud_form][:longitude]
+      @user_latitude = params[:mud_form][:latitude]
+    end
+
+    # filter by floods
+    if params[:flood_form].present?
+      @user_disaster = params[:flood_form][:disaster]
+      @user_longitude = params[:flood_form][:longitude]
+      @user_latitude = params[:flood_form][:latitude]
+    end
+
+    # filter by high tide
+    if params[:tide_form].present?
+      @user_disaster = params[:tide_form][:disaster]
+      @user_longitude = params[:tide_form][:longitude]
+      @user_latitude = params[:tide_form][:latitude]
+    end
+
+    # filter by fire
+    if params[:fire_form].present?
+      @user_disaster = params[:fire_form][:disaster]
+      @user_longitude = params[:fire_form][:longitude]
+      @user_latitude = params[:fire_form][:latitude]
+    end
+
+    # filter by pipe
+    if params[:pipe_form].present?
+      @user_disaster = params[:pipe_form][:disaster]
+      @user_longitude = params[:pipe_form][:longitude]
+      @user_latitude = params[:pipe_form][:latitude]
+    end
+
+    # filter by volcano
+    if params[:volcano_form].present?
+      @user_disaster = params[:volcano_form][:disaster]
+      @user_longitude = params[:volcano_form][:longitude]
+      @user_latitude = params[:volcano_form][:latitude]
+    end
+
     # search if user coordinates are present and disaster is selected
     if @user_disaster.present? && @user_longitude.present?
-      @shelters = Hinanjyo.near([@user_longitude, @user_latitude], 3)
+      @shelters = Hinanjyo.near([@user_latitude, @user_longitude], 3)
       @shelters = @shelters.select do |shelter|
         @choice_disaster = @user_disaster.to_sym
         shelter[@choice_disaster] == true

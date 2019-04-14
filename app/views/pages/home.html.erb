@@ -15,9 +15,9 @@
         <p>Earthquake</p>
       </div>
       <%= simple_form_for :tsu_form, url: :shelters, method: :get, html: {id: :tsunami_form } do |f| %>
-      <%= f.input :longitude, id: "tsunami-long", as: :hidden %>
-      <%= f.input :latitude, id: "tsunami-lat", as: :hidden %>
-      <%= f.input :disaster, input_html: {value: 'tsunami'}, as: :hidden %>
+        <%= f.input :longitude, id: "tsunami-long", as: :hidden %>
+        <%= f.input :latitude, id: "tsunami-lat", as: :hidden %>
+        <%= f.input :disaster, input_html: {value: 'tsunami'}, as: :hidden %>
       <% end %>
       <div class="tsunami ml-2 d-flex flex-column justify-content-center align-items-center" onClick="document.getElementById('tsunami_form').submit();">
         <%= image_tag "homepage/tsunami.png", alt: "tsunami icon", class: "mb-2" %>
@@ -26,44 +26,70 @@
     </div>
   </div>
   <div class="row">
+    <%= simple_form_for :mud_form, url: :shelters, method: :get, html: {id: :mudslide_form } do |f| %>
+      <%= f.input :longitude, id: "mudslide-long", as: :hidden %>
+      <%= f.input :latitude, id: "mudslide-lat", as: :hidden %>
+      <%= f.input :disaster, input_html: {value: 'mudslides'}, as: :hidden %>
+    <% end %>
     <div class="col-12 d-flex animated fadeInUp">
-      <div class="mudslides mr-2 d-flex flex-column justify-content-center align-items-center">
+      <div class="mudslides mr-2 d-flex flex-column justify-content-center align-items-center" onClick="document.getElementById('mudslide_form').submit();">
         <%= image_tag "homepage/mudslides.png", alt: "mudslides icon", class: "mb-2" %>
         <p>Mudslides</p>
       </div>
-      <div class="flood ml-2 d-flex flex-column justify-content-center align-items-center">
+      <%= simple_form_for :flood_form, url: :shelters, method: :get, html: {id: :flood_form } do |f| %>
+        <%= f.input :longitude, id: "mud-long", as: :hidden %>
+        <%= f.input :latitude, id: "mud-lat", as: :hidden %>
+        <%= f.input :disaster, input_html: {value: 'floods'}, as: :hidden %>
+      <% end %>
+      <div class="flood ml-2 d-flex flex-column justify-content-center align-items-center" onClick="document.getElementById('flood_form').submit();">
         <%= image_tag "homepage/flood.png", alt: "flood icon" %>
         <p>Flood</p>
       </div>
     </div>
   </div>
   <div class="row">
+    <%= simple_form_for :tide_form, url: :shelters, method: :get, html: {id: :tide_form } do |f| %>
+      <%= f.input :longitude, id: "tide-long", as: :hidden %>
+      <%= f.input :latitude, id: "tide-lat", as: :hidden %>
+      <%= f.input :disaster, input_html: {value: 'high_tides'}, as: :hidden %>
+    <% end %>
     <div class="col-12 d-flex animated fadeInUp">
-      <div class="high-tide mr-2 d-flex flex-column justify-content-center align-items-center">
+      <div class="high-tide mr-2 d-flex flex-column justify-content-center align-items-center" onClick="document.getElementById('tide_form').submit();">
         <%= image_tag "homepage/tide.png", alt: "high tide icon", class: "mb-1" %>
         <p>High Tide</p>
       </div>
-      <div class="fire ml-2 d-flex flex-column justify-content-center align-items-center">
+      <%= simple_form_for :fire_form, url: :shelters, method: :get, html: {id: :fire_form } do |f| %>
+        <%= f.input :longitude, id: "fire-long", as: :hidden %>
+        <%= f.input :latitude, id: "fire-lat", as: :hidden %>
+        <%= f.input :disaster, input_html: {value: 'fire'}, as: :hidden %>
+      <% end %>
+      <div class="fire ml-2 d-flex flex-column justify-content-center align-items-center" onClick="document.getElementById('fire_form').submit();">
         <%= image_tag "homepage/fire.png", alt: "fire icon", class: "mb-1" %>
         <p>Fire</p>
       </div>
     </div>
   </div>
   <div class="row">
+    <%= simple_form_for :pipe_form, url: :shelters, method: :get, html: {id: :pipe_form } do |f| %>
+      <%= f.input :longitude, id: "pipe-long", as: :hidden %>
+      <%= f.input :latitude, id: "pipe-lat", as: :hidden %>
+      <%= f.input :disaster, input_html: {value: 'burst_pipe'}, as: :hidden %>
+    <% end %>
     <div class="col-12 d-flex animated fadeInUp">
-      <div class="burst-pipe mr-2 d-flex flex-column justify-content-center align-items-center">
+      <div class="burst-pipe mr-2 d-flex flex-column justify-content-center align-items-center" onClick="document.getElementById('pipe_form').submit();">
         <%= image_tag "homepage/pipes.png", alt: "burst pipe icon", class: "mb-2" %>
         <p>Burst Pipe</p>
       </div>
-      <div class="volcano ml-2 d-flex flex-column justify-content-center align-items-center">
+      <%= simple_form_for :volcano_form, url: :shelters, method: :get, html: {id: :volcano_form } do |f| %>
+        <%= f.input :longitude, id: "volcano-long", as: :hidden %>
+        <%= f.input :latitude, id: "volcano-lat", as: :hidden %>
+        <%= f.input :disaster, input_html: {value: 'volcano'}, as: :hidden %>
+      <% end %>
+      <div class="volcano ml-2 d-flex flex-column justify-content-center align-items-center" onClick="document.getElementById('volcano_form').submit();">
         <%= image_tag "homepage/volcano.png", alt: "volcano icon", class: "mb-2" %>
         <p>Volcano</p>
       </div>
     </div>
   </div>
 </div>
-
-<script>
-
-</script>
 
