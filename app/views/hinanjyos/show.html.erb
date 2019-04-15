@@ -22,12 +22,12 @@
       <!-- in case the shelter is favorite, show yellow star -->
       <% if current_user.voted_for? @shelter %>
         <%= link_to favorite_shelter_path do %>
-          <i class="fas fa-heart favorite mt-1 ml-2"></i>
+          <i class="fas fa-check-circle favorite mt-1 ml-2"></i>
         <% end %>
       <!-- in case the shelter is not favorite, show transparent star -->
       <% else %>
         <%= link_to favorite_shelter_path do %>
-          <i class="far fa-heart not-favorite m2-2 ml-2"></i>
+          <i class="far fa-check-circle not-favorite m2-2 ml-2"></i>
         <% end %>
       <% end %>
     <% end %>
@@ -74,6 +74,9 @@
               </div>
               <div class="posted-by mr-4">
                 <%= cl_image_tag (post.user.avatar), class: 'poster-avatar' %>
+                <% if current_user.get_voted(Hinanjyo).first == post.user.get_voted(Hinanjyo).first %>
+                  <i class="fas fa-check-circle"></i>
+                <% end %>
               </div>
             </div>
             <div class="date-posted ml-3 mb-2">
