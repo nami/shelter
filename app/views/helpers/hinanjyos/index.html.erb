@@ -3,7 +3,7 @@
     <div class="col-sm-12" style="padding: 0;">
       <div class="shelters-map">
         <div class="shelters-search-bar">
-          <%= form_tag helpers_shelters_path, method: :get do %>
+          <%= form_tag shelters_path, method: :get do %>
             <%= text_field_tag :location,
               params[:location],
               class: "form-control", id: "location_input",
@@ -23,7 +23,7 @@
           ></div>
           <div class="map-footer">
             <div class="items-search-bar d-flex justify-content-center pb-2">
-              <%= form_tag shelters_path, method: :get do %>
+              <%= form_tag posts_path, method: :get do %>
                 <%= text_field_tag :item,
                   params[:item],
                   class: "form-control", id: "location_input",
@@ -84,4 +84,14 @@
       window.location.href = "/shelters";
     }
   });
+
+  const search = document.querySelector(".items-search-bar");
+  search.addEventListener('keypress', (event) => {
+    const key = event.which || event.keyCode;
+    if (key === 13) { // 13 is enter
+      // code for enter
+      window.location.href = "/posts";
+    }
+  });
+
 </script>

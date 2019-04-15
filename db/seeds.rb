@@ -254,8 +254,8 @@ user = User.create!(
   User.find(6).likes post
 
   post = Post.create!(
-    title: "Lost Dog Found!",
-    description: "I found a lost Shiba. Seems well trained and looking for the owner or for help taking care of him!",
+    title: "Help My Dog!",
+    description: "I need someone to care for my dog as my shelter doesn't allow pets. He is well trained Shiba Inu named Pochi. Please help me as they only give me a week until they kick him out!",
     user_id: 6,
     hinanjyo_id: 2238,
     tag_list: "Other"
