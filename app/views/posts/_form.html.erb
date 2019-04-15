@@ -23,6 +23,7 @@
     <div class="form-tags">
 
       <% tag_selection = %w(Food Water Blanket Clothing Baby/Kid Hygiene Battery Medicine Other) %>
+      <div class="user-tags"><%= @post.tag_list %></div>
 
       <fieldset class="form-group">
         <input type="hidden" name="post[tag_list][]" value="">
@@ -46,6 +47,17 @@
           element.addEventListener("click", toggleActiveClass);
         };
         elements.forEach(toggleActiveOnClick);
+
+        // pre-select the current tags(in case of updating)
+        const userTags = document.querySelector(".user-tags").innerText.split(", ");
+        elements.forEach((element) => {
+          if (userTags.includes(element.innerHTML)) {
+            element.classList.add("active");
+            element.previousElementSibling.checked = true;
+            console.log(element.previousElementSibling)
+          }
+        });
+
       </script>
 
     </div>
