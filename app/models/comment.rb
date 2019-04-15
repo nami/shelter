@@ -26,6 +26,8 @@ class Comment < ApplicationRecord
   private
 
   def notify
-    Notification.create(event: "commented on your post", comment_id: self.id, user_id: self.post.user.id)
+    if self.user.id != self.post.user.id
+      Notification.create(event: "commented on your post", comment_id: self.id, user_id: self.post.user.id)
+    end
   end
 end
