@@ -70,7 +70,7 @@
               </div>
             </div>
             <div class="date-posted ml-3 mb-2">
-              <p>Posted: <%= post.created_at %></p>
+              <p><%= post.created_at.strftime("%b. %d, %I:%M %p ") %></p>
             </div>
           </div>
           <% end %>
