@@ -257,7 +257,7 @@ user = User.create!(
     title: "Lost Dog Found!",
     description: "I found a lost Shiba. Seems well trained and looking for the owner or for help taking care of him!",
     user_id: 6,
-    hinanjyo_id: 2224,
+    hinanjyo_id: 2238,
     tag_list: "Other"
     )
 
