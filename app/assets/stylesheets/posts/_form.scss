@@ -74,3 +74,12 @@
   opacity: 1;
   }
 }
+
+.single-tag p {
+  font-size: 10px !important;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+}
