@@ -23,7 +23,6 @@
             <% @shelters.each do |shelter| %>
               <% shelter.posts.order(cached_votes_up: :desc) %>
             <% end %>
-            <% console %>
             <h6>Top 3 posts here sorted by votes</h6>
             <div class="footer-buttons d-flex align-items-center justify-content-between">
               <div class="items-search-bar">
