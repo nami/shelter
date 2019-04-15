@@ -15,13 +15,13 @@
           <div
               id="map"
               style="width: 100vw;
-              height: calc(100vh - 75px - 220px);
+              height: calc(100vh - 75px - 270px);
               "
               data-markers="<%= @markers.to_json %>"
               data-myLat="<%= @user_latitude %>"
               data-myLong="<%= @user_longitude  %>"
           ></div>
-          <div class="map-footer">
+          <div class="map-footer mt-3">
             <div class="items-search-bar d-flex justify-content-center pb-2">
               <%= form_tag posts_path, method: :get do %>
                 <%= text_field_tag :item,
