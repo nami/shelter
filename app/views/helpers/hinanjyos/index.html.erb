@@ -20,8 +20,12 @@
               data-markers="<%= @markers.to_json %>"
           ></div>
           <div class="map-footer">
+            <% %>
             <% @shelters.each do |shelter| %>
-              <% shelter.posts.order(cached_votes_up: :desc) %>
+              <% ordered_posts = shelter.posts.order(:cached_votes_up) %>
+              <% if ordered_posts[0].exists? %>
+                <% %>
+              <%  %>
             <% end %>
             <h6>Top 3 posts here sorted by votes</h6>
             <div class="footer-buttons d-flex align-items-center justify-content-between">
