@@ -1,5 +1,7 @@
 import "bootstrap";
+import { clearNavbarOnPress } from "../components/navbar";
 
+// clearNavbarOnPress();
 // get user position
 
 window.onload = function() {

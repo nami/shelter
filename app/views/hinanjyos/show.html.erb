@@ -1,10 +1,10 @@
 <div class="container mb-5">
 
   <div class="shelter-header d-flex mt-3 justify-content-between">
-    <div class="back-map d-flex">
+   <!--  <div class="back-map d-flex">
       <i class="fas fa-backward pt-1 mr-2"></i>
-      <%= link_to "Map", shelters_path, class: "" %>
-    </div>
+      <%#= link_to "Map", shelters_path, class: "" %>
+    </div> -->
     <div class="search-tags">
       <input type="text" class="form-control" placeholder="Search tags...">
     </div>
@@ -22,15 +22,19 @@
       <!-- in case the shelter is favorite, show yellow star -->
       <% if current_user.voted_for? @shelter %>
         <%= link_to favorite_shelter_path do %>
-          <i class="fas fa-heart favorite mt-1 ml-2"></i>
+          <i class="fas fa-check-circle favorite mt-1 ml-2"></i>
         <% end %>
       <!-- in case the shelter is not favorite, show transparent star -->
       <% else %>
         <%= link_to favorite_shelter_path do %>
-          <i class="far fa-heart not-favorite m2-2 ml-2"></i>
+          <i class="far fa-check-circle not-favorite m2-2 ml-2"></i>
         <% end %>
       <% end %>
     <% end %>
+  </div>
+
+  <div class="shelter-address">
+    <p class="ja text-center mt-1" style="font-size: 14px;"><%= @shelter.street %></p>
   </div>
 
   <div class="request-help text-center mt-2 mb-3">
@@ -44,7 +48,7 @@
       <% if @posts == [] %>
         <p class="">Currently the shelter doesn't have any post.</p>
       <% else %>
-        <% @posts.each do |post| %>
+        <% @posts.order('created_at DESC').each do |post| %>
         <%= link_to post_path(post.id) do %>
           <div class="post card mb-3 animated fadeInUp">
             <div class="post-card-header d-flex justify-content-between">
@@ -81,6 +85,11 @@
               </div>
               <div class="posted-by mr-4">
                 <%= cl_image_tag (post.user.avatar), class: 'poster-avatar' %>
+                <% if user_signed_in? %>
+                  <% if current_user.get_voted(Hinanjyo).first == post.user.get_voted(Hinanjyo).first %>
+                    <i class="fas fa-check-circle"></i>
+                  <% end %>
+                <% end %>
               </div>
             </div>
             <div class="date-posted ml-3 mb-2">

@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   root to: 'pages#landing'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :hinanjyos, :path => 'shelters', as: 'shelters', only: [ :index, :show ] do
+    collection do
+      get 'details', to: 'hinanjyos#index'
+    end
     resources :posts, only: [ :new, :create, :edit, :update ]
   end
 
@@ -13,7 +16,7 @@ Rails.application.routes.draw do
   get 'posts/:id/upvote_from_shelter', to: 'posts#upvote_from_shelter', as: 'upvote_post_from_shelter'
   get 'home', to: 'pages#home', as: "home"
 
-  resources :posts, only: [ :show, :destroy ] do
+  resources :posts, only: [ :index, :show, :destroy ] do
     resources :comments, only: [ :new, :create ]
   end
 
