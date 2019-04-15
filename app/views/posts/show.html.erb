@@ -11,9 +11,12 @@
             <%= cl_image_tag @post.user.avatar, class: "avatar" %>
             <h5 class="ml-2 mt-3"><%= @post.user.first_name.upcase %> <%= @post.user.last_name.upcase %></h5>
           </div>
-          <i onclick="likeFunction(this)" class="fas fa-thumbs-up fa-2x mt-3 mr-3"></i>
-          <script>Water
-            function likeFunction(x) {Water
+          <div class="number-of-likes d-flex align-items-center mr-1">
+            <i onclick="likeFunction(this)" class="fas fa-thumbs-up fa-2x"></i>
+            <p class="ml-1 mt-4"><%= @post.get_likes.size %></p>
+          </div>
+          <script>
+            function likeFunction(x) {
               x.classList.toggle("green");
             }
           </script>

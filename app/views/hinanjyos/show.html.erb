@@ -49,7 +49,10 @@
           <div class="post card mb-3 animated fadeInUp">
             <div class="post-card-header d-flex justify-content-between">
               <h4 class="ml-3 pt-3 pb-2"><%= post.title %></h4>
-              <i onclick="likeFunction(this)" class="fas fa-thumbs-up fa-2x mt-3 mr-3"></i>
+              <div class="number-of-likes d-flex align-items-center mr-1">
+                <i onclick="likeFunction(this)" class="fas fa-thumbs-up fa-2x"></i>
+                <p class="ml-1 mt-3 mr-3"><%= post.get_likes.size %></p>
+              </div>
               <script>
                 function likeFunction(x) {
                   x.classList.toggle("green");
