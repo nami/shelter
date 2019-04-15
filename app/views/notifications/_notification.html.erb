@@ -1,6 +1,11 @@
 <li>
   <% unless notification.comment.user == current_user %>
     <%= link_to post_path(notification.post.id) do %>
+    <%if notification.created_at.to_date == @today %>
+    <h3>
+    Today
+    </h3>
+    <% end %>
         <div class="notificationCard">
             <div>
               <%= cl_image_tag (notification.comment.user.avatar), :class =>"notifications-avatar mt-1" %>
@@ -19,3 +24,5 @@
      <hr>
   <% end %>
 </li>
+
+
