@@ -1,10 +1,10 @@
 <div class="container mb-5">
 
   <div class="shelter-header d-flex mt-3 justify-content-between">
-    <div class="back-map d-flex">
+   <!--  <div class="back-map d-flex">
       <i class="fas fa-backward pt-1 mr-2"></i>
-      <%= link_to "Map", shelters_path, class: "" %>
-    </div>
+      <%#= link_to "Map", shelters_path, class: "" %>
+    </div> -->
     <div class="search-tags">
       <input type="text" class="form-control" placeholder="Search tags...">
     </div>
@@ -33,6 +33,10 @@
     <% end %>
   </div>
 
+  <div class="shelter-address">
+    <p class="ja text-center mt-1" style="font-size: 14px;"><%= @shelter.street %></p>
+  </div>
+
   <div class="request-help text-center mt-2 mb-3">
     <%= link_to new_shelter_post_path(@shelter) do %>
       <div class="btn btn-primary" id="request-button">REQUEST HELP</div>
@@ -44,17 +48,20 @@
       <% if @posts == [] %>
         <p class="">Currently the shelter doesn't have any post.</p>
       <% else %>
-        <% @posts.each do |post| %>
+        <% @posts.order('created_at DESC').each do |post| %>
         <%= link_to post_path(post.id) do %>
           <div class="post card mb-3 animated fadeInUp">
             <div class="post-card-header d-flex justify-content-between">
               <h4 class="ml-3 pt-3 pb-2"><%= post.title %></h4>
-              <i onclick="likeFunction(this)" class="fas fa-thumbs-up fa-2x mt-3 mr-3"></i>
-              <script>
-                function likeFunction(x) {
-                  x.classList.toggle("green");
-                }
-              </script>
+              <div class="post-likes d-flex">
+                <i onclick="likeFunction(this)" class="fas fa-thumbs-up fa-2x mt-3 mr-2"></i>
+                <p class="mt-3 mr-3"><%= post.get_likes.size  %></p>
+                <script>
+                  function likeFunction(x) {
+                    x.classList.toggle("green");
+                  }
+                </script>
+              </div>
             </div>
             <p class="mx-3"><%= post.description %></p>
             <div class="post-card-foot d-flex justify-content-between">
