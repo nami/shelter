@@ -9,10 +9,10 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
   const myLong = mapElement.dataset.mylong;
   map.addMarkers(markers);
 
-  console.log(typeof myLat)
-  console.log(typeof myLong)
+  console.log(myLat)
+  console.log(myLong)
 
-  if ((typeof myLat === 'string') && (typeof myLong === 'string')){
+  if ((typeof myLat === 'string' && myLat != "") && (typeof myLong === 'string' && myLong != "")){
     map.addMarker({
       lat: myLat,
       lng: myLong,
@@ -26,7 +26,7 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
   } else if (markers.length === 1) {
     map.setCenter(markers[0].lat, markers[0].lng);
     map.setZoom(14);
-  } else if ((typeof myLat === 'string') && (typeof myLong === 'string'))  {
+  } else if ((typeof myLat === 'string' && myLat != "") && (typeof myLong === 'string' && myLat != ""))  {
     map.setCenter(myLat, myLong);
     map.setZoom(16);
   } else {
