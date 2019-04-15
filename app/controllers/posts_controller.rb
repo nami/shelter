@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :find_post, only: [:edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
@@ -7,6 +8,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.includes(comments: :user).find(params[:id])
     authorize @post
+    @shelter = Hinanjyo.find(@post.hinanjyo_id)
   end
 
   def new
@@ -23,6 +25,21 @@ class PostsController < ApplicationController
     @post.hinanjyo = shelter
     if @post.save
       redirect_to shelter_path(shelter)
+    else
+      render :new
+    end
+  end
+
+  def edit
+    authorize @post
+    @shelter = Hinanjyo.find(params[:shelter_id])
+  end
+
+  def update
+    authorize @post
+    @shelter = Hinanjyo.find(params[:shelter_id])
+    if @post.update(post_params)
+      redirect_to post_path(params[:id])
     else
       render :new
     end

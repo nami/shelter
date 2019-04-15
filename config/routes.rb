@@ -4,14 +4,14 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#landing'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :hinanjyos, :path => 'shelters', as: 'shelters', only: [ :index, :show, ] do
-    resources :posts, only: [ :new, :create ]
+  resources :hinanjyos, :path => 'shelters', as: 'shelters', only: [ :index, :show ] do
+    resources :posts, only: [ :new, :create, :edit, :update ]
   end
 
   get 'shelters/:id/favorite', to: 'hinanjyos#favorite', as: 'favorite_shelter'
   get 'home', to: 'pages#home', as: "home"
 
-  resources :posts, only: [ :show, :edit, :update, :destroy ] do
+  resources :posts, only: [ :show ] do
     resources :comments, only: [ :new, :create ]
   end
 
