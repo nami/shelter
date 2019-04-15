@@ -3,7 +3,7 @@
     <div class="col-sm-12" style="padding: 0;">
       <div class="shelters-map">
         <div class="shelters-search-bar">
-          <%= form_tag shelters_path, method: :get do %>
+          <%= form_tag helpers_shelters_path, method: :get do %>
             <%= text_field_tag :location,
               params[:location],
               class: "form-control", id: "location_input",
