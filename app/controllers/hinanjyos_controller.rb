@@ -1,25 +1,15 @@
 class HinanjyosController < ApplicationController
   before_action :find_shelter, only: [:show, :edit, :update, :destroy, :favorite]
   skip_before_action :authenticate_user!
+
   def index
-
-    @shelters = policy_scope(Hinanjyo)
-
-    @shelters = Hinanjyo.where.not(latitude: nil, longitude: nil)
+    @shelters = policy_scope(Hinanjyo).where.not(latitude: nil, longitude: nil)
 
     # for search bar in shelters page
     # if nothing is searched
-    if params[:location].blank?
+    if params[:location].present? && disaster.nil?
       # show all markers
-      @markers = policy_scope(Hinanjyo)
-    # if in session there is a user longlat & disaster that was searched before
-    # filter by disaster type, searched location & user location
-    elsif disaster.present? && longlat.present?
-      @markers = Hinanjyo.near(session[:latitude], session[:longitude])
-      @markers = @markers.select do |shelter|
-        @choice_disaster = session[:disaster].to_sym
-        shelter[@choice_disaster] == true
-      end
+      @markers = @shelters.near(params[:location], 3)
     # if in session there is a disaster that was searched before
     # filter by disaster type and location
     elsif disaster.present? && params[:location].present?
@@ -29,9 +19,19 @@ class HinanjyosController < ApplicationController
         shelter[@choice_disaster] == true
       end
     else
+    # if in session there is a user longlat & disaster that was searched before
+    # filter by disaster type, searched location & user location
+    if disaster.present? && longlat.present?
+      @markers = @shelters.near([longlat[0], longlat[1]], 3)
+      @markers = @markers.select do |shelter|
+        @choice_disaster = session[:disaster].to_sym
+        shelter[@choice_disaster] == true
+      end
+    else
       # else just search by location
-      @markers = Hinanjyo.near(params[:location], 3)
+      @markers = @shelters
     end
+  end
 
     # for home page
     # filter by earthquakes
@@ -114,7 +114,7 @@ class HinanjyosController < ApplicationController
       {
         lat: marker.latitude,
         lng: marker.longitude,
-        infoWindow: { content: render_to_string(partial: "infowindow", locals: { marker: marker }) }
+        infoWindow: { content: render_to_string(partial: "hinanjyos/infowindow", locals: { marker: marker }) }
       }
     end
   end
@@ -124,10 +124,10 @@ class HinanjyosController < ApplicationController
     @posts = @shelter.posts
   end
 
-  # routes added (favorite_shelter_path)
-  # user calls 'favorite_shelter' method and toggle favorites
-  # Set color to star icon depending on the status of favorite
-  def favorite
+   # routes added (favorite_shelter_path)
+   # user calls 'favorite_shelter' method and toggle favorites
+   # Set color to star icon depending on the status of favorite
+   def favorite
     authorize @shelter
     current_user.favorite_shelter(@shelter)
 
@@ -140,7 +140,7 @@ class HinanjyosController < ApplicationController
     @shelter = Hinanjyo.find(params[:id])
   end
 
-  # save disaster searched in session
+    # save disaster searched in session
   def disaster
     if @user_disaster.present?
       session[:disaster] = @user_disaster
@@ -148,7 +148,7 @@ class HinanjyosController < ApplicationController
     return session[:disaster]
   end
 
-  # save long & lat searched in session
+    # save long & lat searched in session
   def longlat
     if @user_longitude.present? && @user_latitude.present?
       session[:longitude] = @user_longitude
