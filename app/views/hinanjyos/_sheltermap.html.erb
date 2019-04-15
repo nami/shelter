@@ -18,6 +18,8 @@
               height: calc(100vh - 75px - 25px);
               "
               data-markers="<%= @markers.to_json %>"
+              data-myLat="<%= @user_latitude %>"
+              data-myLong="<%= @user_longitude  %>"
           ></div>
           <% else %>
           <div class="container-fluid no-shelter text-center">
