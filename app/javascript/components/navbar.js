@@ -4,7 +4,7 @@ const clearNavbarOnPress = () => {
   checked.style.display = 'none';
   // console.log(notification_button);
   // document.addEventListener('click', () => {
-    console.log('Hello');
+    alert('Hello');
   // });
 };
 
