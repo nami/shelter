@@ -74,8 +74,10 @@
               </div>
               <div class="posted-by mr-4">
                 <%= cl_image_tag (post.user.avatar), class: 'poster-avatar' %>
-                <% if current_user.get_voted(Hinanjyo).first == post.user.get_voted(Hinanjyo).first %>
-                  <i class="fas fa-check-circle"></i>
+                <% if user_signed_in? %>
+                  <% if current_user.get_voted(Hinanjyo).first == post.user.get_voted(Hinanjyo).first %>
+                    <i class="fas fa-check-circle"></i>
+                  <% end %>
                 <% end %>
               </div>
             </div>
