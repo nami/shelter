@@ -2,9 +2,27 @@
   width: 100vw;
 }
 
-#map{
-  width: 100vw;
-  height: calc(100vh - 75px - 25px);
+.items-search-bar input{
+  border-radius: 15px;
+  margin-left: 16px;
+}
+
+.footer-buttons a{
+  text-decoration: none;
+  color: white;
+  background-color: #3BB4C1;
+  padding: 8px 16px;
+  margin-right: 16px;
+  border-radius: 16px;
+  font-weight: 500;
+  a:hover{
+    background-color: #007880;
+  }
+}
+
+.map-footer{
+  background-color: #F1F3F8;
+  text-align: center;
 }
 
 .no-shelter{
@@ -37,5 +55,16 @@
       padding-top: 8px;
     }
   }
+
+.items-search-bar input{
+  width: 350px;
+}
+
+.footer-buttons{
+  justify-content: space-around!important;
+}
+
+.footer-buttons a{
+}
 
 }

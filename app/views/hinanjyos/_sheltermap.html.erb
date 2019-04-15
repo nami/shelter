@@ -14,6 +14,9 @@
         <% if @markers.present? %>
           <div
               id="map"
+              style="width: 100vw;
+              height: calc(100vh - 75px - 25px);
+              "
               data-markers="<%= @markers.to_json %>"
           ></div>
           <% else %>
