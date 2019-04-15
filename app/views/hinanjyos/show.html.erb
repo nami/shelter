@@ -50,14 +50,17 @@
             <div class="post-card-header d-flex justify-content-between">
               <h4 class="ml-3 pt-3 pb-2"><%= post.title %></h4>
               <div class="number-of-likes d-flex align-items-center mr-1">
-                <i onclick="likeFunction(this)" class="fas fa-thumbs-up fa-2x"></i>
+                <% if user_signed_in? %>
+                  <% if current_user.voted_for? post %>
+                    <i class="fas fa-arrow-alt-circle-up voted fa-2x"></i>
+                  <% else %>
+                    <i class="fas fa-arrow-alt-circle-up not-voted fa-2x"></i>
+                  <% end %>
+                <% else %>
+                  <i class="fas fa-arrow-alt-circle-up fa-2x"></i>
+                <% end %>
                 <p class="ml-1 mt-3 mr-3"><%= post.get_likes.size %></p>
               </div>
-              <script>
-                function likeFunction(x) {
-                  x.classList.toggle("green");
-                }
-              </script>
             </div>
             <p class="mx-3"><%= post.description %></p>
             <div class="post-card-foot d-flex justify-content-between">

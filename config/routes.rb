@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   get 'shelters/:id/favorite', to: 'hinanjyos#favorite', as: 'favorite_shelter'
+  get 'posts/:id/upvote', to: 'posts#upvote', as: 'upvote_post'
   get 'home', to: 'pages#home', as: "home"
 
   resources :posts, only: [ :show, :destroy ] do

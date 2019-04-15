@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:edit, :update, :destroy]
-  before_action :find_shelter, except: [:index, :show, :destroy]
+  before_action :find_shelter, only: [:new, :create, :edit, :update]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
@@ -51,6 +51,17 @@ class PostsController < ApplicationController
     else
       flash[:alert] = "Post could not be deleted"
       redirect_to post_path(params[:id])
+    end
+  end
+
+  def upvote
+    if controller_path == 'posts'
+      find_post
+      authorize @post
+      current_user.upvoted_post(@post)
+      redirect_to post_path(params[:id])
+    elsif controller_path == 'shelters'
+      # @posts = @shelter.posts
     end
   end
 
