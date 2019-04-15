@@ -33,10 +33,10 @@
       </div>
     <% end %>
   <% end %>
-  <%= link_to notifications_path, :action => 'go' do  %>
+  <%= link_to notifications_path, :action => 'go', class: "notify-button" do  %>
     <div class="notif-icon">
-      <% if user_signed_in? %>
-        <%= render 'notifications/counter', counter: current_user.notifications.count %>
+      <% if user_signed_in? && current_user.notifications.unchecked.count > 0 %>
+        <%= render 'notifications/counter', counter: current_user.notifications.unchecked.count %>
       <% end %>
       <%= image_tag "navbar/bell.png", alt: "bell icon"%>
       <p>Notifications</p>
