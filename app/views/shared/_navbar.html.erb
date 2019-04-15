@@ -24,7 +24,7 @@
     <%= link_to shelter_path(current_user.get_voted(Hinanjyo).first.id), :action => 'go' do %>
       <div class="shelter-icon">
         <% if current_page?(shelter_path(current_user.get_voted(Hinanjyo).first.id)) %>
-          <%= image_tag "navbar/favourite-house-filled.png", alt: "shelter icon active", class: "ml-2" %>
+          <%= image_tag "navbar/favourite-house-filled.png", alt: "shelter icon active", class: "ml-3" %>
           <p style="font-weight: 500;">My Shelter</p>
         <% else %>
           <%= image_tag "navbar/favorite-house.png", alt: "shelter icon", class: "ml-3" %>
