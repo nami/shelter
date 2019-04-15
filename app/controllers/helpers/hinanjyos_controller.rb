@@ -1,25 +1,15 @@
 class Helpers::HinanjyosController < ApplicationController
   skip_before_action :authenticate_user!
+  before_action :disaster, :longlat, only: :index
 
   def index
-
-    @shelters = policy_scope(Hinanjyo)
-
-    @shelters = Hinanjyo.where.not(latitude: nil, longitude: nil)
+    @shelters = policy_scope(Hinanjyo).where.not(latitude: nil, longitude: nil)
 
     # for search bar in shelters page
     # if nothing is searched
-    if params[:location].blank?
+    if params[:location].present? && disaster.nil?
       # show all markers
-      @markers = policy_scope(Hinanjyo)
-    # if in session there is a user longlat & disaster that was searched before
-    # filter by disaster type, searched location & user location
-    elsif disaster.present? && longlat.present?
-      @markers = Hinanjyo.near(session[:latitude], session[:longitude])
-      @markers = @markers.select do |shelter|
-        @choice_disaster = session[:disaster].to_sym
-        shelter[@choice_disaster] == true
-      end
+      @markers = @shelters.near(params[:location], 3)
     # if in session there is a disaster that was searched before
     # filter by disaster type and location
     elsif disaster.present? && params[:location].present?
@@ -29,9 +19,19 @@ class Helpers::HinanjyosController < ApplicationController
         shelter[@choice_disaster] == true
       end
     else
+    # if in session there is a user longlat & disaster that was searched before
+    # filter by disaster type, searched location & user location
+    if disaster.present? && longlat.present?
+      @markers = @shelters.near([longlat[0], longlat[1]], 3)
+      @markers = @markers.select do |shelter|
+        @choice_disaster = session[:disaster].to_sym
+        shelter[@choice_disaster] == true
+      end
+    else
       # else just search by location
-      @markers = Hinanjyo.near(params[:location], 3)
+      @markers = @shelters
     end
+  end
 
     # for home page
     # filter by earthquakes
@@ -117,5 +117,28 @@ class Helpers::HinanjyosController < ApplicationController
         infoWindow: { content: render_to_string(partial: "hinanjyos/infowindow", locals: { marker: marker }) }
       }
     end
+  end
+
+  private
+
+  def find_shelter
+    @shelter = Hinanjyo.find(params[:id])
+  end
+
+    # save disaster searched in session
+  def disaster
+    if @user_disaster.present?
+      session[:disaster] = @user_disaster
+    end
+    return session[:disaster]
+  end
+
+    # save long & lat searched in session
+  def longlat
+    if @user_longitude.present? && @user_latitude.present?
+      session[:longitude] = @user_longitude
+      session[:latitude] = @user_latitude
+    end
+    return [session[:latitude], session[:longitude]]
   end
 end
