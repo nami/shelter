@@ -18,6 +18,8 @@
               height: calc(100vh - 75px - 220px);
               "
               data-markers="<%= @markers.to_json %>"
+              data-myLat="<%= @user_latitude %>"
+              data-myLong="<%= @user_longitude  %>"
           ></div>
           <div class="map-footer">
             <div class="items-search-bar d-flex justify-content-center pb-2">
@@ -46,7 +48,7 @@
             <% end %>
 
             <div class="footer-buttons d-flex align-items-center justify-content-center">
-              <%= link_to "DETAILED AREA INFO", home_path  %>
+              <%= link_to "DETAILED AREA INFO", details_shelters_path  %>
             </div>
           </div>
           <% else %>
