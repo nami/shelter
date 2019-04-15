@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:edit, :update, :destroy]
+  before_action :find_shelter, except: [:index, :show, :destroy]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
@@ -14,17 +15,15 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     authorize @post
-    @shelter = Hinanjyo.find(params[:shelter_id])
   end
 
   def create
     @post = Post.new(post_params)
     authorize @post
     @post.user = current_user
-    shelter = Hinanjyo.find(params[:shelter_id])
-    @post.hinanjyo = shelter
+    @post.hinanjyo = @shelter
     if @post.save
-      redirect_to shelter_path(shelter)
+      redirect_to shelter_path(@shelter)
     else
       render :new
     end
@@ -32,12 +31,10 @@ class PostsController < ApplicationController
 
   def edit
     authorize @post
-    @shelter = Hinanjyo.find(params[:shelter_id])
   end
 
   def update
     authorize @post
-    @shelter = Hinanjyo.find(params[:shelter_id])
     if @post.update(post_params)
       redirect_to post_path(params[:id])
     else
@@ -45,10 +42,26 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    authorize @post
+    @shelter = Hinanjyo.find(@post.hinanjyo_id)
+    if @post.destroy
+      flash[:notice] = "Post Deleted"
+      redirect_to shelter_path(@shelter)
+    else
+      flash[:alert] = "Post could not be deleted"
+      redirect_to post_path(params[:id])
+    end
+  end
+
   private
 
   def find_post
     @post = Post.find(params[:id])
+  end
+
+  def find_shelter
+    @shelter = Hinanjyo.find(params[:shelter_id])
   end
 
   def post_params

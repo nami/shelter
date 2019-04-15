@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'shelters/:id/favorite', to: 'hinanjyos#favorite', as: 'favorite_shelter'
   get 'home', to: 'pages#home', as: "home"
 
-  resources :posts, only: [ :show ] do
+  resources :posts, only: [ :show, :destroy ] do
     resources :comments, only: [ :new, :create ]
   end
 
