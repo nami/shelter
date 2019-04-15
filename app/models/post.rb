@@ -11,4 +11,17 @@ class Post < ApplicationRecord
   validates :description, presence: true
 
   mount_uploader :photo, PhotoUploader
+
+  include PgSearch
+  pg_search_scope :search_by_posts,
+    against: {
+      title: 'A',
+      description: 'B'
+    },
+    # associated_against: {
+    #   tags: [ :name]
+    # },
+    using: {
+      tsearch: { prefix: true }
+    }
 end
