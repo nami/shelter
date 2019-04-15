@@ -36,4 +36,8 @@ class PostPolicy < ApplicationPolicy
   def upvote?
     return true
   end
+
+  def upvote_from_shelter?
+    return true
+  end
 end

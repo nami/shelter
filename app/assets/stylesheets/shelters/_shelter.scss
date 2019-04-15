@@ -132,14 +132,8 @@
 
 .post-card-header i.fa-arrow-alt-circle-up.voted {
   color: $red;
-  &:hover {
-    opacity: 0.7;
-  }
 }
 
 .post-card-header i.fa-arrow-alt-circle-up.not-voted {
   color: gray;
-  &:hover {
-    opacity: 0.7;
-  }
 }
