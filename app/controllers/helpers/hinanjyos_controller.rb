@@ -122,6 +122,21 @@ class Helpers::HinanjyosController < ApplicationController
     end
   end
 
+  def show
+    authorize @shelter
+    @posts = @shelter.posts
+  end
+
+  # routes added (favorite_shelter_path)
+  # user calls 'favorite_shelter' method and toggle favorites
+  # Set color to star icon depending on the status of favorite
+  def favorite
+    authorize @shelter
+    current_user.favorite_shelter(@shelter)
+
+    redirect_to shelter_path(@shelter)
+  end
+
   private
 
   def find_shelter
