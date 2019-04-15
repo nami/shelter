@@ -1,1 +1,77 @@
-<%= render "hinanjyos/sheltermap" %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12" style="padding: 0;">
+      <div class="shelters-map">
+        <div class="shelters-search-bar">
+          <%= form_tag shelters_path, method: :get do %>
+            <%= text_field_tag :location,
+              params[:location],
+              class: "form-control", id: "location_input",
+              placeholder: "Search location..."
+            %>
+          <% end %>
+        </div>
+        <% if @markers.present? %>
+          <div
+              id="map"
+              style="width: 100vw;
+              height: calc(100vh - 75px - 150px);
+              "
+              data-markers="<%= @markers.to_json %>"
+          ></div>
+          <div class="map-footer">
+            <% %>
+            <% @shelters.each do |shelter| %>
+              <% ordered_posts = shelter.posts.order(:cached_votes_up) %>
+              <% if ordered_posts[0].exists? %>
+                <% %>
+              <%  %>
+            <% end %>
+            <h6>Top 3 posts here sorted by votes</h6>
+            <div class="footer-buttons d-flex align-items-center justify-content-between">
+              <div class="items-search-bar">
+                <%= form_tag shelters_path, method: :get do %>
+                  <%= text_field_tag :location,
+                    params[:location],
+                    class: "form-control", id: "location_input",
+                    placeholder: "Search by item..."
+                  %>
+                <% end %>
+              </div>
+              <%= link_to "Detailed Area Info", home_path  %>
+            </div>
+          </div>
+          <% else %>
+          <div class="container-fluid no-shelter text-center">
+            <div class="row">
+              <div class="col-12">
+                <% if @user_disaster.present? %>
+                  <% if @user_disaster.include?("_") %>
+                    <% @user_disaster = @user_disaster.split('_').map(&:capitalize).join(' ') %>
+                  <% end %>
+                  <h5>There are no <%= @user_disaster.singularize.capitalize %> shelters in your area.</h5>
+                  <h6>Search again?</h6>
+                <% else %>
+                  <h5>There are no shelters in your area.</h5>
+                  <h6>Search again?</h6>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- search bar should submit on enter -->
+<script>
+  const search = document.querySelector(".shelters-search-bar");
+  search.addEventListener('keypress', (event) => {
+    const key = event.which || event.keyCode;
+    if (key === 13) { // 13 is enter
+      // code for enter
+      window.location.href = "/shelters";
+    }
+  });
+</script>

@@ -9,24 +9,27 @@ class Helpers::HinanjyosController < ApplicationController
     # if nothing is searched
     if params[:location].present? && disaster.nil?
       # show all markers
-      @markers = @shelters.near(params[:location], 3)
+      @shelters = @shelters.near(params[:location], 3)
+      @markers = @shelters
     # if in session there is a disaster that was searched before
     # filter by disaster type and location
     elsif disaster.present? && params[:location].present?
-      @markers = Hinanjyo.near(params[:location], 3)
-      @markers = @markers.select do |shelter|
+      @shelters = Hinanjyo.near(params[:location], 3)
+      @shelters = @shelters.select do |shelter|
         @choice_disaster = session[:disaster].to_sym
         shelter[@choice_disaster] == true
       end
+      @markers = @shelters
     else
     # if in session there is a user longlat & disaster that was searched before
     # filter by disaster type, searched location & user location
     if disaster.present? && longlat.present?
-      @markers = @shelters.near([longlat[0], longlat[1]], 3)
-      @markers = @markers.select do |shelter|
+      @shelters = @shelters.near([longlat[0], longlat[1]], 3)
+      @shelters = @shelters.select do |shelter|
         @choice_disaster = session[:disaster].to_sym
         shelter[@choice_disaster] == true
       end
+      @markers = @shelters
     else
       # else just search by location
       @markers = @shelters
@@ -117,6 +120,21 @@ class Helpers::HinanjyosController < ApplicationController
         infoWindow: { content: render_to_string(partial: "hinanjyos/infowindow", locals: { marker: marker }) }
       }
     end
+  end
+
+  def show
+    authorize @shelter
+    @posts = @shelter.posts
+  end
+
+  # routes added (favorite_shelter_path)
+  # user calls 'favorite_shelter' method and toggle favorites
+  # Set color to star icon depending on the status of favorite
+  def favorite
+    authorize @shelter
+    current_user.favorite_shelter(@shelter)
+
+    redirect_to shelter_path(@shelter)
   end
 
   private
