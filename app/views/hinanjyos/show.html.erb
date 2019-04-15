@@ -52,13 +52,17 @@
               <div class="number-of-likes d-flex align-items-center mr-1">
                 <% if user_signed_in? %>
                   <% if current_user.voted_for? post %>
-                    <%= link_to upvote_post_from_shelter_path(post.id) do %>
-                      <i class="fas fa-arrow-alt-circle-up voted fa-2x"></i>
-                    <% end %>
+                    <object>
+                      <%= link_to upvote_post_from_shelter_path(post.id) do %>
+                        <i class="fas fa-arrow-alt-circle-up voted fa-2x"></i>
+                      <% end %>
+                    </object>
                   <% else %>
-                    <%= link_to upvote_post_from_shelter_path(post.id) do %>
-                      <i class="fas fa-arrow-alt-circle-up not-voted fa-2x"></i>
-                    <% end %>
+                    <object>
+                      <%= link_to upvote_post_from_shelter_path(post.id) do %>
+                        <i class="fas fa-arrow-alt-circle-up not-voted fa-2x"></i>
+                      <% end %>
+                    </object>
                   <% end %>
                 <% else %>
                   <i class="fas fa-arrow-alt-circle-up fa-2x"></i>
