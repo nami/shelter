@@ -3,7 +3,7 @@
     <div class="col-sm-12" style="padding: 0;">
       <div class="shelters-map">
         <div class="shelters-search-bar">
-          <%= form_tag shelters_path, method: :get do %>
+          <%= form_tag helpers_shelters_path, method: :get do %>
             <%= text_field_tag :location,
               params[:location],
               class: "form-control", id: "location_input",
@@ -15,30 +15,38 @@
           <div
               id="map"
               style="width: 100vw;
-              height: calc(100vh - 75px - 150px);
+              height: calc(100vh - 75px - 220px);
               "
               data-markers="<%= @markers.to_json %>"
           ></div>
           <div class="map-footer">
-            <% %>
-            <% @shelters.each do |shelter| %>
-              <% ordered_posts = shelter.posts.order(:cached_votes_up) %>
-              <% if ordered_posts[0].exists? %>
-                <% %>
-              <%  %>
-            <% end %>
-            <h6>Top 3 posts here sorted by votes</h6>
-            <div class="footer-buttons d-flex align-items-center justify-content-between">
-              <div class="items-search-bar">
-                <%= form_tag shelters_path, method: :get do %>
-                  <%= text_field_tag :location,
-                    params[:location],
-                    class: "form-control", id: "location_input",
-                    placeholder: "Search by item..."
-                  %>
+            <div class="items-search-bar d-flex justify-content-center pb-2">
+              <%= form_tag shelters_path, method: :get do %>
+                <%= text_field_tag :item,
+                  params[:item],
+                  class: "form-control", id: "location_input",
+                  placeholder: "Search by item..."
+                %>
+              <% end %>
+            </div>
+            <% if @posts.blank? %>
+              <p class="mt-4">There are no posts yet in this area</p>
+            <% else %>
+              <div class="top-posts pb-2">
+                <h6>TOP POSTS IN THIS AREA</h6>
+                <% @posts[0..2].each do |post|  %>
+                <%= link_to post_path(post.id), :action => 'go' do %>
+                <div class="post d-flex justify-content-center">
+                  <p><%= post.title  %></p>
+                  <p class="pl-2"><i class="fas fa-thumbs-up"></i> <%= post.get_likes.size  %></p>
+                </div>
+                <% end %>
                 <% end %>
               </div>
-              <%= link_to "Detailed Area Info", home_path  %>
+            <% end %>
+
+            <div class="footer-buttons d-flex align-items-center justify-content-center">
+              <%= link_to "DETAILED AREA INFO", home_path  %>
             </div>
           </div>
           <% else %>
