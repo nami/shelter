@@ -23,7 +23,7 @@
           ></div>
           <div class="map-footer">
             <div class="items-search-bar d-flex justify-content-center pb-2">
-              <%= form_tag posts_path, method: :get do %>
+              <%= form_tag helpers_shelters_path, method: :get do %>
                 <%= text_field_tag :item,
                   params[:item],
                   class: "form-control", id: "location_input",
@@ -31,11 +31,13 @@
                 %>
               <% end %>
             </div>
-            <% if @posts.blank? %>
-              <p class="mt-4">There are no posts yet in this area</p>
-            <% else %>
+            <% if @posts.present? %>
               <div class="top-posts">
-                <h6>TOP POSTS IN THIS AREA</h6>
+                <% if params[:item].present? %>
+                  <h6>TOP POSTS FOR <%= params[:item].upcase %></h6>
+                <% else %>
+                  <h6>TOP POSTS FOR SEARCH</h6>
+                <% end %>
                 <% @posts[0..2].each do |post|  %>
                 <%= link_to post_path(post.id), :action => 'go' do %>
                 <div class="post d-flex justify-content-center">
@@ -45,11 +47,27 @@
                 <% end %>
                 <% end %>
               </div>
-            <% end %>
 
-            <div class="footer-buttons d-flex align-items-center justify-content-center mt-1">
-              <%= link_to "DETAILED AREA INFO", details_shelters_path  %>
-            </div>
+              <div class="footer-buttons d-flex align-items-center justify-content-center mt-1">
+                <%= link_to "SEE FULL POSTS", posts_path  %>
+              </div>
+            <% else %>
+              <div class="top-posts">
+                <h6>TOP POSTS IN THIS AREA</h6>
+                <% @topposts[0..2].each do |post|  %>
+                <%= link_to post_path(post.id), :action => 'go' do %>
+                <div class="post d-flex justify-content-center">
+                  <p><%= post.title  %></p>
+                  <p class="pl-2"><i class="fas fa-heart"></i> <%= post.get_likes.size  %></p>
+                </div>
+                <% end %>
+                <% end %>
+              </div>
+
+              <div class="footer-buttons d-flex align-items-center justify-content-center mt-1">
+                <%= link_to "DETAILED AREA INFO", details_shelters_path  %>
+              </div>
+            <% end %>
           </div>
           <% else %>
           <div class="container-fluid no-shelter text-center">
@@ -90,7 +108,7 @@
     const key = event.which || event.keyCode;
     if (key === 13) { // 13 is enter
       // code for enter
-      window.location.href = "/posts";
+      window.location.href = "/shelters";
     }
   });
 
