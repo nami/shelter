@@ -95,7 +95,7 @@ class Helpers::HinanjyosController < ApplicationController
 
     # search if user coordinates are present and disaster is selected
     if @user_disaster.present? && @user_longitude.present?
-      @shelters = @shelters.near([@user_latitude, @user_longitude], 3).first(10)
+      @shelters = Hinanjyo.near([@user_latitude, @user_longitude], 3).first(10)
       @shelters = @shelters.select do |shelter|
         @choice_disaster = @user_disaster.to_sym
         shelter[@choice_disaster] == true
@@ -107,7 +107,7 @@ class Helpers::HinanjyosController < ApplicationController
     # search if disaster is present
     elsif @user_disaster.present?
       @disaster = @user_disaster
-      @shelters = @shelters.where("#{@disaster} = true").first(10)
+      @shelters = Hinanjyo.where("#{@disaster} = true").first(10)
       @markers = @shelters
       session[:disaster] = @user_disaster
     end

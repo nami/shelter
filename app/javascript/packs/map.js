@@ -28,7 +28,7 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
     map.setZoom(14);
   } else if ((typeof myLat === 'string' && myLat != "") && (typeof myLong === 'string' && myLat != ""))  {
     map.setCenter(myLat, myLong);
-    map.setZoom(14);
+    map.setZoom(16);
   } else {
     map.fitLatLngBounds(markers);
   }
