@@ -9,6 +9,11 @@
         <div class="upvote d-flex justify-content-between">
           <div class="post-user d-flex align-items-left">
             <%= cl_image_tag @post.user.avatar, class: "avatar" %>
+            <% if user_signed_in? %>
+              <% if current_user.get_voted(Hinanjyo).first == @post.user.get_voted(Hinanjyo).first %>
+                <i class="fas fa-check-circle"></i>
+              <% end %>
+            <% end %>
             <h5 class="ml-2 mt-3"><%= @post.user.first_name.upcase %> <%= @post.user.last_name.upcase %></h5>
           </div>
           <div class="number-of-likes d-flex align-items-center mr-1">
@@ -25,7 +30,7 @@
             <% else %>
               <i class="fas fa-heart fa-2x"></i>
             <% end %>
-            <p class="ml-1 mt-3"><%= @post.get_likes.size %></p>
+            <p class="ml-2 mt-3"><%= @post.get_likes.size %></p>
           </div>
         </div>
         <div class="mt-2 mb-2 post-description">

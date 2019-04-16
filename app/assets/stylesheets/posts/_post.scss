@@ -41,6 +41,22 @@ i.fa-heart.not-voted {
   }
 }
 
+.post-user{
+  position: relative;
+}
+
+.post-user i{
+  position: absolute;
+  top: 28px;
+  left: 32px;
+  text-decoration: none;
+  color: #3BB4C1;
+  i:hover{
+    text-decoration: none;
+    color: #3BB4C1;
+  }
+}
+
 .cant-comment{
  a {
   font-weight: 700;
