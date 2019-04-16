@@ -1,7 +1,9 @@
-  <% @notifications.each do |index, notification| %>
+  <% @notifications.each do |index, n| %>
     <%= custom_format(index) %>
 
     <li>
+      <% n.each do |notification| %>
+
       <%= link_to post_path(notification.post.id) do %>
         <div class="notificationCard">
             <div>
@@ -19,6 +21,7 @@
         </div>
       <% end %>
        <hr>
+      <% end %>
     </li>
 
 <% end %>
