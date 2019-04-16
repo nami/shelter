@@ -4,12 +4,7 @@ class PostsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @posts = policy_scope(Post)
-
-    # offer help, search by item
-    if params[:item].present?
-      @posts = @posts.search_by_posts(params[:item])
-    end
+    @posts = session[:posts]
   end
 
   def show
