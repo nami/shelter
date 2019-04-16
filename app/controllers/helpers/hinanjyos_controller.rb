@@ -124,10 +124,9 @@ class Helpers::HinanjyosController < ApplicationController
     @topposts = @topposts.sort_by { |post| post.cached_votes_total }.reverse!
 
 
-    @posts = policy_scope(Post)
-
     # offer help, search by item
     if params[:item].present?
+      @posts = policy_scope(Post)
       @markers = []
       @posts = @posts.search_by_posts(params[:item])
       @posts.each do |post|
