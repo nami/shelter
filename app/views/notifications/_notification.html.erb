@@ -3,22 +3,22 @@
     <li>
       <% n.each do |notification| %>
 
-      <%= link_to post_path(notification.post.id) do %>
-        <div class="notificationCard">
-            <div>
-              <%= cl_image_tag (notification.comment.user.avatar), :class =>"notifications-avatar mt-1" %>
-            </div>
-            <div class="notificationContent">
-              <div class="user-notice">
-                <h6 class="pr-3"><%= notification.comment.user.first_name %> <%= notification.comment.user.last_name %></h6>
-                <p><%= notification.event %></p>
-              </div>
-                <div class="timestamp">
-                  <%= notification.created_at.in_time_zone.strftime("%b. %d, %I:%M %p ") %>
+        <%= link_to post_path(notification.post.id) do %>
+          <div class="notificationCard">
+            <div class="user-info">
+                <div>
+                  <%= cl_image_tag (notification.comment.user.avatar), :class =>"notifications-avatar" %>
+                </div>
+                <div class="name-time">
+                  <h6><%= notification.comment.user.first_name %> <%= notification.comment.user.last_name %></h6>
+                  <div class="timestamp">
+                    <%= notification.created_at.in_time_zone.strftime("%b. %d, %I:%M %p ") %>
+                  </div>
                 </div>
             </div>
-        </div>
-      <% end %>
+              <p class="notification-event"><%= notification.event %></p>
+          </div>
+        <% end %>
       <% end %>
     </li>
   <hr>

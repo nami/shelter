@@ -19,20 +19,15 @@ li a:hover{
 
 #notificationList {
   list-style: none;
-  line-height: 24px;
-  padding: 8px 16px;
+  padding: 0px 16px;
+  line-height: 12px;
 }
 
 .notificationCard {
   display: flex;
   text-align: left;
-  margin: 16px 0px;
-}
-
-.notificationContent {
-  margin-left: 16px;
-  line-height: 8px;
-  padding: 4px 0px;
+  justify-content: space-between;
+  margin: 30px 0px;
 }
 
 .notifications-avatar {
@@ -44,17 +39,26 @@ li a:hover{
 }
 
 .notification-day {
-  margin-bottom: 32px;
+  margin-bottom: 48px;
 }
 
 .timestamp {
   font-size: 10px;
 }
 
-
-.user-notice {
+.user-info {
   display: flex;
-  line-height: 16px;
-  font-size: 14px;
+    h6 {
+    font-size: 12px;
+  }
 }
 
+
+.notification-event {
+  font-size: 12px;
+}
+
+.name-time {
+  margin-left: 16px;
+  line-height: 16px;
+}
