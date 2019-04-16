@@ -75,4 +75,15 @@
   }
 }
 
+.single-tag p {
+  font-size: 10px !important;
+  margin: 2px 2px;
+  font-weight: 500;
+}
 
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 8px;
+  margin-bottom: 8px;
+}
