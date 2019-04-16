@@ -57,8 +57,6 @@ class PostsController < ApplicationController
        redirect_to post_path(params[:id])
       end
     end
-
-    raise
   end
 
   def destroy
