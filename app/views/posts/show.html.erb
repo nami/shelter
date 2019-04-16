@@ -62,17 +62,7 @@
         </div>
         <% if @post.user == current_user %>
           <div class="post-complete">
-            <%#= simple_form_for @post, url: shelter_post_path(@shelter), method: :patch do |f| %>
-              <%#= f.input :completed, as: :boolean, value: true, as: :hidden %>
-              <%#= f.submit "MARK REQUEST AS COMPLETED", class: "btn btn-dark completed" %>
-            <%# end %>
-
-            <%#= link_to "MARK AS COMPLETED", { controller: "posts",
-              action: "update",
-              id: @post.id,
-              hinanjyo_id: @shelter.id,
-              completed: true}, method: 'patch', class: "btn btn-dark completed"
-             %>
+            <%= link_to "MARK AS COMPLETED", shelter_post_path(@shelter, @post, post: {completed: true}), method: 'patch', class: "btn btn-dark completed" %>
           </div>
         <% end %>
       <% else %>
