@@ -25,14 +25,16 @@
     <script>
 
     let counter  = document.querySelector('span#notification-counter');
+    console.log(counter);
     let counterInt  = parseInt(counter.textContent);
     if (counter.innerHTML === "0" ) {
       counter.style.opacity = 0;
     }
 
-
+    console.log(counterInt);
     App['notification'] = App.cable.subscriptions.create({ channel: 'NotificationsChannel'}, {
       received: (data) => {
+        console.log(data);
         counter.style.opacity = 1;
         counterInt += 1;
         counter.innerHTML = counterInt;
