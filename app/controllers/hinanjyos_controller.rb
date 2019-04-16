@@ -128,7 +128,7 @@ class HinanjyosController < ApplicationController
 
   def show
     authorize @shelter
-    @posts = @shelter.posts
+    @posts = @shelter.posts.where(completed: false)
   end
 
    # routes added (favorite_shelter_path)
