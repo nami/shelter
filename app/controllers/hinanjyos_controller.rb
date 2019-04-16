@@ -120,10 +120,10 @@ class HinanjyosController < ApplicationController
   end
 
   def details
-    if params[:location].present?
+    # if params[:location].present?
       @found_shelters = Hinanjyo.near(params[:location], 3)
       authorize @found_shelters
-    end
+    # end
   end
 
   def show
