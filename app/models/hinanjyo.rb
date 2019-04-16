@@ -5,6 +5,6 @@ class Hinanjyo < ApplicationRecord
   validates :street, presence: true
 
   acts_as_votable
-  geocoded_by :street
-  after_validation :geocode, if: :will_save_change_to_street?
+  # geocoded_by :street
+  # after_validation :geocode, if: :will_save_change_to_street?
 end

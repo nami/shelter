@@ -32,6 +32,12 @@ Rails.application.routes.draw do
 
   mount ActionCable.server => "/cable"
 
+  # Sidekiq Web UI, only for admins.
+  require "sidekiq/web"
+  authenticate :user, lambda { |u| u.admin } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   resources :notifications, only: :index
   # area_info is in posts index
   # item_search is in posts index
