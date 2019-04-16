@@ -75,7 +75,12 @@ textarea {
 }
 
 .comment {
+  i{
+    position: absolute;
+    top: 26px;
+  }
   display: flex;
+  position: relative;
   margin-bottom: 10px;
   &.right {
     flex-direction: row-reverse;
@@ -84,8 +89,14 @@ textarea {
       color: white;
       font-weight: 500;
     }
+    i{
+      position: absolute;
+      top: 30px;
+      right: 0px;
+    }
   }
 }
+
 .comment-content {
   background-color: #F7F7F7;
   border-radius: 3px;
@@ -95,6 +106,7 @@ textarea {
 .avatar {
   width: 42px;
   height: 42px;
+  object-fit: cover;
   border-radius: 50%;
 }
 

@@ -1,4 +1,9 @@
 <div class="comment <%= user_is_comments_author ? "right" : "" %>">
   <%= cl_image_tag comment.user.avatar, class: "avatar" %>
+  <% if user_signed_in? %>
+    <% if current_user.get_voted(Hinanjyo).first == @post.user.get_voted(Hinanjyo).first %>
+      <i class="fas fa-check-circle"></i>
+    <% end %>
+  <% end %>
   <div class="comment-content"><%= comment.content %></div>
 </div>
