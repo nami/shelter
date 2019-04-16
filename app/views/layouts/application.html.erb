@@ -22,5 +22,23 @@
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
     <%= javascript_pack_tag "map" %>
     <%= yield :after_js %>
+    <script>
+
+    let counter  = document.querySelector('span#notification-counter');
+    let counterInt  = parseInt(counter.textContent);
+    if (counter.innerHTML === "0" ) {
+      counter.style.opacity = 0;
+    }
+
+
+    App['notification'] = App.cable.subscriptions.create({ channel: 'NotificationsChannel'}, {
+      received: (data) => {
+        counter.style.opacity = 1;
+        counterInt += 1;
+        counter.innerHTML = counterInt;
+      }
+    })
+
+    </script>
   </body>
 </html>
