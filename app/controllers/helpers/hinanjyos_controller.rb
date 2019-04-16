@@ -112,6 +112,30 @@ class Helpers::HinanjyosController < ApplicationController
       session[:disaster] = @user_disaster
     end
 
+    # get top 3 posts
+    @topposts = []
+    @shelters.each do |shelter|
+      ordered_posts = shelter.posts.order(cached_votes_up: :desc)
+
+      @topposts.push(ordered_posts[0]) if ordered_posts[0].present?
+      @topposts.push(ordered_posts[1]) if ordered_posts[1].present?
+      @topposts.push(ordered_posts[2]) if ordered_posts[2].present?
+    end
+    @topposts = @topposts.sort_by { |post| post.cached_votes_total }.reverse!
+
+
+    @posts = policy_scope(Post)
+
+    # offer help, search by item
+    if params[:item].present?
+      @markers = []
+      @posts = @posts.search_by_posts(params[:item])
+      @posts.each do |post|
+        @markers.push(post.hinanjyo)
+      end
+      session[:posts] = @posts
+    end
+
     # markers according to search parameters
     @markers = @markers.map do |marker|
       {
@@ -120,17 +144,6 @@ class Helpers::HinanjyosController < ApplicationController
         infoWindow: { content: render_to_string(partial: "hinanjyos/infowindow", locals: { marker: marker }) }
       }
     end
-
-    # get top 3 posts
-    @posts = []
-    @shelters.each do |shelter|
-      ordered_posts = shelter.posts.order(cached_votes_up: :desc)
-
-      @posts.push(ordered_posts[0]) if ordered_posts[0].present?
-      @posts.push(ordered_posts[1]) if ordered_posts[1].present?
-      @posts.push(ordered_posts[2]) if ordered_posts[2].present?
-    end
-    @posts = @posts.sort_by { |post| post.cached_votes_total }.reverse!
   end
 
   private
