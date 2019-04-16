@@ -1,3 +1,24 @@
+i{
+  text-decoration: none;
+  color: #3BB4C1;
+}
+
+i.fa-heart.voted {
+  color: #3BB4C1;
+  i.fa-heart.voted:hover{
+    text-decoration: none;
+    opacity: 0.5;
+  }
+}
+
+i.fa-heart.not-voted {
+  color: gray;
+  i.fa-heart.not-voted:hover{
+    text-decoration: none;
+    color: #3BB4C1;
+  }
+}
+
 .number-of-likes > p{
   font-size: 14px;
 }
@@ -18,4 +39,28 @@
   &:hover {
     opacity: 0.7;
   }
+}
+
+.cant-comment{
+ a {
+  font-weight: 700;
+  color: #3BB4C1;
+  }
+  font-size: 13px;
+}
+
+.completed {
+  font-weight: 500;
+  border-color: #8b0000;
+  background-color: #8b0000;
+  width: 100%;
+  opacity: 0.5;
+}
+
+.completed:hover {
+  font-weight: 500;
+  border-color: #8b0000;
+  background-color: #8b0000;
+  opacity: 1;
+  width: 100%;
 }
