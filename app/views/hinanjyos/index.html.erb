@@ -1,1 +1,7 @@
-<%= render "sheltermap" %>
+<% if current_page?(shelters_path)  %>
+  <%= render "sheltermap" %>
+<% end %>
+
+<% if current_page?(details_shelters_path) %>
+  <%= render "details" %>
+<% end %>

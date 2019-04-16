@@ -120,30 +120,22 @@ class Helpers::HinanjyosController < ApplicationController
         infoWindow: { content: render_to_string(partial: "hinanjyos/infowindow", locals: { marker: marker }) }
       }
     end
-  end
 
-  def show
-    authorize @shelter
-    @posts = @shelter.posts
-  end
+    # get top 3 posts
+    @posts = []
+    @shelters.each do |shelter|
+      ordered_posts = shelter.posts.order(cached_votes_up: :desc)
 
-  # routes added (favorite_shelter_path)
-  # user calls 'favorite_shelter' method and toggle favorites
-  # Set color to star icon depending on the status of favorite
-  def favorite
-    authorize @shelter
-    current_user.favorite_shelter(@shelter)
-
-    redirect_to shelter_path(@shelter)
+      @posts.push(ordered_posts[0]) if ordered_posts[0].present?
+      @posts.push(ordered_posts[1]) if ordered_posts[1].present?
+      @posts.push(ordered_posts[2]) if ordered_posts[2].present?
+    end
+    @posts = @posts.sort_by { |post| post.cached_votes_total }.reverse!
   end
 
   private
 
-  def find_shelter
-    @shelter = Hinanjyo.find(params[:id])
-  end
-
-    # save disaster searched in session
+  # save disaster searched in session
   def disaster
     if @user_disaster.present?
       session[:disaster] = @user_disaster

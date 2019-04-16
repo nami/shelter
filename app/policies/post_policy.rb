@@ -32,4 +32,12 @@ class PostPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def upvote?
+    return true
+  end
+
+  def upvote_from_shelter?
+    return true
+  end
 end

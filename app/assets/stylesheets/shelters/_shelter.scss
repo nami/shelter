@@ -28,17 +28,18 @@
   color: #8b0000;
 }
 
-.fa-star.favorite {
-  color: red;
+.fa-check-circle.favorite {
+  color: #3BB4C1;
   &:hover {
     opacity: 0.5;
   }
 }
 
-.fa-star.not-favorite {
-  color: red;
+.fa-check-circle.not-favorite {
+  color: gray;
+  opacity: 0.5;
   &:hover {
-    color: red;
+    color: #3BB4C1;
   }
 }
 
@@ -50,7 +51,7 @@
 }
 
 .post.card{
-  border-radius: 25px;
+  border-radius: 10px;
 }
 
 .post.card h4{
@@ -102,6 +103,7 @@
     background-color: #007880;
     margin-bottom: 0;
     padding-bottom: 0;
+    border-radius: 5px;
   }
 }
 
@@ -110,6 +112,22 @@
   padding: 0 0;
   font-size: 10px!important;
   color: #A9A9A9;
+}
+
+.posted-by{
+  position: relative;
+}
+
+.posted-by i{
+  position: absolute;
+  top: 24px;
+  right: 0;
+  text-decoration: none;
+  color: #3BB4C1;
+  i:hover{
+    text-decoration: none;
+    color: #3BB4C1;
+  }
 }
 
 #request-button{
@@ -124,4 +142,12 @@
 #request-button:hover{
   border-color: #3BB4C1;
   background-color: #3BB4C1;
+}
+
+.post-card-header i.fa-heart.voted {
+  color: #3BB4C1;
+}
+
+.post-card-header i.fa-heart.not-voted {
+  color: gray;
 }
