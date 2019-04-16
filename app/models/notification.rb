@@ -1,5 +1,5 @@
 class Notification < ApplicationRecord
-  after_create_commit { NotificationBroadcastJob.perform_later(Notification.count, self) }
+  after_create_commit :broadcast_message
 
   scope :checked, -> { where(checked: true) }
   scope :unchecked, -> { where(checked: false) }
@@ -7,4 +7,8 @@ class Notification < ApplicationRecord
   belongs_to :comment
   belongs_to :user
   has_one :post, through: :comment
+
+  def broadcast_message
+    NotificationBroadcastJob.perform_now(Notification.count, self)
+  end
 end

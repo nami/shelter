@@ -16,6 +16,8 @@ gem 'rails', '5.2.2.1'
 gem 'redis', '~> 3.3'
 gem 'pundit'
 gem 'pg_search'
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'

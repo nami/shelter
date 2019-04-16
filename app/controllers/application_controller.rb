@@ -17,6 +17,13 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def self.renderer_with_signed_in_user(user)
+    proxy = Warden::Proxy.new({}, Warden::Manager.new({})).tap { |i|
+      i.set_user(user, scope: :user, store: false, run_callbacks: false)
+    }
+    renderer.new('warden' => proxy)
+  end
+
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
