@@ -49,7 +49,8 @@
               </div>
 
               <div class="footer-buttons d-flex align-items-center justify-content-center mt-1">
-                <%= link_to "SEE FULL POSTS", posts_path  %>
+
+                <%= link_to "SEE FULL POSTS", posts_path(item: params[:item]) %>
               </div>
             <% else %>
               <div class="top-posts">
