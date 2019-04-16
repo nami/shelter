@@ -42,6 +42,20 @@ li a:hover{
   margin-bottom: 48px;
 }
 
+.notification-user-comment {
+  font-size: 10px;
+  color: #808080;
+  white-space: nowrap;
+  width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+p.notification-user-comment {
+  margin: 6px 0;
+  font-weight: 400;
+}
+
 .timestamp {
   font-size: 10px;
 }
@@ -50,6 +64,7 @@ li a:hover{
   display: flex;
     h6 {
     font-size: 12px;
+    margin-bottom: 4px;
   }
 }
 
@@ -60,6 +75,6 @@ li a:hover{
 
 .name-time {
   margin-left: 16px;
-  line-height: 16px;
+  line-height: 10px;
 }
 

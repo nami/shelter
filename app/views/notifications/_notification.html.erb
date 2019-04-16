@@ -11,6 +11,7 @@
                 </div>
                 <div class="name-time">
                   <h6><%= notification.comment.user.first_name %> <%= notification.comment.user.last_name %></h6>
+                <p class="notification-user-comment">" <%= notification.comment.content %> "</p>
                   <div class="timestamp">
                     <%= notification.created_at.in_time_zone.strftime("%b. %d, %I:%M %p ") %>
                   </div>
