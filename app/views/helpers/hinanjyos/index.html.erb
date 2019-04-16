@@ -15,13 +15,13 @@
           <div
               id="map"
               style="width: 100vw;
-              height: calc(100vh - 75px - 270px);
+              height: calc(100vh - 75px - 290px);
               "
               data-markers="<%= @markers.to_json %>"
               data-myLat="<%= @user_latitude %>"
               data-myLong="<%= @user_longitude  %>"
           ></div>
-          <div class="map-footer mt-3">
+          <div class="map-footer">
             <div class="items-search-bar d-flex justify-content-center pb-2">
               <%= form_tag posts_path, method: :get do %>
                 <%= text_field_tag :item,
@@ -34,7 +34,7 @@
             <% if @posts.blank? %>
               <p class="mt-4">There are no posts yet in this area</p>
             <% else %>
-              <div class="top-posts pb-2">
+              <div class="top-posts">
                 <h6>TOP POSTS IN THIS AREA</h6>
                 <% @posts[0..2].each do |post|  %>
                 <%= link_to post_path(post.id), :action => 'go' do %>
@@ -47,7 +47,7 @@
               </div>
             <% end %>
 
-            <div class="footer-buttons d-flex align-items-center justify-content-center">
+            <div class="footer-buttons d-flex align-items-center justify-content-center mt-1">
               <%= link_to "DETAILED AREA INFO", details_shelters_path  %>
             </div>
           </div>
