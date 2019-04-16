@@ -133,7 +133,6 @@ class Helpers::HinanjyosController < ApplicationController
       @posts.each do |post|
         @markers.push(post.hinanjyo)
       end
-      session[:posts] = @posts
     end
 
     # markers according to search parameters

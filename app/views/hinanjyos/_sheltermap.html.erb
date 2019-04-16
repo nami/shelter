@@ -30,10 +30,10 @@
                     <% @user_disaster = @user_disaster.split('_').map(&:capitalize).join(' ') %>
                   <% end %>
                   <h5>There are no <%= @user_disaster.singularize.capitalize %> shelters in your area.</h5>
-                  <h6>Search again?</h6>
+                  <h6>Try searching again with the city?</h6>
                 <% else %>
                   <h5>There are no shelters in your area.</h5>
-                  <h6>Search again?</h6>
+                  <h6>Try searching again with the city?</h6>
                 <% end %>
               </div>
             </div>
