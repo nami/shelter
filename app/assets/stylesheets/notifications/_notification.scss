@@ -26,12 +26,13 @@ li a:hover{
 .notificationCard {
   display: flex;
   text-align: left;
+  margin: 16px 0px;
 }
 
 .notificationContent {
   margin-left: 16px;
   line-height: 8px;
-  padding: 10px 0px;
+  padding: 4px 0px;
 }
 
 .notifications-avatar {
@@ -42,10 +43,18 @@ li a:hover{
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
+.notification-day {
+  margin-bottom: 32px;
+}
+
 .timestamp {
   font-size: 10px;
 }
 
-.user-notice p{
-  margin-top: 6px;
+
+.user-notice {
+  display: flex;
+  line-height: 16px;
+  font-size: 14px;
 }
+

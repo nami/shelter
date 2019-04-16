@@ -1,6 +1,5 @@
   <% @notifications.each do |index, n| %>
-    <%= custom_format(index) %>
-
+  <h2 class="notification-day"><%= custom_format(index) %></h2>
     <li>
       <% n.each do |notification| %>
 
@@ -10,7 +9,7 @@
               <%= cl_image_tag (notification.comment.user.avatar), :class =>"notifications-avatar mt-1" %>
             </div>
             <div class="notificationContent">
-              <div class="user-notice d-flex">
+              <div class="user-notice">
                 <h6 class="pr-3"><%= notification.comment.user.first_name %> <%= notification.comment.user.last_name %></h6>
                 <p><%= notification.event %></p>
               </div>
@@ -20,8 +19,8 @@
             </div>
         </div>
       <% end %>
-       <hr>
       <% end %>
     </li>
+  <hr>
 
 <% end %>
