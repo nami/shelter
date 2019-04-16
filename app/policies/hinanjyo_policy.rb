@@ -12,4 +12,8 @@ class HinanjyoPolicy < ApplicationPolicy
   def favorite?
     return true
   end
+
+  def details?
+    return true
+  end
 end

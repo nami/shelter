@@ -110,13 +110,19 @@ class HinanjyosController < ApplicationController
     end
 
     # markers according to search parameters
-    @found_shelters = @markers
     @markers = @markers.map do |marker|
       {
         lat: marker.latitude,
         lng: marker.longitude,
         infoWindow: { content: render_to_string(partial: "hinanjyos/infowindow", locals: { marker: marker }) }
       }
+    end
+  end
+
+  def details
+    if params[:location].present?
+      @found_shelters = Hinanjyo.near(params[:location], 3)
+      authorize @found_shelters
     end
   end
 
