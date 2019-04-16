@@ -4,64 +4,98 @@
   <title>The page you were looking for doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
+
+  html,body {
+    width: 100%;
+    height: 100%;
     margin: 0;
+    padding: 16px;
+    background-color: #007880;
   }
 
-  .rails-default-error-page div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
+  .bg-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url() no-repeat center center fixed;
+    background-size: cover;
+    /*background-color: #000;*/
+    opacity: .5;
+    filter: alpha(opacity=50);
   }
 
-  .rails-default-error-page div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  .content {
+    font-family: 'Avenir-Next',Avenir,Helvetica,sans-serif;
+    color: #fff;
+    background-color: none;
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
   }
 
-  .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
+  h1 {
+    font-size: 80px;
+    margin-bottom: 0;
+    margin-top: 0;
   }
 
-  .rails-default-error-page div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  h2 {
+    margin-top: 0;
+    max-width: 700px;
+    font-size: 30px;
+    width: 90%;
   }
+
+  p {
+    text-align: left;
+    padding-bottom: 16  px;
+  }
+
+  a.btn {
+    display: inline-block;
+    border: 1px solid #aaa;
+    border-radius: 32px;
+    padding: 12px 24px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: white;
+    font-weight: 500;
+    border-color: #3BB4C1;
+    background-color: #3BB4C1;
+    text-decoration: none;
+  }
+
+  a.btn:hover {
+      color: white;
+      border-color: #3BB4C1;
+      background-color: #3BB4C1;
+      opacity: .7;
+      cursor: pointer;
+    }
+  }
+
   </style>
 </head>
 
-<body class="rails-default-error-page">
-  <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
+<body>
+  <div class="container">
+    <div class="row content">
+      <div class="col-lg-12"></div>
+      <div class="col-lg-12">
+        <h1>404</h1>
+        <h2>Oops, the page you're looking for does not exist.</h2>
+        <p>
+          You may want to head back to the homepage.
+        </p>
+        <a href="home" class="btn">RETURN HOME</a>
+      </div>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
   </div>
+  <div class="bg-img"></div>
 </body>
+
 </html>

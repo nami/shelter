@@ -3,7 +3,7 @@
     <div class="col-sm-12 col-sm-offset-3">
       <div class="chat-header d-flex justify-content-between px-3 py-3">
         <h3><%= @post.title %></h3>
-        <%= link_to "Back", shelter_path(@post.hinanjyo), class: "pr-3 mt-2" %>
+        <%= link_to "Back to shelter", shelter_path(@post.hinanjyo), class: "pr-3 mt-2" %>
       </div>
       <div class="post-info mt-3 pl-3 pr-2 pt-1 pb-1">
         <div class="upvote d-flex justify-content-between">
@@ -11,21 +11,34 @@
             <%= cl_image_tag @post.user.avatar, class: "avatar" %>
             <h5 class="ml-2 mt-3"><%= @post.user.first_name.upcase %> <%= @post.user.last_name.upcase %></h5>
           </div>
-          <i onclick="likeFunction(this)" class="fas fa-thumbs-up fa-2x mt-3 mr-3"></i>
-          <script>
-            function likeFunction(x) {
-              x.classList.toggle("green");
-            }
-          </script>
+          <div class="number-of-likes d-flex align-items-center mr-1">
+            <% if user_signed_in? %>
+              <% if current_user.voted_for? @post %>
+                <%= link_to upvote_post_path do %>
+                  <i class="fas fa-arrow-alt-circle-up voted fa-2x"></i>
+                <% end %>
+              <% else %>
+                <%= link_to upvote_post_path do %>
+                  <i class="fas fa-arrow-alt-circle-up not-voted fa-2x"></i>
+                <% end %>
+              <% end %>
+            <% else %>
+              <i class="fas fa-arrow-alt-circle-up fa-2x"></i>
+            <% end %>
+            <p class="ml-1 mt-3"><%= @post.get_likes.size %></p>
+          </div>
         </div>
         <div class="mt-2 mb-2 post-description">
           <p><%= @post.description %></p>
           <div class="d-flex justify-content-between">
-            <p><strong>Posted:</strong> <%= @post.created_at %></p>
-            <% if @post.user == current_user %>
-              <%= link_to raw("<i class='fas fa-trash-alt mr-2'></i>"), post_path,
-            data: {:confirm => 'Are you sure you want to delete this post?'}, :method => :delete  %>
-            <% end %>
+            <p class="post-date"><%= @post.created_at.strftime("%b. %d, %I:%M %p ") %></p>
+            <div class="d-flex justify-content-end">
+              <% if @post.user == current_user %>
+                <%= link_to raw("<i class='fas fa-edit mr-2'></i>"), edit_shelter_post_path(@shelter.id, params[:id]) %>
+                <%= link_to raw("<i class='fas fa-trash-alt mr-2'></i>"), post_path,
+              data: {:confirm => 'Are you sure you want to delete this post?'}, :method => :delete  %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>

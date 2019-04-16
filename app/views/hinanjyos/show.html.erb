@@ -2,8 +2,7 @@
 
   <div class="shelter-header d-flex mt-3 justify-content-between">
     <div class="back-map d-flex">
-      <i class="fas fa-backward pt-1 mr-2"></i>
-      <%= link_to "Map", shelters_path, class: "" %>
+      <%= link_to raw("<i class='fas fa-backward pt-1 mr-2'></i> Map"), shelters_path, class: "" %>
     </div>
     <div class="search-tags">
       <input type="text" class="form-control" placeholder="Search tags...">
@@ -22,15 +21,19 @@
       <!-- in case the shelter is favorite, show yellow star -->
       <% if current_user.voted_for? @shelter %>
         <%= link_to favorite_shelter_path do %>
-          <i class="fas fa-heart favorite mt-1 ml-2"></i>
+          <i class="fas fa-check-circle favorite mt-1 ml-2"></i>
         <% end %>
       <!-- in case the shelter is not favorite, show transparent star -->
       <% else %>
         <%= link_to favorite_shelter_path do %>
-          <i class="far fa-heart not-favorite m2-2 ml-2"></i>
+          <i class="far fa-check-circle not-favorite m2-2 ml-2"></i>
         <% end %>
       <% end %>
     <% end %>
+  </div>
+
+  <div class="shelter-address">
+    <p class="ja text-center mt-1" style="font-size: 14px;"><%= @shelter.street %></p>
   </div>
 
   <div class="request-help text-center mt-2 mb-3">
@@ -44,17 +47,31 @@
       <% if @posts == [] %>
         <p class="">Currently the shelter doesn't have any post.</p>
       <% else %>
-        <% @posts.each do |post| %>
+        <% @posts.order('created_at DESC').each do |post| %>
         <%= link_to post_path(post.id) do %>
           <div class="post card mb-3 animated fadeInUp">
             <div class="post-card-header d-flex justify-content-between">
               <h4 class="ml-3 pt-3 pb-2"><%= post.title %></h4>
-              <i onclick="likeFunction(this)" class="fas fa-thumbs-up fa-2x mt-3 mr-3"></i>
-              <script>
-                function likeFunction(x) {
-                  x.classList.toggle("green");
-                }
-              </script>
+              <div class="number-of-likes d-flex align-items-center mr-1">
+                <% if user_signed_in? %>
+                  <% if current_user.voted_for? post %>
+                    <object>
+                      <%= link_to upvote_post_from_shelter_path(post.id) do %>
+                        <i class="fas fa-heart voted fa-2x"></i>
+                      <% end %>
+                    </object>
+                  <% else %>
+                    <object>
+                      <%= link_to upvote_post_from_shelter_path(post.id) do %>
+                        <i class="far fa-heart not-voted fa-2x"></i>
+                      <% end %>
+                    </object>
+                  <% end %>
+                <% else %>
+                  <i class="fas fa-heart fa-2x mr-1" style="color: #3BB4C1;"></i>
+                <% end %>
+                <p class="ml-1 mt-3 mr-3"><%= post.get_likes.size %></p>
+              </div>
             </div>
             <p class="mx-3"><%= post.description %></p>
             <div class="post-card-foot d-flex justify-content-between">
@@ -67,10 +84,15 @@
               </div>
               <div class="posted-by mr-4">
                 <%= cl_image_tag (post.user.avatar), class: 'poster-avatar' %>
+                <% if user_signed_in? %>
+                  <% if current_user.get_voted(Hinanjyo).first == post.user.get_voted(Hinanjyo).first %>
+                    <i class="fas fa-check-circle"></i>
+                  <% end %>
+                <% end %>
               </div>
             </div>
             <div class="date-posted ml-3 mb-2">
-              <p>Posted: <%= post.created_at %></p>
+              <p><%= post.created_at.strftime("%b. %d, %I:%M %p ") %></p>
             </div>
           </div>
           <% end %>

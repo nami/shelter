@@ -1,0 +1,53 @@
+<div class="container">
+
+  <div class="shelter-header d-flex mt-3 justify-content-between">
+    <div class="back-map d-flex">
+      <%= link_to raw("<i class='fas fa-backward pt-1 mr-2'></i> Back to Offer Help Map"), helpers_shelters_path, class: "" %>
+    </div>
+  </div>
+
+  <div class="all-posts cards mt-5">
+    <div class="rows">
+      <% if @posts == [] %>
+        <p class="">Currently there are no posts that match your search terms.</p>
+      <% else %>
+        <% @posts.order('created_at DESC').each do |post| %>
+        <%= link_to post_path(post.id) do %>
+          <div class="post card mb-3 animated fadeInUp">
+            <div class="post-card-header d-flex justify-content-between">
+              <h4 class="ml-3 pt-3 pb-2"><%= post.title %> in <%= post.hinanjyo.place_name  %></h4>
+              <div class="post-likes d-flex">
+                <i class="fas fa-thumbs-up fa-2x mt-3 mr-2"></i>
+                <p class="mt-3 mr-3"><%= post.get_likes.size  %></p>
+              </div>
+            </div>
+            <p class="mx-3"><%= post.description.truncate(80) %></p>
+            <div class="post-card-foot d-flex justify-content-between">
+              <div class="tag-list d-flex">
+                <% post.tag_list.each do |tag| %>
+                  <div class="single-tag ml-3">
+                    <p class="px-1 py-1"><%= tag %></p>
+                  </div>
+                <% end %>
+              </div>
+              <div class="posted-by mr-4">
+                <%= cl_image_tag (post.user.avatar), class: 'poster-avatar' %>
+                <% if user_signed_in? %>
+                  <% if current_user.get_voted(Hinanjyo).first == post.user.get_voted(Hinanjyo).first %>
+                    <i class="fas fa-check-circle"></i>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+            <div class="date-posted ml-3 mb-2">
+              <p><%= post.created_at.strftime("%b. %d, %I:%M %p ") %></p>
+            </div>
+          </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

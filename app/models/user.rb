@@ -33,4 +33,12 @@ class User < ApplicationRecord
       shelter.liked_by self
     end
   end
+
+  def upvoted_post(post)
+    if voted_for? post
+      post.unliked_by self
+    else
+      post.liked_by self
+    end
+  end
 end

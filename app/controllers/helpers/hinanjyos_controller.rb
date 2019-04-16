@@ -1,6 +1,6 @@
-class HinanjyosController < ApplicationController
-  before_action :find_shelter, only: [:show, :edit, :update, :destroy, :favorite]
+class Helpers::HinanjyosController < ApplicationController
   skip_before_action :authenticate_user!
+  before_action :disaster, :longlat, only: :index
 
   def index
     @shelters = policy_scope(Hinanjyo).where.not(latitude: nil, longitude: nil)
@@ -9,24 +9,27 @@ class HinanjyosController < ApplicationController
     # if nothing is searched
     if params[:location].present? && disaster.nil?
       # show all markers
-      @markers = @shelters.near(params[:location], 3)
+      @shelters = @shelters.near(params[:location], 3)
+      @markers = @shelters
     # if in session there is a disaster that was searched before
     # filter by disaster type and location
     elsif disaster.present? && params[:location].present?
-      @markers = Hinanjyo.near(params[:location], 3)
-      @markers = @markers.select do |shelter|
+      @shelters = Hinanjyo.near(params[:location], 3)
+      @shelters = @shelters.select do |shelter|
         @choice_disaster = session[:disaster].to_sym
         shelter[@choice_disaster] == true
       end
+      @markers = @shelters
     else
     # if in session there is a user longlat & disaster that was searched before
     # filter by disaster type, searched location & user location
     if disaster.present? && longlat.present?
-      @markers = @shelters.near([longlat[0], longlat[1]], 3)
-      @markers = @markers.select do |shelter|
+      @shelters = @shelters.near([longlat[0], longlat[1]], 3)
+      @shelters = @shelters.select do |shelter|
         @choice_disaster = session[:disaster].to_sym
         shelter[@choice_disaster] == true
       end
+      @markers = @shelters
     else
       # else just search by location
       @markers = @shelters
@@ -109,6 +112,28 @@ class HinanjyosController < ApplicationController
       session[:disaster] = @user_disaster
     end
 
+    # get top 3 posts
+    @topposts = []
+    @shelters.each do |shelter|
+      ordered_posts = shelter.posts.order(cached_votes_up: :desc)
+
+      @topposts.push(ordered_posts[0]) if ordered_posts[0].present?
+      @topposts.push(ordered_posts[1]) if ordered_posts[1].present?
+      @topposts.push(ordered_posts[2]) if ordered_posts[2].present?
+    end
+    @topposts = @topposts.sort_by { |post| post.cached_votes_total }.reverse!
+
+
+    # offer help, search by item
+    if params[:item].present?
+      @posts = policy_scope(Post)
+      @markers = []
+      @posts = @posts.search_by_posts(params[:item])
+      @posts.each do |post|
+        @markers.push(post.hinanjyo)
+      end
+    end
+
     # markers according to search parameters
     @markers = @markers.map do |marker|
       {
@@ -119,35 +144,9 @@ class HinanjyosController < ApplicationController
     end
   end
 
-  def details
-    if params[:location].present?
-      @found_shelters = Hinanjyo.near(params[:location], 3)
-      authorize @found_shelters
-    end
-  end
-
-  def show
-    authorize @shelter
-    @posts = @shelter.posts
-  end
-
-   # routes added (favorite_shelter_path)
-   # user calls 'favorite_shelter' method and toggle favorites
-   # Set color to star icon depending on the status of favorite
-   def favorite
-    authorize @shelter
-    current_user.favorite_shelter(@shelter)
-
-    redirect_to shelter_path(@shelter)
-  end
-
   private
 
-  def find_shelter
-    @shelter = Hinanjyo.find(params[:id])
-  end
-
-    # save disaster searched in session
+  # save disaster searched in session
   def disaster
     if @user_disaster.present?
       session[:disaster] = @user_disaster

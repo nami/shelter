@@ -2,7 +2,95 @@
   width: 100vw;
 }
 
-#map{
+.items-search-bar{
+  margin-left: -4px;
+}
+
+.items-search-bar input{
+  border-radius: 15px;
+}
+
+.footer-buttons a{
+  text-decoration: none;
+  color: white;
+  background-color: #3BB4C1;
+  padding: 8px 16px;
+  margin-right: 16px;
+  border-radius: 16px;
+  font-weight: 500;
+  a:hover{
+    color: #007880;
+  }
+}
+
+.map-footer{
+  text-align: center;
+  padding-top: 14px;
+}
+
+.map-footer .top-posts p{
+  padding: 0;
+  margin: 0;
+}
+
+.top-posts{
+  a{
+    text-decoration: none;
+    color: black;
+  }
+
+  a:hover{
+    text-decoration: none;
+    color: #007880;
+  }
+  h6{
+    background-color: #007880;
+    color: white;
+  }
+}
+
+.no-shelter{
+  background-image: image-url("homepage/door-hallway-dark.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
   width: 100vw;
-  height: calc(100vh - 83px - 25px);
+  height: calc(100vh - 75px - 25px);
+  color: white;
+  h5{
+    padding-top: 75%;
+  }
+  h6{
+    font-weight: 300;
+    font-style: italic;
+  }
+}
+
+.items-search-bar input{
+  width: 350px;
+}
+
+.footer-buttons{
+  justify-content: space-around!important;
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .map-footer{
+    text-align: center;
+    margin-top: 18px;
+  }
+
+  .top-posts{
+    margin-top: 12px;
+  }
+
+  .items-search-bar{
+    margin-left: 0px;
+  }
+
+  .footer-buttons a{
+    margin-top: 10px;
+  }
 }

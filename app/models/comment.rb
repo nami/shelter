@@ -1,7 +1,7 @@
 class Comment < ApplicationRecord
   belongs_to :post
   belongs_to :user
-  has_many :notifications
+  has_many :notifications, dependent: :destroy
   validates :content, presence: true, allow_blank: false
 
   after_create :broadcast_message
@@ -26,6 +26,8 @@ class Comment < ApplicationRecord
   private
 
   def notify
-    Notification.create(event: "commented on your post", comment_id: self.id, user_id: self.post.user.id)
+    if self.user.id != self.post.user.id
+      Notification.create(event: "commented on your post", comment_id: self.id, user_id: self.post.user.id)
+    end
   end
 end

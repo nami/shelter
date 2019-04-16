@@ -12,11 +12,11 @@
   <% end %>
   <%= link_to helpers_shelters_path, :action => 'go' do  %>
   <div class="help-icon">
-    <%# if current_page?('helpers/shelters') %>
-    <%= image_tag "navbar/hand.png", alt: "hand icon", class: "ml-3" %>
-    <%# else %>
-    <%#= image_tag "navbar/hand-white", alt: "hand icon active ml-3" %>
-    <%# end %>
+    <% if current_page?(controller:'helpers/hinanjyos', action:'index') %>
+      <%= image_tag "navbar/hand-white.png", alt: "hand icon", class: "ml-3" %>
+    <% else %>
+      <%= image_tag "navbar/hand.png", alt: "hand icon active", class: "ml-3" %>
+    <% end %>
     <p>Offer Help</p>
   </div>
   <% end %>
@@ -24,7 +24,7 @@
     <%= link_to shelter_path(current_user.get_voted(Hinanjyo).first.id), :action => 'go' do %>
       <div class="shelter-icon">
         <% if current_page?(shelter_path(current_user.get_voted(Hinanjyo).first.id)) %>
-          <%= image_tag "navbar/favourite-house-filled.png", alt: "shelter icon active", class: "ml-2" %>
+          <%= image_tag "navbar/favourite-house-filled.png", alt: "shelter icon active", class: "ml-3" %>
           <p style="font-weight: 500;">My Shelter</p>
         <% else %>
           <%= image_tag "navbar/favorite-house.png", alt: "shelter icon", class: "ml-3" %>
@@ -33,10 +33,10 @@
       </div>
     <% end %>
   <% end %>
-  <%= link_to notifications_path, :action => 'go' do  %>
+  <%= link_to notifications_path, :action => 'go', class: "notify-button" do  %>
     <div class="notif-icon">
-      <% if user_signed_in? %>
-        <%= render 'notifications/counter', counter: current_user.notifications.count %>
+      <% if user_signed_in? && current_user.notifications.unchecked.count > 0 %>
+        <%= render 'notifications/counter', counter: current_user.notifications.unchecked.count %>
       <% end %>
       <%= image_tag "navbar/bell.png", alt: "bell icon"%>
       <p>Notifications</p>
