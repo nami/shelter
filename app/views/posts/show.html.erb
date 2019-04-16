@@ -21,7 +21,7 @@
         <div class="mt-2 mb-2 post-description">
           <p><%= @post.description %></p>
           <div class="d-flex justify-content-between">
-            <p class="post-date"><%= @post.created_at.strftime("%b. %d, %I:%M %p ") %></p>
+            <p class="post-date"><%= @post.created_at.in_time_zone.strftime("%b. %d, %I:%M %p ") %></p>
             <% if @post.user == current_user %>
               <%= link_to raw("<i class='fas fa-trash-alt mr-2'></i>"), post_path,
             data: {:confirm => 'Are you sure you want to delete this post?'}, :method => :delete  %>

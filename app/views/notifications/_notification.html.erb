@@ -1,4 +1,24 @@
-  <% @notifications.each do |index, n| %>
+  <% @notifications.each do |index, notification| %>
     <%= custom_format(index) %>
-    <%= n %>
-  <% end %>
+
+    <li>
+      <%= link_to post_path(notification.post.id) do %>
+        <div class="notificationCard">
+            <div>
+              <%= cl_image_tag (notification.comment.user.avatar), :class =>"notifications-avatar mt-1" %>
+            </div>
+            <div class="notificationContent">
+              <div class="user-notice d-flex">
+                <h6 class="pr-3"><%= notification.comment.user.first_name %> <%= notification.comment.user.last_name %></h6>
+                <p><%= notification.event %></p>
+              </div>
+                <div class="timestamp">
+                  <%= notification.created_at.in_time_zone.strftime("%b. %d, %I:%M %p ") %>
+                </div>
+            </div>
+        </div>
+      <% end %>
+       <hr>
+    </li>
+
+<% end %>
