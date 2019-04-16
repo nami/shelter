@@ -48,7 +48,7 @@
             <% end %>
 
             <div class="footer-buttons d-flex align-items-center justify-content-center">
-              <%= link_to "DETAILED AREA INFO", details_shelters_path  %>
+              <%= link_to "DETAILED AREA INFO", details_shelters_path(location: params[:location]) %>
             </div>
           </div>
           <% else %>

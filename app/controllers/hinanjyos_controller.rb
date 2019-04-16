@@ -110,6 +110,7 @@ class HinanjyosController < ApplicationController
     end
 
     # markers according to search parameters
+    @found_shelters = @markers
     @markers = @markers.map do |marker|
       {
         lat: marker.latitude,
