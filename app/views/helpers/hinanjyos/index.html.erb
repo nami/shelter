@@ -40,7 +40,7 @@
                 <%= link_to post_path(post.id), :action => 'go' do %>
                 <div class="post d-flex justify-content-center">
                   <p><%= post.title  %></p>
-                  <p class="pl-2"><i class="fas fa-thumbs-up"></i> <%= post.get_likes.size  %></p>
+                  <p class="pl-2"><i class="fas fa-heart"></i> <%= post.get_likes.size  %></p>
                 </div>
                 <% end %>
                 <% end %>

@@ -1,10 +1,9 @@
 <div class="container mb-5">
 
   <div class="shelter-header d-flex mt-3 justify-content-between">
-   <!--  <div class="back-map d-flex">
-      <i class="fas fa-backward pt-1 mr-2"></i>
-      <%#= link_to "Map", shelters_path, class: "" %>
-    </div> -->
+    <div class="back-map d-flex">
+      <%= link_to raw("<i class='fas fa-backward pt-1 mr-2'></i> Map"), shelters_path, class: "" %>
+    </div>
     <div class="search-tags">
       <input type="text" class="form-control" placeholder="Search tags...">
     </div>
@@ -58,18 +57,18 @@
                   <% if current_user.voted_for? post %>
                     <object>
                       <%= link_to upvote_post_from_shelter_path(post.id) do %>
-                        <i class="fas fa-arrow-alt-circle-up voted fa-2x"></i>
+                        <i class="fas fa-heart voted fa-2x"></i>
                       <% end %>
                     </object>
                   <% else %>
                     <object>
                       <%= link_to upvote_post_from_shelter_path(post.id) do %>
-                        <i class="fas fa-arrow-alt-circle-up not-voted fa-2x"></i>
+                        <i class="far fa-heart not-voted fa-2x"></i>
                       <% end %>
                     </object>
                   <% end %>
                 <% else %>
-                  <i class="fas fa-arrow-alt-circle-up fa-2x"></i>
+                  <i class="fas fa-heart fa-2x mr-1" style="color: #3BB4C1;"></i>
                 <% end %>
                 <p class="ml-1 mt-3 mr-3"><%= post.get_likes.size %></p>
               </div>

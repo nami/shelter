@@ -144,14 +144,10 @@
   background-color: #3BB4C1;
 }
 
-.post-card-header i.fa-arrow-alt-circle-up {
-  color: gray;
- }
-
-.post-card-header i.fa-arrow-alt-circle-up.voted {
-  color: $red;
+.post-card-header i.fa-heart.voted {
+  color: #3BB4C1;
 }
 
-.post-card-header i.fa-arrow-alt-circle-up.not-voted {
+.post-card-header i.fa-heart.not-voted {
   color: gray;
 }
