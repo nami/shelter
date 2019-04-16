@@ -16,6 +16,7 @@ class PostsController < ApplicationController
     @post = Post.includes(comments: :user).find(params[:id])
     authorize @post
     @shelter = Hinanjyo.find(@post.hinanjyo_id)
+
   end
 
   def new
@@ -45,6 +46,16 @@ class PostsController < ApplicationController
       redirect_to post_path(params[:id])
     else
       render :new
+    end
+
+    if params[:completed]
+      if @post.update(post_params)
+        redirect_to post_path(post_params)
+        flash[:notice] = "Request is now complete!"
+      else
+       flash[:alert] = "Post could not be marked as complete"
+       redirect_to post_path(params[:id])
+      end
     end
   end
 
@@ -84,6 +95,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :description, :user_id, :photo, :hinanjyo_id, tag_list: [])
+    params.require(:post).permit(:title, :completed, :description, :user_id, :photo, :hinanjyo_id, tag_list: [])
   end
 end

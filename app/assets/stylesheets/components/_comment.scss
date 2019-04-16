@@ -28,10 +28,6 @@
   overflow: scroll;
 }
 
-.green{
-  color: #32767F;
-}
-
 .post-description a{
   color: black;
 }
@@ -83,8 +79,10 @@ textarea {
   margin-bottom: 10px;
   &.right {
     flex-direction: row-reverse;
-    .message-content {
-      background-color: #F2F9FC;
+    .comment-content {
+      background-color: #3BB4C1;
+      color: white;
+      font-weight: 500;
     }
   }
 }
