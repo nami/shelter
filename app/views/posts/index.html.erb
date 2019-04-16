@@ -6,7 +6,7 @@
     </div>
   </div>
 
-  <div class="all-posts cards mt-5">
+  <div class="all-posts cards mt-3">
     <div class="rows">
       <% if @posts == [] %>
         <p class="">Currently there are no posts that match your search terms.</p>
@@ -15,9 +15,9 @@
         <%= link_to post_path(post.id) do %>
           <div class="post card mb-3 animated fadeInUp">
             <div class="post-card-header d-flex justify-content-between">
-              <h4 class="ml-3 pt-3 pb-2"><%= post.title %> in <%= post.hinanjyo.place_name  %></h4>
+              <h4 class="ml-3 pt-3 pb-2"><%= post.title %></h4>
               <div class="post-likes d-flex">
-                <i class="fas fa-thumbs-up fa-2x mt-3 mr-2"></i>
+                <i class="fas fa-heart fa-2x mt-3 mr-2"></i>
                 <p class="mt-3 mr-3"><%= post.get_likes.size  %></p>
               </div>
             </div>
