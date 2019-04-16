@@ -1,0 +1,40 @@
+<div class="container mt-3 mb-5">
+
+  <div class="">
+    <%= form_tag details_shelters_path, method: :get do %>
+      <%= text_field_tag :location,
+        params[:location],
+        class: "form-control", id: "location_input",
+        placeholder: "Search location..."
+      %>
+    <% end %>
+    <p>Search results: <%= @found_shelters.size %> shelters</p>
+  </div>
+
+  <div class="all-shelters cards mt-3">
+    <div class="rows">
+      <% @found_shelters.each do |shelter| %>
+        <%= link_to shelter_path(shelter) do %>
+          <div class="shelter card mb-3 animated fadeInUp">
+            <div class="shelter-card-header">
+              <h4 class="ml-3 pt-3 pb-2"> <%= shelter.place_name  %></h4>
+            </div>
+
+            <% shelter.posts.order(cached_votes_up: :desc)[0..2].each do |post| %>
+              <div class="shelter-body d-flex justify-content-between align-items-center">
+                <p class="mx-3">&nbsp;&nbsp;<%= post.title.truncate(80) %></p>
+                <div class="post-likes d-flex align-items-center">
+                  <i class="fas fa-arrow-alt-circle-up mr-2"></i>
+                  <p class="mt-3 mr-3"><%= post.get_likes.size %></p>
+                </div>
+              </div>
+            <% end %>
+
+          </div>
+        <% end %>
+    <% end %>
+    </div>
+  </div>
+</div>
+
+
