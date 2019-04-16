@@ -119,6 +119,13 @@ class HinanjyosController < ApplicationController
     end
   end
 
+  def details
+    if params[:location].present?
+      @found_shelters = Hinanjyo.near(params[:location], 3)
+      authorize @found_shelters
+    end
+  end
+
   def show
     authorize @shelter
     @posts = @shelter.posts
