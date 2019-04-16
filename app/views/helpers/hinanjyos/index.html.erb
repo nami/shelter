@@ -50,6 +50,7 @@
               <div class="footer-buttons d-flex align-items-center justify-content-center mt-1">
                 <%= link_to "SEE FULL POSTS", posts_path(item: params[:item]) %>
               </div>
+
             <% else %>
               <div class="top-posts">
                 <h6>TOP POSTS IN THIS AREA</h6>
@@ -63,11 +64,59 @@
                 <% end %>
               </div>
 
-              <div class="footer-buttons d-flex align-items-center justify-content-center mt-1">
-                <%= link_to "DETAILED AREA INFO", details_shelters_path(location: params[:location])  %>
+              <div class="area-footer-buttons text-center mt-1" onClick='document.getElementById("infoDetails").style.height = "100%"'>
+                <p>DETAILED AREA INFO</p>
               </div>
           <% end %>
+            <div id="infoDetails" class="overlay">
+              <!-- Button to close the overlay navigation -->
+              <a href="javascript:void(0)" class="closebtn" onClick='document.getElementById("infoDetails").style.height = "0%";'>&times;</a>
+
+              <!-- Overlay content -->
+              <div class="overlay-content">
+                <% @shelters.each do |shelter| %>
+                  <% if shelter.posts.present? %>
+                    <%= link_to shelter_path(shelter) do %>
+                      <div class="post card my-3 mx-3">
+                        <div class="post-card-head mb-2 py-2">
+                          <h5 class="pt-1 ja"><%= shelter.place_name %></h5>
+                        </div>
+                        <% shelter.posts.order(cached_votes_up: :desc)[0..2].each do |post| %>
+                          <div class="poster d-flex ml-3 mb-3">
+                            <div class="post-user">
+                              <%= cl_image_tag (post.user.avatar), class: 'poster-avatar' %>
+                              <% if user_signed_in? %>
+                                <% if current_user.get_voted(Hinanjyo).first == post.user.get_voted(Hinanjyo).first %>
+                                  <i class="fas fa-check-circle"></i>
+                                <% end %>
+                              <% end %>
+                            </div>
+                            <div class="post-body">
+                              <div class="details d-flex">
+                                <h6 class="mt-1 ml-3" style="text-align: left!important"><%= post.title %></h6>
+                                <div class="post-hearts d-flex">
+                                  <i class="fas fa-heart mt-2 ml-2"></i>
+                                  <p class="mt-1 ml-1"><%= post.get_likes.size  %></p>
+                                </div>
+                              </div>
+                              <div class="foot">
+                                <p class="ml-3"><%= post.description.truncate(80) %></p>
+                                <div class="date-posted">
+                                  <p class="ml-3" style="text-align: left!important;"><%= post.created_at.strftime("%b. %d, %I:%M %p ") %></p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        <% end %>
+                        </div>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+
           </div>
+
         <% else %>
           <div class="container-fluid no-shelter text-center">
             <div class="row">
@@ -110,5 +159,4 @@
       window.location.href = "/shelters";
     }
   });
-
 </script>
