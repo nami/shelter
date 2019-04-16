@@ -53,14 +53,25 @@
           <div class="post card mb-3 animated fadeInUp">
             <div class="post-card-header d-flex justify-content-between">
               <h4 class="ml-3 pt-3 pb-2"><%= post.title %></h4>
-              <div class="post-likes d-flex">
-                <i onclick="likeFunction(this)" class="fas fa-thumbs-up fa-2x mt-3 mr-2"></i>
-                <p class="mt-3 mr-3"><%= post.get_likes.size  %></p>
-                <script>
-                  function likeFunction(x) {
-                    x.classList.toggle("green");
-                  }
-                </script>
+              <div class="number-of-likes d-flex align-items-center mr-1">
+                <% if user_signed_in? %>
+                  <% if current_user.voted_for? post %>
+                    <object>
+                      <%= link_to upvote_post_from_shelter_path(post.id) do %>
+                        <i class="fas fa-arrow-alt-circle-up voted fa-2x"></i>
+                      <% end %>
+                    </object>
+                  <% else %>
+                    <object>
+                      <%= link_to upvote_post_from_shelter_path(post.id) do %>
+                        <i class="fas fa-arrow-alt-circle-up not-voted fa-2x"></i>
+                      <% end %>
+                    </object>
+                  <% end %>
+                <% else %>
+                  <i class="fas fa-arrow-alt-circle-up fa-2x"></i>
+                <% end %>
+                <p class="ml-1 mt-3 mr-3"><%= post.get_likes.size %></p>
               </div>
             </div>
             <p class="mx-3"><%= post.description %></p>

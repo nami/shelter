@@ -11,12 +11,22 @@
             <%= cl_image_tag @post.user.avatar, class: "avatar" %>
             <h5 class="ml-2 mt-3"><%= @post.user.first_name.upcase %> <%= @post.user.last_name.upcase %></h5>
           </div>
-          <i onclick="likeFunction(this)" class="fas fa-thumbs-up fa-2x mt-3 mr-3"></i>
-          <script>Water
-            function likeFunction(x) {Water
-              x.classList.toggle("green");
-            }
-          </script>
+          <div class="number-of-likes d-flex align-items-center mr-1">
+            <% if user_signed_in? %>
+              <% if current_user.voted_for? @post %>
+                <%= link_to upvote_post_path do %>
+                  <i class="fas fa-arrow-alt-circle-up voted fa-2x"></i>
+                <% end %>
+              <% else %>
+                <%= link_to upvote_post_path do %>
+                  <i class="fas fa-arrow-alt-circle-up not-voted fa-2x"></i>
+                <% end %>
+              <% end %>
+            <% else %>
+              <i class="fas fa-arrow-alt-circle-up fa-2x"></i>
+            <% end %>
+            <p class="ml-1 mt-3"><%= @post.get_likes.size %></p>
+          </div>
         </div>
         <div class="mt-2 mb-2 post-description">
           <p><%= @post.description %></p>

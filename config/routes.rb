@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   end
 
   get 'shelters/:id/favorite', to: 'hinanjyos#favorite', as: 'favorite_shelter'
+  get 'posts/:id/upvote', to: 'posts#upvote', as: 'upvote_post'
+  get 'posts/:id/upvote_from_shelter', to: 'posts#upvote_from_shelter', as: 'upvote_post_from_shelter'
   get 'home', to: 'pages#home', as: "home"
 
   resources :posts, only: [ :index, :show, :destroy ] do
