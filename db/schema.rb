@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_16_023001) do
+
+ActiveRecord::Schema.define(version: 2019_04_16_050317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +68,7 @@ ActiveRecord::Schema.define(version: 2019_04_16_023001) do
     t.integer "cached_votes_score", default: 0
     t.integer "cached_votes_up", default: 0
     t.integer "cached_votes_down", default: 0
+    t.boolean "completed", default: false
     t.index ["cached_votes_down"], name: "index_posts_on_cached_votes_down"
     t.index ["cached_votes_score"], name: "index_posts_on_cached_votes_score"
     t.index ["cached_votes_total"], name: "index_posts_on_cached_votes_total"

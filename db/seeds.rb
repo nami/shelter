@@ -378,10 +378,4 @@ user = User.create!(
     content: "Bringing some!"
     )
 
-  Comment.create!(
-    post_id: 2,
-    user_id: 9,
-    content: "We can bring some dog food and advise on care if you need us to!"
-    )
-
   puts "Comments completed"

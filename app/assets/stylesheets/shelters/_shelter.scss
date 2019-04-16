@@ -7,6 +7,15 @@
   a:hover {
     color: black;
   }
+
+  i {
+    text-decoration: none;
+    color: #048998;
+    }
+  i:hover {
+    color: black;
+  }
+  font-size: 12px;
 }
 
 .shelter-header:hover {
@@ -130,6 +139,14 @@
   }
 }
 
+.post-card-header i.fa-heart.voted {
+  color: #3BB4C1;
+}
+
+.post-card-header i.fa-heart.not-voted {
+  color: gray;
+}
+
 #request-button{
   font-weight: 500;
   border-radius: 20px;
@@ -142,12 +159,4 @@
 #request-button:hover{
   border-color: #3BB4C1;
   background-color: #3BB4C1;
-}
-
-.post-card-header i.fa-heart.voted {
-  color: #3BB4C1;
-}
-
-.post-card-header i.fa-heart.not-voted {
-  color: gray;
 }

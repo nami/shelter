@@ -3,7 +3,7 @@
     <div class="col-sm-12 col-sm-offset-3">
       <div class="chat-header d-flex justify-content-between px-3 py-3">
         <h3><%= @post.title %></h3>
-        <%= link_to "Back", shelter_path(@post.hinanjyo), class: "pr-3 mt-2" %>
+        <%= link_to "Back to shelter", shelter_path(@post.hinanjyo), class: "pr-3 mt-2" %>
       </div>
       <div class="post-info mt-3 pl-3 pr-2 pt-1 pb-1">
         <div class="upvote d-flex justify-content-between">
@@ -15,15 +15,15 @@
             <% if user_signed_in? %>
               <% if current_user.voted_for? @post %>
                 <%= link_to upvote_post_path do %>
-                  <i class="fas fa-arrow-alt-circle-up voted fa-2x"></i>
+                  <i class="fas fa-heart voted voted fa-2x"></i>
                 <% end %>
               <% else %>
                 <%= link_to upvote_post_path do %>
-                  <i class="fas fa-arrow-alt-circle-up not-voted fa-2x"></i>
+                  <i class="far fa-heart not-voted fa-2x"></i>
                 <% end %>
               <% end %>
             <% else %>
-              <i class="fas fa-arrow-alt-circle-up fa-2x"></i>
+              <i class="fas fa-heart fa-2x"></i>
             <% end %>
             <p class="ml-1 mt-3"><%= @post.get_likes.size %></p>
           </div>
@@ -48,15 +48,36 @@
             <%= render "comments/comment", comment: comment, user_is_comments_author: comment.user == current_user %>
           <% end %>
         </div>
-        <% if policy(Comment).create? %>
-          <div id="create-comment">
-            <%= simple_form_for [ @post, Comment.new ], remote: true, html: {id: :comment_form } do |f| %>
-              <%= f.input :content, label: false, class: "comment-input" %>
-              <%= f.submit :SUBMIT, class: "btn btn-dark cmtarea mt-1" %>
-            <% end %>
+        <% unless @post.completed  %>
+          <% if policy(Comment).create? %>
+            <div id="create-comment">
+              <%= simple_form_for [ @post, Comment.new ], remote: true, html: {id: :comment_form } do |f| %>
+                <%= f.input :content, label: false, class: "comment-input" %>
+                <%= f.submit :SUBMIT, class: "btn btn-dark cmtarea mt-1" %>
+              <% end %>
+          <% else %>
+            <p class="mt-3 text-center cant-comment">You can't comment! <%= link_to "Sign in" , new_user_session_path %> or <%= link_to "Sign up?", new_user_registration_path %></p>
+            </div>
+          <% end %>
+        </div>
+        <% if @post.user == current_user %>
+          <div class="post-complete">
+            <%#= simple_form_for @post, url: shelter_post_path(@shelter), method: :patch do |f| %>
+              <%#= f.input :completed, as: :boolean, value: true, as: :hidden %>
+              <%#= f.submit "MARK REQUEST AS COMPLETED", class: "btn btn-dark completed" %>
+            <%# end %>
+
+            <%#= link_to "MARK AS COMPLETED", { controller: "posts",
+              action: "update",
+              id: @post.id,
+              hinanjyo_id: @shelter.id,
+              completed: true}, method: 'patch', class: "btn btn-dark completed"
+             %>
           </div>
         <% end %>
-      </div>
+      <% else %>
+      <p class="btn btn-dark cmtarea">This request is completed</p>
+      <% end %>
     </div>
   </div>
 </div>
