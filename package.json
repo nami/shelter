@@ -12,7 +12,4 @@
   "devDependencies": {
     "webpack-dev-server": "^3.2.1"
   }
-  “scripts”: {
-  “preinstall”: “node gcpSetup.js”
- }
 }
