@@ -2,6 +2,8 @@ require_relative 'boot'
 
 require 'rails/all'
 
+require "google/cloud/translate"
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -23,5 +25,30 @@ module Shelter
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
       config.active_job.queue_adapter = :sidekiq
+
+      config.before_configuration do
+        env_file = File.join(Rails.root, 'config', 'local_env.yml')
+        YAML.load(File.open(env_file)).each do |key, value|
+          ENV[key.to_s] = value
+        end if File.exists?(env_file)
+      end
+
+      # Your Google Cloud Platform project ID
+      project_id = ENV["CLOUD_PROJECT_ID"]
+
+      # Instantiates a client
+      translate = Google::Cloud::Translate.new project: project_id
+
+      # The text to translate
+      text = "Hello, world!"
+      # The target language
+      target = "ja"
+
+      # Translates some text into Russian
+      translation = translate.translate text, to: target
+
+      puts "Text: #{text}"
+      puts "Translation: #{translation}"
   end
 end
+

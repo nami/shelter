@@ -5,9 +5,6 @@ Rails.application.routes.draw do
   root to: 'pages#landing'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :hinanjyos, :path => 'shelters', as: 'shelters', only: [ :index, :show ] do
-    collection do
-      get 'details', to: 'hinanjyos#details'
-    end
     resources :posts, only: [ :new, :create, :edit, :update ]
   end
     # @found_shelters = @markers

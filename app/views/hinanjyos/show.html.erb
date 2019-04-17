@@ -32,8 +32,15 @@
     <% end %>
   </div>
 
+  <div class="ja-name">
+    <% project_id = ENV["CLOUD_PROJECT_ID"] %>
+    <% translate = Google::Cloud::Translate.new project: project_id %>
+    <p class="jap-add"><%= translate.translate @shelter.place_name, from: "ja", to: "en" %></p>
+  </div>
+
   <div class="shelter-address">
-    <p class="ja text-center mt-1" style="font-size: 14px;"><%= @shelter.street %></p>
+    <p class="mt-1"><%= @shelter.street %></p>
+    <p class="jap-add"><%= translate.translate @shelter.street, from: "ja", to: "en" %></p>
   </div>
 
   <div class="request-help text-center mt-2 mb-3">

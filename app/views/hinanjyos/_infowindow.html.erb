@@ -28,11 +28,15 @@
   <% @disaster.push("Volcano") %>
 <% end %>
   <h5 class="title-style"><%= @shelter.place_name %></h5>
+  <% project_id = ENV["CLOUD_PROJECT_ID"] %>
+  <% translate = Google::Cloud::Translate.new project: project_id %>
+  <p class="jap-add" style="margin-bottom: 4px;"><%= translate.translate @shelter.place_name, from: "ja", to: "en" %></p>
   <p><strong>Type:</strong><% @disaster.each do |disaster| %>
    <%= disaster  %>.
   <% end %></p>
 <hr>
-  <p><%= @shelter.street %></p>
+  <p style="margin-bottom: 0;"><%= @shelter.street %></p>
+  <p class="jap-add"><%= translate.translate @shelter.street, from: "ja", to: "en" %></p>
 <hr>
   <div class=" button-style button d-flex justify-content-between">
     <p><%= link_to '<i class="fas fa-directions"></i> Direction'.html_safe, "https://www.google.com/maps/dir/?api=1&destination=#{@shelter.latitude},#{@shelter.longitude}", target: '_blank'%>
