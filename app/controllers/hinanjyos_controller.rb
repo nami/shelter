@@ -128,7 +128,11 @@ class HinanjyosController < ApplicationController
 
   def show
     authorize @shelter
-    @posts = @shelter.posts.where(completed: false)
+    if params[:category].present?
+      @posts = @shelter.posts.where(completed: false).tagged_with(params[:category])
+    else
+      @posts = @shelter.posts.where(completed: false)
+    end
   end
 
    # routes added (favorite_shelter_path)
