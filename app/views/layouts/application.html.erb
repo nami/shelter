@@ -7,6 +7,7 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
 
     <title><%= meta_title %></title>
     <meta name="description" content="<%= meta_description %>">
