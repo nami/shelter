@@ -5,7 +5,10 @@
       <%= link_to raw("<i class='fas fa-backward pt-1 mr-2'></i> Map"), shelters_path, class: "" %>
     </div>
     <div class="search-tags">
-      <input type="text" class="form-control" placeholder="Search tags...">
+      <%= form_tag shelter_path, id: 'tag', method: :get do %>
+        <%= label_tag "category", "Search by Post Category" %>
+        <%= select_tag "category", options_for_select([['Food', "Food"], ['Water', "Water"], ['Blanket', "Blanket"], ['Clothing', "Clothing"], ['Baby/Kid', "Baby/Kid"], ['Hygiene', "Hygiene"], ['Battery', "Battery"], ['Medicine', "Medicine"], ['Other', "Other"]]), include_blank: true %>
+      <% end %>
     </div>
   </div>
 
@@ -110,3 +113,13 @@
   </div>
 
 </div>
+
+<script>
+  const options = document.querySelectorAll('#category option');
+  options.forEach((option) => {
+    option.addEventListener('click', (event) => {
+    console.log(event.originalTarget.attributes.value.nodeValue);
+    document.forms["tag"].submit();
+    });
+  });
+</script>
