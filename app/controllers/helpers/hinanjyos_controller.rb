@@ -4,7 +4,6 @@ class Helpers::HinanjyosController < ApplicationController
 
   def index
     @shelters = policy_scope(Hinanjyo).where.not(latitude: nil, longitude: nil)
-
     # for search bar in shelters page
     # if nothing is searched
     if params[:location].present? && disaster.nil?

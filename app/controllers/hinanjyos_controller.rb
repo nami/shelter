@@ -1,10 +1,11 @@
+require "google/cloud/translate"
+
 class HinanjyosController < ApplicationController
   before_action :find_shelter, only: [:show, :edit, :update, :destroy, :favorite]
   skip_before_action :authenticate_user!
 
   def index
     @shelters = policy_scope(Hinanjyo).where.not(latitude: nil, longitude: nil)
-
     # for search bar in shelters page
     # if nothing is searched
     if params[:location].present? && disaster.nil?
@@ -117,13 +118,6 @@ class HinanjyosController < ApplicationController
         infoWindow: { content: render_to_string(partial: "hinanjyos/infowindow", locals: { marker: marker }) }
       }
     end
-  end
-
-  def details
-    # if params[:location].present?
-      @found_shelters = Hinanjyo.near(params[:location], 3)
-      authorize @found_shelters
-    # end
   end
 
   def show

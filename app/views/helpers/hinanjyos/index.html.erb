@@ -80,6 +80,9 @@
                       <div class="post card my-3 mx-3">
                         <div class="post-card-head mb-2 py-2">
                           <h5 class="pt-1 ja"><%= shelter.place_name %></h5>
+                          <% project_id = ENV["CLOUD_PROJECT_ID"] %>
+                          <% translate = Google::Cloud::Translate.new project: project_id %>
+                          <h6><%= translate.translate shelter.place_name, from: "ja", to: "en" %></h6>
                         </div>
                         <% shelter.posts.order(cached_votes_up: :desc)[0..2].each do |post| %>
                           <div class="poster d-flex ml-3 mb-3">
