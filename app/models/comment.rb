@@ -5,7 +5,7 @@ class Comment < ApplicationRecord
   validates :content, presence: true, allow_blank: false
 
   after_create :broadcast_message
-  after_create_commit { notify }
+  # after_create_commit { notify }
 
   def from?(some_user)
     user == some_user
@@ -13,7 +13,7 @@ class Comment < ApplicationRecord
 
   def broadcast_message
     ActionCable.server.broadcast("post_#{post.id}", {
-      comment_partial: ApplicationController.renderer.render(partial: "comments/comment", locals: { comment: self, user_is_comments_author: false }
+      comment_partial: ApplicationController.renderer_with_signed_in_user(self.user).render(partial: "comments/comment", locals: { comment: self, user_is_comments_author: false }
         ),
       current_user_id: user.id
     })
