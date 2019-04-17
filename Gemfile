@@ -43,6 +43,5 @@ group :development, :test do
 end
 
 gem "google-cloud-storage"
-gem "google-cloud"
 gem "google-cloud-translate", "~> 1.3"
 gem "google-api-client"

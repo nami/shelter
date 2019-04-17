@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "shelter-1554682636622",
+  "private_key_id": "042886ff88deaf479f55860c0478ad652b3f239d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDg8IG5x4JRpBgH\nyWXe/su1DT/XESOpEj1QcICLRTPJwnaENqsnZQl563yufsfsDOp/7xakH0hsiREv\nv5k0PQ7wJ8kRaZ+N+6bOEWnO/6KiKzTSq1Q+bs9GQFdNToA8TJWDW0Oo1VQUgymn\nDXgshwhMrYbClBpKHc9/qUPYTnXSMI+g0fJtudtVKJTD6zgBhVKt8qOdVca8LFhx\no7K0cyASd62LaIAvNGadRAnkHVRT1v3HAmNlAEVB6w00FcDRqzbUgwmz5/0C2Jfv\nwa/0MueD7o0+1zBR3A/qq2Y9UOdTXJ1YvnpShVcwztPG38iivaBlu0mIxr8g82+T\n0oRbNyFJAgMBAAECggEAB/YLKVeZ0ajkntXucJOFAy3qXgLBx9iY6fFpY0R6PkBP\nMIO80AKf8Lw4Z/advcmBPTDplLp0tj6tqIp38iTdE/vcfmzGFGDdOPrdy1E54NJ1\npqUgsKr8VAiv7lECcd/mBMWkoeOW+7jerwZng+/th8U2eUmDmq7uap7Dg3LXca5s\nSqCTw8jtyhE7f0wTUAs+/t/3xE7wLo+I1MkPaSulaZzaY6ogT3110VSJ+JpOSxXW\nbkP8qKbPVSVArvsCFnFMwPUBGXdDobFINJ2DFbcL2tXeHjcp62hnOhw8ER9jP1Wo\ntLVCrTc3CSlAC7WvyB1LggcdI54kmoyzapQJSKusGQKBgQD+zJ+NVeiePwi1MY/Q\nBCacquA+RLELe7VPzlkWtpTfWl1B7piBFLEyzsM7PllegrS+JVsSEt6YAN48qhIE\nV/+nC4v3cLEtsShnCHR2ENIMz+7zYYCK5QkGk7ndKrMm7kx5PR1X2wGsBqINZose\nP47Jzum7/tYbyMLMuRuYsqLgxQKBgQDh/9y0oPvxbd16vyif4NVMNdhvzQEqjwYH\nORLZ/k2pJ4vS6mZgYXMcGbw1G/CPhGnEAdlSr2WAAgUpsPQcjnywQp435suhk3o7\nZl365djfWgYB7tsg+ZBb5NObIj0HHdSXu9VL6bPfN5u6S5xn96zrvomvOxsM5Axw\nYpViOgy+tQKBgQDy2xQEQWrLUec51LhvG1W2I8RCdXSOLmYdX99YH8R7soSKsCCZ\nf6B5fctlb0L9KvWc+rv32RZiqQkppywvCbT5ga7xtG6bz2xj8BIY6mVaouHtBfTf\n7feRVkJkRCunoqAvOon6UBsi3NuejCtzND8jqNztO7LVnp/VQ2XDQBiwxQKBgQCC\nsgDkxKRuvmZy8dGAg/lWFV2RajDed8+4pZztTE+FH0WRN9T0r+ZtvcRFwl6f4Kd5\nnsgbNSuxl3l83sSNLymUlTICigoA6tSpPU3kJsAAioMm4wb+TtTZD7//2xEH6Ixl\nI076k7Bdyj7YwZk11tm9i3b8S2YdUlSPObPCFmgAcQKBgAtASVJITwWnV4sRJyo6\nRkPFN4Jj+p6Thj7cDQg66zqYSdwYZJmY3SCxwmpZLyBmOw95aGv94XPt3MIl/iYE\njIjRosoMItKgEAlFXJLzuWVtkIElG12Kw8AafondEhiQXJWTOqXZOxd+VKLt3qCE\n9Y9XQ+S92ksFAm5k6x/IjI6w\n-----END PRIVATE KEY-----\n",
+  "client_email": "shelter@shelter-1554682636622.iam.gserviceaccount.com",
+  "client_id": "104597138416588015268",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/shelter%40shelter-1554682636622.iam.gserviceaccount.com"
+}
