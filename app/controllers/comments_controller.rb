@@ -14,6 +14,7 @@ class CommentsController < ApplicationController
     authorize @post
     @comment.post = @post
     @comment.user = current_user
+    binding.pry
     if @comment.save
       respond_to do |format|
         format.html { redirect_to post_path(@post) }
