@@ -5,15 +5,22 @@ class Comment < ApplicationRecord
   validates :content, presence: true, allow_blank: false
 
   after_create :broadcast_message
-  # after_create_commit { notify }
+  after_create_commit { notify }
 
   def from?(some_user)
     user == some_user
   end
 
   def broadcast_message
+    # accessing warden
+    # warden is the one managing devise who encrypts your password
+    renderer = ::ApplicationController.renderer.new
+    renderer_env = renderer.instance_eval { @env }
+    warden = ::Warden::Proxy.new(renderer_env, ::Warden::Manager.new(Rails.application))
+    renderer_env["warden"] = warden
+
     ActionCable.server.broadcast("post_#{post.id}", {
-      comment_partial: ApplicationController.renderer_with_signed_in_user(self.user).render(partial: "comments/comment", locals: { comment: self, user_is_comments_author: false }
+      comment_partial: renderer.render(partial: "comments/comment", locals: { comment: self, user_is_comments_author: false }
         ),
       current_user_id: user.id
     })
