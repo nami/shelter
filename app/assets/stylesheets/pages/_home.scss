@@ -56,52 +56,197 @@ body{
   height: 48px;
 }
 
+.image-on{
+  position: relative;
+}
+
+.image-off{
+  position: absolute;
+  top: 45px;
+}
+
 .earthquake{
   background-color: white;
   width: 50%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  .image-off{
+  display:none;
+  }
+  &:hover{
+    background-color: #007880;
+    opacity: 0.8;
+    color: white;
+    .image-on {
+      display: none;
+    }
+    .image-off{
+      display: block;
+    }
+    p{
+      margin-top: 55px;
+    }
+  }
 }
 
 .tsunami{
   background-color: white;
   width: 50%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  .image-off{
+  display:none;
+  }
+  &:hover{
+    background-color: #007880;
+    opacity: 0.8;
+    color: white;
+    .image-on {
+      display: none;
+    }
+    .image-off{
+      display: block;
+    }
+    p{
+      margin-top: 55px;
+    }
+  }
 }
 
 .mudslides{
   background-color: white;
   width: 50%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  .image-off{
+  display:none;
+  }
+  &:hover{
+    background-color: #007880;
+    opacity: 0.8;
+    color: white;
+    .image-on {
+      display: none;
+    }
+    .image-off{
+      display: block;
+    }
+    p{
+      margin-top: 55px;
+    }
+  }
 }
 
 .flood{
   background-color: white;
   width: 50%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  .image-off{
+  display:none;
+  }
+  &:hover{
+    background-color: #007880;
+    opacity: 0.8;
+    color: white;
+    .image-on {
+      display: none;
+    }
+    .image-off{
+      display: block;
+    }
+    p{
+      margin-top: 55px;
+    }
+  }
 }
 
 .high-tide{
   background-color: white;
   width: 50%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  .image-off{
+  display:none;
+  }
+  &:hover{
+    background-color: #007880;
+    opacity: 0.8;
+    color: white;
+    .image-on {
+      display: none;
+    }
+    .image-off{
+      display: block;
+    }
+    p{
+      margin-top: 55px;
+    }
+  }
 }
 
 .fire{
   background-color: white;
   width: 50%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  .image-off{
+  display:none;
+  }
+  &:hover{
+    background-color: #007880;
+    opacity: 0.8;
+    color: white;
+    .image-on {
+      display: none;
+    }
+    .image-off{
+      display: block;
+    }
+    p{
+      margin-top: 55px;
+    }
+  }
 }
 
 .burst-pipe{
   background-color: white;
   width: 50%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  .image-off{
+  display:none;
+  }
+  &:hover{
+    background-color: #007880;
+    opacity: 0.8;
+    color: white;
+    .image-on {
+      display: none;
+    }
+    .image-off{
+      display: block;
+    }
+    p{
+      margin-top: 55px;
+    }
+  }
 }
 
 .volcano{
   background-color: white;
   width: 50%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  .image-off{
+  display:none;
+  }
+  &:hover{
+    background-color: #007880;
+    opacity: 0.8;
+    color: white;
+    .image-on {
+      display: none;
+    }
+    .image-off{
+      display: block;
+    }
+    p{
+      margin-top: 55px;
+    }
+  }
 }
 
 
@@ -129,4 +274,187 @@ body{
     font-size: 14px;
   }
 
+  .earthquake{
+    background-color: white;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    .image-off{
+    display:none;
+    }
+    &:hover{
+      background-color: #007880;
+      opacity: 0.8;
+      color: white;
+      .image-on {
+        display: none;
+      }
+      .image-off{
+        display: block;
+      }
+      p{
+        margin-top: 55px;
+      }
+    }
+  }
+
+  .tsunami{
+    background-color: white;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    .image-off{
+    display:none;
+    }
+    &:hover{
+      background-color: #007880;
+      opacity: 0.8;
+      color: white;
+      .image-on {
+        display: none;
+      }
+      .image-off{
+        display: block;
+      }
+      p{
+        margin-top: 55px;
+      }
+    }
+  }
+
+  .mudslides{
+    background-color: white;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    .image-off{
+    display:none;
+    }
+    &:hover{
+      background-color: #007880;
+      opacity: 0.8;
+      color: white;
+      .image-on {
+        display: none;
+      }
+      .image-off{
+        display: block;
+      }
+      p{
+        margin-top: 55px;
+      }
+    }
+  }
+
+  .flood{
+    background-color: white;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    .image-off{
+    display:none;
+    }
+    &:hover{
+      background-color: #007880;
+      opacity: 0.8;
+      color: white;
+      .image-on {
+        display: none;
+      }
+      .image-off{
+        display: block;
+      }
+      p{
+        margin-top: 55px;
+      }
+    }
+  }
+
+  .high-tide{
+    background-color: white;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    .image-off{
+    display:none;
+    }
+    &:hover{
+      background-color: #007880;
+      opacity: 0.8;
+      color: white;
+      .image-on {
+        display: none;
+      }
+      .image-off{
+        display: block;
+      }
+      p{
+        margin-top: 55px;
+      }
+    }
+  }
+
+  .fire{
+    background-color: white;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    .image-off{
+    display:none;
+    }
+    &:hover{
+      background-color: #007880;
+      opacity: 0.8;
+      color: white;
+      .image-on {
+        display: none;
+      }
+      .image-off{
+        display: block;
+      }
+      p{
+        margin-top: 55px;
+      }
+    }
+  }
+
+  .burst-pipe{
+    background-color: white;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    .image-off{
+    display:none;
+    }
+    &:hover{
+      background-color: #007880;
+      opacity: 0.8;
+      color: white;
+      .image-on {
+        display: none;
+      }
+      .image-off{
+        display: block;
+      }
+      p{
+        margin-top: 55px;
+      }
+    }
+  }
+
+  .volcano{
+    background-color: white;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    .image-off{
+    display:none;
+    }
+    &:hover{
+      background-color: #007880;
+      opacity: 0.8;
+      color: white;
+      .image-on {
+        display: none;
+      }
+      .image-off{
+        display: block;
+      }
+      p{
+        margin-top: 55px;
+      }
+    }
+  }
 }

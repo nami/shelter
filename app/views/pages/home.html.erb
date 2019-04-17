@@ -11,7 +11,8 @@
     <% end %>
     <div class="col-12 d-flex animated fadeInUp">
       <div class="earthquake mr-2 d-flex flex-column justify-content-center align-items-center" onClick="document.getElementById('earthquake_form').submit();">
-        <%= image_tag "homepage/earthquake.png", alt: "earthquake icon", class: "mb-2" %>
+        <%= image_tag "homepage/earthquake.png", alt: "earthquake icon", class: "image-on mb-2" %>
+        <%= image_tag "homepage/earthquake-white.png", alt: "earthquake icon active", class: "image-off" %>
         <p>Earthquake</p>
       </div>
       <%= simple_form_for :tsu_form, url: :shelters, method: :get, html: {id: :tsunami_form } do |f| %>
@@ -20,7 +21,8 @@
         <%= f.input :disaster, input_html: {value: 'tsunami'}, as: :hidden %>
       <% end %>
       <div class="tsunami ml-2 d-flex flex-column justify-content-center align-items-center" onClick="document.getElementById('tsunami_form').submit();">
-        <%= image_tag "homepage/tsunami.png", alt: "tsunami icon", class: "mb-2" %>
+        <%= image_tag "homepage/tsunami.png", alt: "tsunami icon", class: "image-on mb-2" %>
+        <%= image_tag "homepage/tsunami-white.png", alt: "tsunami icon active", class: "image-off" %>
         <p>Tsunami</p>
       </div>
     </div>
@@ -33,7 +35,8 @@
     <% end %>
     <div class="col-12 d-flex animated fadeInUp">
       <div class="mudslides mr-2 d-flex flex-column justify-content-center align-items-center" onClick="document.getElementById('mudslide_form').submit();">
-        <%= image_tag "homepage/mudslides.png", alt: "mudslides icon", class: "mb-2" %>
+        <%= image_tag "homepage/mudslides.png", alt: "mudslides icon", class: "mb-2 image-on" %>
+        <%= image_tag "homepage/mudslides-white.png", alt: "mudslides icon active", class: "image-off" %>
         <p>Mudslides</p>
       </div>
       <%= simple_form_for :flood_form, url: :shelters, method: :get, html: {id: :flood_form } do |f| %>
@@ -42,7 +45,8 @@
         <%= f.input :disaster, input_html: {value: 'floods'}, as: :hidden %>
       <% end %>
       <div class="flood ml-2 d-flex flex-column justify-content-center align-items-center" onClick="document.getElementById('flood_form').submit();">
-        <%= image_tag "homepage/flood.png", alt: "flood icon" %>
+        <%= image_tag "homepage/flood.png", alt: "flood icon", class: "image-on" %>
+        <%= image_tag "homepage/flood-white.png", alt: "flood icon active", class: "image-off" %>
         <p>Flood</p>
       </div>
     </div>
@@ -55,7 +59,8 @@
     <% end %>
     <div class="col-12 d-flex animated fadeInUp">
       <div class="high-tide mr-2 d-flex flex-column justify-content-center align-items-center" onClick="document.getElementById('tide_form').submit();">
-        <%= image_tag "homepage/tide.png", alt: "high tide icon", class: "mb-1" %>
+        <%= image_tag "homepage/tide.png", alt: "high tide icon", class: "mb-1 image-on" %>
+        <%= image_tag "homepage/tide-white.png", alt: "high tide icon active", class: "image-off" %>
         <p>High Tide</p>
       </div>
       <%= simple_form_for :fire_form, url: :shelters, method: :get, html: {id: :fire_form } do |f| %>
@@ -64,7 +69,8 @@
         <%= f.input :disaster, input_html: {value: 'fire'}, as: :hidden %>
       <% end %>
       <div class="fire ml-2 d-flex flex-column justify-content-center align-items-center" onClick="document.getElementById('fire_form').submit();">
-        <%= image_tag "homepage/fire.png", alt: "fire icon", class: "mb-1" %>
+        <%= image_tag "homepage/fire.png", alt: "fire icon", class: "mb-1 image-on" %>
+        <%= image_tag "homepage/fire-white.png", alt: "fire icon active", class: "image-off" %>
         <p>Fire</p>
       </div>
     </div>
@@ -77,7 +83,8 @@
     <% end %>
     <div class="col-12 d-flex animated fadeInUp">
       <div class="burst-pipe mr-2 d-flex flex-column justify-content-center align-items-center" onClick="document.getElementById('pipe_form').submit();">
-        <%= image_tag "homepage/pipes.png", alt: "burst pipe icon", class: "mb-2" %>
+        <%= image_tag "homepage/pipes.png", alt: "burst pipe icon", class: "mb-2 image-on" %>
+        <%= image_tag "homepage/pipes-white.png", alt: "burst-pipe icon active", class: "image-off" %>
         <p>Burst Pipe</p>
       </div>
       <%= simple_form_for :volcano_form, url: :shelters, method: :get, html: {id: :volcano_form } do |f| %>
@@ -86,7 +93,8 @@
         <%= f.input :disaster, input_html: {value: 'volcano'}, as: :hidden %>
       <% end %>
       <div class="volcano ml-2 d-flex flex-column justify-content-center align-items-center" onClick="document.getElementById('volcano_form').submit();">
-        <%= image_tag "homepage/volcano.png", alt: "volcano icon", class: "mb-2" %>
+        <%= image_tag "homepage/volcano.png", alt: "volcano icon", class: "mb-2 image-on" %>
+        <%= image_tag "homepage/volcano-white.png", alt: "volcano icon active", class: "image-off" %>
         <p>Volcano</p>
       </div>
     </div>
