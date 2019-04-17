@@ -45,3 +45,4 @@ end
 gem "google-cloud-storage"
 gem "google-cloud-translate", "~> 1.3"
 gem "google-api-client"
+gem "google-cloud"
