@@ -40,6 +40,6 @@
 <hr>
   <div class=" button-style button d-flex justify-content-between">
     <p><%= link_to '<i class="fas fa-directions"></i> Direction'.html_safe, "https://www.google.com/maps/dir/?api=1&destination=#{@shelter.latitude},#{@shelter.longitude}", target: '_blank'%>
-    </p>&nbsp&nbsp&nbsp
+    </p>
     <p><%= link_to '<i class="fas fa-home"></i> Shelter'.html_safe, shelter_path(@shelter) %></p>
   </div>

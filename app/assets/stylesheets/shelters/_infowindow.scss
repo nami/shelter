@@ -17,4 +17,16 @@ button.gm-ui-hover-effect {
 .button-style a {
   text-decoration: none;
   color: #007880;
+  &:hover{
+    color: red;
+  }
 }
+
+.button-style i {
+  text-decoration: none;
+  color: #007880;
+  &:hover{
+    color: red;
+  }
+}
+
