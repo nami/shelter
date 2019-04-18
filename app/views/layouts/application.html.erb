@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <!-- <title>Shelter - An App for Disaster Evacuation and Shelter Relief Assistance</title> -->
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- <link rel="manifest" href="<%= asset_path 'manifest.json' %>"> -->
 
     <title><%= meta_title %></title>
     <meta name="description" content="<%= meta_description %>">
