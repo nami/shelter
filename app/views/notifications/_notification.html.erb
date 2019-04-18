@@ -1,30 +1,36 @@
-  <% @notifications.each do |index, n| %>
-  <h2 class="notification-day"><%= custom_format(index) %></h2>
-    <li>
-      <% n.each do |notification| %>
+  <% if @notifications.blank? %>
+  <div class="blue-no-notifs text-center mt-5 pt-3 pb-2">
+     <h6>There are no notifications at this time</h6>
+  </div>
+  <% else %>
+    <% @notifications.each do |index, n| %>
+    <h2 class="notification-day"><%= custom_format(index) %></h2>
+      <li>
+        <% n.each do |notification| %>
 
-        <%= link_to post_path(notification.post.id) do %>
-          <div class="notificationCard">
-            <div class="user-info">
-                <div>
-                  <%= cl_image_tag (notification.comment.user.avatar), :class =>"notifications-avatar" %>
-                  <% if current_user.get_voted(Hinanjyo).first == notification.comment.user.get_voted(Hinanjyo).first %>
-                    <i class="fas fa-check-circle"></i>
-                  <% end %>
-                </div>
-                <div class="name-time">
-                  <h6><%= notification.comment.user.first_name %> <%= notification.comment.user.last_name %></h6>
-                <p class="notification-user-comment">" <%= notification.comment.content %> "</p>
-                  <div class="timestamp">
-                    <%= notification.created_at.in_time_zone.strftime("%b. %d, %I:%M %p ") %>
+          <%= link_to post_path(notification.post.id) do %>
+            <div class="notificationCard">
+              <div class="user-info">
+                  <div>
+                    <%= cl_image_tag (notification.comment.user.avatar), :class =>"notifications-avatar" %>
+                    <% if current_user.get_voted(Hinanjyo).first == notification.comment.user.get_voted(Hinanjyo).first %>
+                      <i class="fas fa-check-circle"></i>
+                    <% end %>
                   </div>
-                </div>
+                  <div class="name-time">
+                    <h6><%= notification.comment.user.first_name %> <%= notification.comment.user.last_name %></h6>
+                  <p class="notification-user-comment">" <%= notification.comment.content %> "</p>
+                    <div class="timestamp">
+                      <%= notification.created_at.in_time_zone.strftime("%b. %d, %I:%M %p ") %>
+                    </div>
+                  </div>
+              </div>
+                <p class="notification-event"><%= notification.event %></p>
             </div>
-              <p class="notification-event"><%= notification.event %></p>
-          </div>
+          <% end %>
         <% end %>
-      <% end %>
-    </li>
-  <hr>
+      </li>
+    <hr>
 
+<% end %>
 <% end %>
