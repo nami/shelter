@@ -1,8 +1,8 @@
 <div class="home-header d-flex justify-content-center align-items-center animated fadeInUp">
-  <h1 class="mx-5 px-4">Select type of shelter near you</h1>
+  <h1 class="mx-5 px-4 mt-2">Select type of shelter near you</h1>
 </div>
 
-<div class="container-fluid d-flex flex-column justify-content-around">
+<div class="container-fluid d-flex flex-column justify-content-around mt-2">
   <div class="row">
     <%= simple_form_for :eq_form, url: :shelters, method: :get, html: {id: :earthquake_form } do |f| %>
       <%= f.input :longitude, id: "earthquake-long", as: :hidden %>
@@ -10,7 +10,7 @@
       <%= f.input :disaster, input_html: {value: 'earthquakes'}, as: :hidden %>
     <% end %>
     <div class="col-12 d-flex animated fadeInUp">
-      <div class="earthquake mr-2 d-flex flex-column justify-content-center align-items-center" onClick="document.getElementById('earthquake_form').submit();">
+      <div class="earthquake mr-2 d-flex flex-column justify-content-center align-items-center pt-3" onClick="document.getElementById('earthquake_form').submit();">
         <%= image_tag "homepage/earthquake.png", alt: "earthquake icon", class: "image-on mb-2" %>
         <%= image_tag "homepage/earthquake-white.png", alt: "earthquake icon active", class: "image-off" %>
         <p>Earthquake</p>
@@ -20,7 +20,7 @@
         <%= f.input :latitude, id: "tsunami-lat", as: :hidden %>
         <%= f.input :disaster, input_html: {value: 'tsunami'}, as: :hidden %>
       <% end %>
-      <div class="tsunami ml-2 d-flex flex-column justify-content-center align-items-center" onClick="document.getElementById('tsunami_form').submit();">
+      <div class="tsunami ml-2 d-flex flex-column justify-content-center align-items-center pt-3" onClick="document.getElementById('tsunami_form').submit();">
         <%= image_tag "homepage/tsunami.png", alt: "tsunami icon", class: "image-on mb-2" %>
         <%= image_tag "homepage/tsunami-white.png", alt: "tsunami icon active", class: "image-off" %>
         <p>Tsunami</p>
@@ -34,7 +34,7 @@
       <%= f.input :disaster, input_html: {value: 'mudslides'}, as: :hidden %>
     <% end %>
     <div class="col-12 d-flex animated fadeInUp">
-      <div class="mudslides mr-2 d-flex flex-column justify-content-center align-items-center" onClick="document.getElementById('mudslide_form').submit();">
+      <div class="mudslides mr-2 d-flex flex-column justify-content-center align-items-center pt-3" onClick="document.getElementById('mudslide_form').submit();">
         <%= image_tag "homepage/mudslides.png", alt: "mudslides icon", class: "mb-2 image-on" %>
         <%= image_tag "homepage/mudslides-white.png", alt: "mudslides icon active", class: "image-off" %>
         <p>Mudslides</p>
@@ -44,7 +44,7 @@
         <%= f.input :latitude, id: "mud-lat", as: :hidden %>
         <%= f.input :disaster, input_html: {value: 'floods'}, as: :hidden %>
       <% end %>
-      <div class="flood ml-2 d-flex flex-column justify-content-center align-items-center" onClick="document.getElementById('flood_form').submit();">
+      <div class="flood ml-2 d-flex flex-column justify-content-center align-items-center pt-3" onClick="document.getElementById('flood_form').submit();">
         <%= image_tag "homepage/flood.png", alt: "flood icon", class: "image-on" %>
         <%= image_tag "homepage/flood-white.png", alt: "flood icon active", class: "image-off" %>
         <p>Flood</p>
@@ -58,7 +58,7 @@
       <%= f.input :disaster, input_html: {value: 'high_tides'}, as: :hidden %>
     <% end %>
     <div class="col-12 d-flex animated fadeInUp">
-      <div class="high-tide mr-2 d-flex flex-column justify-content-center align-items-center" onClick="document.getElementById('tide_form').submit();">
+      <div class="high-tide mr-2 d-flex flex-column justify-content-center align-items-center pt-3" onClick="document.getElementById('tide_form').submit();">
         <%= image_tag "homepage/tide.png", alt: "high tide icon", class: "mb-1 image-on" %>
         <%= image_tag "homepage/tide-white.png", alt: "high tide icon active", class: "image-off" %>
         <p>High Tide</p>
@@ -68,7 +68,7 @@
         <%= f.input :latitude, id: "fire-lat", as: :hidden %>
         <%= f.input :disaster, input_html: {value: 'fire'}, as: :hidden %>
       <% end %>
-      <div class="fire ml-2 d-flex flex-column justify-content-center align-items-center" onClick="document.getElementById('fire_form').submit();">
+      <div class="fire ml-2 d-flex flex-column justify-content-center align-items-center pt-3" onClick="document.getElementById('fire_form').submit();">
         <%= image_tag "homepage/fire.png", alt: "fire icon", class: "mb-1 image-on" %>
         <%= image_tag "homepage/fire-white.png", alt: "fire icon active", class: "image-off" %>
         <p>Fire</p>
@@ -82,7 +82,7 @@
       <%= f.input :disaster, input_html: {value: 'burst_pipe'}, as: :hidden %>
     <% end %>
     <div class="col-12 d-flex animated fadeInUp">
-      <div class="burst-pipe mr-2 d-flex flex-column justify-content-center align-items-center" onClick="document.getElementById('pipe_form').submit();">
+      <div class="burst-pipe mr-2 d-flex flex-column justify-content-center align-items-center pt-3" onClick="document.getElementById('pipe_form').submit();">
         <%= image_tag "homepage/pipes.png", alt: "burst pipe icon", class: "mb-2 image-on" %>
         <%= image_tag "homepage/pipes-white.png", alt: "burst-pipe icon active", class: "image-off" %>
         <p>Burst Pipe</p>
@@ -92,7 +92,7 @@
         <%= f.input :latitude, id: "volcano-lat", as: :hidden %>
         <%= f.input :disaster, input_html: {value: 'volcano'}, as: :hidden %>
       <% end %>
-      <div class="volcano ml-2 d-flex flex-column justify-content-center align-items-center" onClick="document.getElementById('volcano_form').submit();">
+      <div class="volcano ml-2 d-flex flex-column justify-content-center align-items-center pt-3" onClick="document.getElementById('volcano_form').submit();">
         <%= image_tag "homepage/volcano.png", alt: "volcano icon", class: "mb-2 image-on" %>
         <%= image_tag "homepage/volcano-white.png", alt: "volcano icon active", class: "image-off" %>
         <p>Volcano</p>
