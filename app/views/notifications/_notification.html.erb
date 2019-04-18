@@ -8,6 +8,9 @@
             <div class="user-info">
                 <div>
                   <%= cl_image_tag (notification.comment.user.avatar), :class =>"notifications-avatar" %>
+                  <% if current_user.get_voted(Hinanjyo).first == notification.comment.user.get_voted(Hinanjyo).first %>
+                    <i class="fas fa-check-circle"></i>
+                  <% end %>
                 </div>
                 <div class="name-time">
                   <h6><%= notification.comment.user.first_name %> <%= notification.comment.user.last_name %></h6>
