@@ -69,11 +69,11 @@ user = User.create!(
   phone: "42 69 66 88 11",
   address: "〒602-0898 Kyoto, Kamigyō-ku, 烏丸通上立売上る相国寺門前町699",
   verified: true,
-  remote_photo_id_url: "https://avatars1.githubusercontent.com/u/43994166?s=460&v=4",
-  remote_avatar_url: "https://avatars1.githubusercontent.com/u/43994166?s=460&v=4"
+  remote_photo_id_url: "https://cdn.japantimes.2xx.jp/wp-content/uploads/2016/04/p8-taiwanese-b-20160414.jpg",
+  remote_avatar_url: "https://cdn.japantimes.2xx.jp/wp-content/uploads/2016/04/p8-taiwanese-b-20160414.jpg"
   )
 
-user.likes Hinanjyo.find(2224)
+user.likes Hinanjyo.find(2131)
 
 user = User.create!(
   first_name: "Aya",
@@ -93,7 +93,7 @@ user = User.create!(
   remote_avatar_url: "https://avatars1.githubusercontent.com/u/46548452?s=460&v=4"
   )
 
-user.likes Hinanjyo.find(2238)
+user.likes Hinanjyo.find(2166)
 
 
 # PRESENTER PROFILE
@@ -133,7 +133,7 @@ user = User.create!(
   remote_avatar_url: "https://avatars3.githubusercontent.com/u/47250714?s=460&v=4"
   )
 
-user.likes Hinanjyo.find(2238)
+user.likes Hinanjyo.find(2166)
 
 User.create!(
   first_name: "NGO",
@@ -175,28 +175,28 @@ User.create!(
   remote_avatar_url: "https://www.themasculinetraveler.com/wp-content/uploads/2019/01/japanese-woman-0.jpg"
   )
 
-  user.likes Hinanjyo.find(2224)
+  user.likes Hinanjyo.find(2131)
 
 # User 7
 user = User.create!(
-  first_name: "Ken",
-  last_name: "Watanabe",
-  email: "kenwatanabe@gmail.com",
+  first_name: "Kie",
+  last_name: "Yamamoto",
+  email: "kieyamamoto@gmail.com",
   password: "123456",
   password_confirmation: "123456",
-  sei: "渡辺", # last name
-  mei: "謙", # first name
-  sei_kana: "ワタナベ",
-  mei_kana: "ケン",
+  sei: "山本", # last name
+  mei: "北乃", # first name
+  sei_kana: "ヤマモト",
+  mei_kana: "キエ",
   role: "Needs Help",
   phone: "42 69 66 88 16",
   address: "〒612-0882 京都府京都市伏見区深草藪之内町68",
   verified: true,
-  remote_photo_id_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Ken_Watanabe_2007_%28cropped%29.jpg/200px-Ken_Watanabe_2007_%28cropped%29.jpg",
-  remote_avatar_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Ken_Watanabe_2007_%28cropped%29.jpg/200px-Ken_Watanabe_2007_%28cropped%29.jpg"
+  remote_photo_id_url: "https://dvqlxo2m2q99q.cloudfront.net/000_clients/657152/file/657152W1F5xmih.jpg",
+  remote_avatar_url: "https://dvqlxo2m2q99q.cloudfront.net/000_clients/657152/file/657152W1F5xmih.jpg"
   )
 
-  user.likes Hinanjyo.find(2224)
+  user.likes Hinanjyo.find(2131)
 
 # User 8
 user = User.create!(
@@ -217,7 +217,7 @@ user = User.create!(
   remote_avatar_url: "https://m.media-amazon.com/images/M/MV5BMTk3NjY2MjAwNF5BMl5BanBnXkFtZTcwMTQ1MDExOA@@._V1_.jpg"
   )
 
-  user.likes Hinanjyo.find(2237)
+  user.likes Hinanjyo.find(2166)
 
  # Nami NGO User 9
   User.create!(
@@ -244,7 +244,7 @@ user = User.create!(
     title: "Need Help! No food",
     description: "I have no food currently but plenty of water. Would appreciate any help!!!!",
     user_id: 1,
-    hinanjyo_id: 2224,
+    hinanjyo_id: 2131,
     tag_list: "Food"
     )
 
@@ -257,7 +257,7 @@ user = User.create!(
     title: "Help My Dog!",
     description: "I need someone to care for my dog as my shelter doesn't allow pets. He is well trained Shiba Inu named Pochi. Please help me as they only give me a week until they kick him out!",
     user_id: 6,
-    hinanjyo_id: 2238,
+    hinanjyo_id: 2131,
     tag_list: "Other"
     )
 
@@ -268,11 +268,11 @@ user = User.create!(
   User.find(8).likes post
 
   post = Post.create!(
-    title: "Need Diapers",
-    description: "My baby is in need of diapers urgently!",
+    title: "Diapers for my Baby",
+    description: "My baby is in need of diapers urgently! I only have a few left!",
     user_id: 7,
-    hinanjyo_id: 2224,
-    tag_list: "Baby"
+    hinanjyo_id: 2131,
+    tag_list: "Baby/Kid"
     )
 
   User.find(2).likes post
@@ -282,7 +282,7 @@ user = User.create!(
     title: "Requesting clothes",
     description: "I have no good clothing to wear",
     user_id: 2,
-    hinanjyo_id: 2238,
+    hinanjyo_id: 2166,
     tag_list: "Clothing"
     )
 
@@ -293,19 +293,22 @@ user = User.create!(
   post = Post.create!(
     title: "Need Help! Medicine",
     description: "I really need medicine for my allergies!!!!",
-    user_id: 8,
-    hinanjyo_id: 2237,
+    user_id: 6,
+    hinanjyo_id: 2129,
     tag_list: "Medicine"
     )
 
+  User.find(4).likes post
+  User.find(5).likes post
+  User.find(6).likes post
   User.find(7).likes post
 
 
   post = Post.create!(
     title: "Running low on fuel",
     description: "In need of fuel for heating!",
-    user_id: 8,
-    hinanjyo_id: 2237,
+    user_id: 4,
+    hinanjyo_id: 2129,
     tag_list: "Fuel"
     )
 
@@ -315,16 +318,13 @@ user = User.create!(
   post = Post.create!(
     title: "Need Help! Soap",
     description: "I have run out of soap!!!!",
-    user_id: 4,
-    hinanjyo_id: 2238,
+    user_id: 8,
+    hinanjyo_id: 2166,
     tag_list: "Other"
     )
 
   User.find(2).likes post
-  User.find(5).likes post
-  User.find(6).likes post
-  User.find(7).likes post
-  User.find(8).likes post
+  User.find(4).likes post
 
   puts "Posts and Likes created"
   puts "Creating Comments..."
