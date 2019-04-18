@@ -46,7 +46,7 @@
       <p>Notifications</p>
     </div>
   <% end %>
-  <%= link_to destroy_user_session_path, :method => 'delete' do  %>
+  <%= link_to new_user_session_path, :method => 'get' do  %>
     <div class="settings-icon">
       <%= image_tag "navbar/settings.png", alt: "settings icon", class: "ml-2" %>
       <p>Settings</p>
