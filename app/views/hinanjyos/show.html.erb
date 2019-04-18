@@ -114,11 +114,21 @@
 </div>
 
 <script>
-  const options = document.querySelectorAll('#category option');
-  options.forEach((option) => {
-    option.addEventListener('click', (event) => {
-    console.log(event.originalTarget.attributes.value.nodeValue);
+  // const options = document.querySelectorAll('#category option');
+  // console.log(options);
+  // Array.from (options).forEach((option) => {
+  //   console.log(option);
+  //   option.addEventListener('change', (event) => {
+  //     console.log(option)
+  //   console.log(event.originalTarget.attributes.value.nodeValue);
+  //   document.forms["tag"].submit();
+  //   });
+  // });
+
+  const options = document.querySelector('#category');
+  options.addEventListener('change', (event) => {
+    const choice = event.target.value;
     document.forms["tag"].submit();
-    });
   });
+  console.log(options);
 </script>
