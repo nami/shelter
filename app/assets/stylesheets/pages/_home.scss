@@ -1,8 +1,4 @@
 // Specific CSS for your home-page
-body{
-  margin-bottom: 75px;
-}
-
 .nav-bar{
   position: fixed;
   bottom: 0;
@@ -38,8 +34,8 @@ body{
 }
 
 .container-fluid {
-  height: calc(100vh - 69px - 139px);
-  font-size: 12px;
+  height: calc(100vh - 69px - 93px);
+  font-size: 14px;
 }
 
 .container-fluid img {
@@ -62,7 +58,7 @@ body{
 
 .image-off{
   position: absolute;
-  top: 20px;
+  top: 30px;
 }
 
 .earthquake{
@@ -253,7 +249,7 @@ body{
 @media only screen and (min-width: 768px) {
   /* For desktop: */
   .home-header{
-  height: 100px;
+  height: 90px;
   h1{
     font-size: 28px;
     }
@@ -264,11 +260,6 @@ body{
     height: 45px;
   }
 
-  .flood img{
-    width: 55px;
-    height: 58px;
-  }
-
   .container-fluid {
     height: calc(100vh - 65px - 100px);
     font-size: 14px;
@@ -277,6 +268,20 @@ body{
   .image-off{
     position: absolute;
     top: 45px;
+  }
+
+  .container-fluid img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .row{
+    height: 22%;
+  }
+
+  .flood img{
+    width: 55px;
+    height: 58px;
   }
 
   .earthquake{
@@ -297,7 +302,7 @@ body{
         display: block;
       }
       p{
-        margin-top: 55px;
+        margin-top: 45px;
       }
     }
   }
@@ -320,7 +325,7 @@ body{
         display: block;
       }
       p{
-        margin-top: 55px;
+        margin-top: 45px;
       }
     }
   }
@@ -343,7 +348,7 @@ body{
         display: block;
       }
       p{
-        margin-top: 55px;
+        margin-top: 45px;
       }
     }
   }
@@ -366,7 +371,7 @@ body{
         display: block;
       }
       p{
-        margin-top: 55px;
+        margin-top: 57px;
       }
     }
   }

@@ -38,7 +38,11 @@
       <% if user_signed_in? %>
         <%= render 'notifications/counter', counter: current_user.notifications.unchecked.count%>
       <% end %>
-      <%= image_tag "navbar/bell.png", alt: "bell icon"%>
+       <% if current_page?(notifications_path) %>
+        <%= image_tag "navbar/bell-white.png", alt: "bell icon active"%>
+       <% else %>
+        <%= image_tag "navbar/bell.png", alt: "bell icon"%>
+      <% end %>
       <p>Notifications</p>
     </div>
   <% end %>
