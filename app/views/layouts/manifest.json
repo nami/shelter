@@ -1,0 +1,10 @@
+{
+  "name": "Shelter - An app for disaster evacuation and shelter relief assistance in Japan",
+
+  "short_name": "Shelter",
+
+  "start_url": "/",
+
+  "display": "standalone",
+
+}
