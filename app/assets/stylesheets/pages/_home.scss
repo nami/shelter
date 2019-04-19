@@ -29,6 +29,14 @@
   z-index: 4;
 }
 
+.btn-secondary:not(:disabled):not(.disabled):active:focus{
+  box-shadow: none;
+}
+
+.btn-secondary:focus{
+  box-shadow: none;
+}
+
 .btn-group:focus,.btn-group:active {
    outline: none !important;
    box-shadow: none;
