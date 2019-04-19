@@ -54,7 +54,7 @@
   <div class="all-posts cards">
     <div class="rows">
       <% if @posts == [] %>
-        <p class="">Currently the shelter doesn't have any post.</p>
+        <p style="text-align: center;">Currently the shelter doesn't have any matching posts.</p>
       <% else %>
         <% @posts.order('created_at DESC').each do |post| %>
         <%= link_to post_path(post.id) do %>
