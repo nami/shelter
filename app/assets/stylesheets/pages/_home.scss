@@ -1,7 +1,12 @@
 // Specific CSS for your home-page
+body{
+  margin-bottom: 75px;
+}
+
 .nav-bar{
   position: fixed;
   bottom: 0;
+  margin-top: 65px;
   height: 65px;
   width: 100vw;
   color: white;
