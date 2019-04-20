@@ -79,6 +79,10 @@
 // helpers index
 
 /* The Overlay (background) */
+#infoDetails{
+  z-index: 10;
+}
+
 .overlay {
   height: 0;
   width: 100%;
@@ -96,6 +100,7 @@
   position: relative;
   top: 10%;
   width: 100%;
+  height: 110vh;
   margin-top: 30px;
 }
 
