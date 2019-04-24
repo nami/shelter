@@ -9,6 +9,36 @@
           <div class="action-button">
             <%= link_to "GUIDE ME TO A SHELTER", home_path, class: "btn-action text-white px-3 py-2" %>
           </div>
+          <h5>For the best experience :</h5>
+          <div class="download-btn d-flex justify-content-center">
+            <div class="iphone" data-toggle="modal" data-target="#iphoneModal">
+              <h6 class="mr-3">DOWNLOAD ON IPHONE</h6>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="iphoneModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="iphoneModalLabel">Install Shelter</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p class="mx-3">Install Shelter on your home screen for quick and easy access when you're on the go</p>
+                  </div>
+                  <div class="modal-footer">
+                    Just tap <%= image_tag "iphonedl.jpg", alt: "safari download button", class: "safari" %> then <%= image_tag "homescreen.jpg", alt: "add to home screen button", class: "homescreen" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="android">
+              <h6>DOWNLOAD ON ANDROID (<%= image_tag "firefox.png", alt: "firefox icon" %> | <%= image_tag "chrome.png", alt: "chrome icon" %>)</h6>
+            </div>
+          </div>
         </div>
       </div>
     </div>

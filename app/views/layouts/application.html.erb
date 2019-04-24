@@ -32,7 +32,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Shelter">
-    <!-- <link rel="manifest" href="<%#= asset_path 'manifest.json' %>"> -->
+
+    <!-- for android/chrome pwa -->
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
 
 
     <title><%= meta_title %></title>

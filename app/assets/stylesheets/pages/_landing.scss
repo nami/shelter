@@ -28,7 +28,7 @@ header .container {
   h1{
     font-weight: 500;
     opacity: 1;
-    margin-top: 17%;
+    margin-top: 8%;
   }
   .btn-action{
     background-color: #3BB4C1;
@@ -54,6 +54,65 @@ header .overlay {
   z-index: 1;
 }
 
+.container h5{
+  margin-top: 36px;
+  margin-bottom: 16px;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.download-btn {
+  img{
+    height: 24px;
+  }
+
+  h6{
+  font-size: 14px;
+  color: white;
+  background-color: #007489;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  }
+
+  h6:hover{
+    background-color: #14B5D0;
+  }
+}
+
+.iphone{
+  h6{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+#iphoneModal{
+  color: black;
+  p{
+  font-size: 17px;
+  }
+}
+
+.modal-content{
+  z-index: 9999;
+}
+
+.modal-backdrop{
+  z-index: 0!important;
+}
+
+.modal-footer{
+  .safari{
+    height: 56px;
+  }
+
+  .homescreen{
+    height: 100px;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   // mobile
   header {
@@ -61,17 +120,22 @@ header .overlay {
   }
 
   header video {
-    padding-top: 35%;
+    padding-top: 50%;
   }
 
   header .container{
     h1{
       font-weight: 500;
       opacity: 1;
-      margin-top: 18%;
+      margin-top: 10%;
     }
     p {
       padding-bottom: 5px;
+      font-size: 18.5px;
     }
+  }
+
+  .container h5{
+  margin-top: 24px;
   }
 }
