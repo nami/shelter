@@ -1,8 +1,7 @@
 import "bootstrap";
 import { clearNavbarOnPress } from "../components/navbar";
 
-// clearNavbarOnPress();
-// get user position
+// service worker
 
  // Mobile Safari in standalone mode
 if(("standalone" in window.navigator) && window.navigator.standalone){
@@ -28,6 +27,7 @@ if(("standalone" in window.navigator) && window.navigator.standalone){
     },false);
 }
 
+// get user position
 window.onload = function() {
   var startPos;
   var geoSuccess = function(position) {
