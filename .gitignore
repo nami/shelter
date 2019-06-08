@@ -13,6 +13,5 @@ node_modules
 yarn-error.log
 .byebug_history
 .env*
-.env*
 /config/local_env.yml
 /config/google_cloud.json
