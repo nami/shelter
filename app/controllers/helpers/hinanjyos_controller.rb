@@ -8,12 +8,12 @@ class Helpers::HinanjyosController < ApplicationController
     # if nothing is searched
     if params[:location].present? && disaster.nil?
       # show all markers
-      @shelters = @shelters.near(params[:location], 3).first(10)
+      @shelters = @shelters.near(params[:location], 3).first(30)
       @markers = @shelters
     # if in session there is a disaster that was searched before
     # filter by disaster type and location
     elsif disaster.present? && params[:location].present?
-      @shelters = Hinanjyo.near(params[:location], 3).first(10)
+      @shelters = Hinanjyo.near(params[:location], 3).first(30)
       @shelters = @shelters.select do |shelter|
         @choice_disaster = session[:disaster].to_sym
         shelter[@choice_disaster] == true
@@ -23,7 +23,7 @@ class Helpers::HinanjyosController < ApplicationController
     # if in session there is a user longlat & disaster that was searched before
     # filter by disaster type, searched location & user location
     if disaster.present? && longlat.present?
-      @shelters = @shelters.near([longlat[0], longlat[1]], 3).first(10)
+      @shelters = @shelters.near([longlat[0], longlat[1]], 3).first(30)
       @shelters = @shelters.select do |shelter|
         @choice_disaster = session[:disaster].to_sym
         shelter[@choice_disaster] == true
@@ -94,7 +94,7 @@ class Helpers::HinanjyosController < ApplicationController
 
     # search if user coordinates are present and disaster is selected
     if @user_disaster.present? && @user_longitude.present?
-      @shelters = Hinanjyo.near([@user_latitude, @user_longitude], 3).first(10)
+      @shelters = Hinanjyo.near([@user_latitude, @user_longitude], 3).first(30)
       @shelters = @shelters.select do |shelter|
         @choice_disaster = @user_disaster.to_sym
         shelter[@choice_disaster] == true
@@ -106,7 +106,7 @@ class Helpers::HinanjyosController < ApplicationController
     # search if disaster is present
     elsif @user_disaster.present?
       @disaster = @user_disaster
-      @shelters = Hinanjyo.where("#{@disaster} = true").first(10)
+      @shelters = Hinanjyo.where("#{@disaster} = true").first(30)
       @markers = @shelters
       session[:disaster] = @user_disaster
     end
