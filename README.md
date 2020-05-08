@@ -1,3 +1,5 @@
+## As the library Gmaps.js has stopped working, this app is WIP until further funding. 
+
 <h1 align="center"><a href="https://www.shelter-jp.com/">Shelter</a></h1><br>
 <p align="center">
   <a href="https://www.shelter-jp.com/">
