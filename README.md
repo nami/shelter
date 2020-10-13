@@ -147,8 +147,3 @@ Feel free to send us feedback [here](mailto:contact@shelter-jp.com) or [file an 
 3. Googleの `Cloud Translation API` を利用するためにこちらの[ガイド](https://dev.to/nodefiend/quick-start-google-translation-api-in-rails-4j81)に沿ってください
 
 <br>
-
-## Acknowledgments
-
-Thank you to the Le Wagon Kyoto team, especially [Maria Altyeva](https://github.com/maltyeva), Yann Klein and [Zachary Gian](https://github.com/zacharygian) for all their guidance and assistance. We couldn't have done this without you.
-
